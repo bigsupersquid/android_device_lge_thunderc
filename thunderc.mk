@@ -38,6 +38,8 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/ueventd.thunderc.rc:root/ueventd.thunderc.rc \
 	$(LOCAL_PATH)/fstab.thunderc:root/fstab.thunderc
 	
+# p500 off-mode charging (only userdebug build)
+ifneq (eng,$(TARGET_BUILD_VARIANT))
 PRODUCT_COPY_FILES += $(LOCAL_PATH)/checkbootreason:root/sbin/checkbootreason 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/chargemode/chargerimages/battery_ani_01.rle:root/chargerimages/battery_ani_01.rle \
@@ -56,6 +58,11 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/chargemode/chargerimages/battery_wait_ani_02.rle:root/chargerimages/battery_wait_ani_02.rle \
     $(LOCAL_PATH)/chargemode/chargerimages/black_bg.rle:root/chargerimages/black_bg.rle \
     $(LOCAL_PATH)/chargemode/chargerlogo:root/sbin/chargerlogo
+endif
+
+# USBMS for recovery
+PRODUCT_COPY_FILES += \
+    device/lge/msm7x27-common/rootdir/etc/init.qcom.usb.rc:root/init.recovery.thunderc.rc
 
 # P500 bluetooth vendor configuration 
 PRODUCT_COPY_FILES += \
