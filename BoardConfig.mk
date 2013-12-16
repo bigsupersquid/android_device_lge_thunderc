@@ -2,7 +2,8 @@
 -include device/lge/msm7x27-common/BoardConfigCommon.mk
 
 TARGET_KERNEL_CONFIG := thunderc-test_defconfig
-BOARD_KERNEL_CMDLINE := mem=471M console=ttyMSM2,115200n8 androidboot.hardware=thunderc
+#BOARD_KERNEL_CMDLINE := androidboot.selinux=permissive
+BOARD_KERNEL_CMDLINE := mem=471M console=ttyMSM2,115200n8 androidboot.hardware=thunderc androidboot.selinux=permissive 
 ifneq (eng,$(TARGET_BUILD_VARIANT))
 COMMON_GLOBAL_CFLAGS += -DBOARD_CHARGING_CMDLINE_NAME='"lge.reboot"' -DBOARD_CHARGING_CMDLINE_VALUE='"pwroff"'
 else

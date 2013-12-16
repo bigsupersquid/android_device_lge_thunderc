@@ -26,7 +26,7 @@ PRODUCT_COPY_FILES += \
 #	$(LOCAL_PATH)/configs/tun.ko:system/lib/modules/tun.ko \
  #   $(LOCAL_PATH)/configs/librasdioif.ko:system/lib/modules/librasdioif.ko \	
 
-PRODUCT_COPY_FILES += device/lge/thunderc/configs/default.prop:root/default.prop 
+#PRODUCT_COPY_FILES += device/lge/thunderc/configs/default.prop:root/default.prop
 PRODUCT_COPY_FILES += device/lge/thunderc/configs/thunderc_keypad.kl:system/usr/keylayout/thunderc_keypad.kl 
 PRODUCT_COPY_FILES += device/lge/thunderc/configs/thunderc_keypad.kcm.bin:system/usr/keychars/thunderc_keypad.kcm.bin 
 PRODUCT_COPY_FILES += device/lge/thunderc/configs/7k_handset.kl:system/usr/keylayout/7k_handset.kl 
@@ -105,6 +105,14 @@ DEVICE_PACKAGE_OVERLAYS += device/lge/thunderc/overlay
 CDMA_GOOGLE_BASE := android-sprint-us
 CDMA_CARRIER_ALPHA := Sprint
 CDMA_CARRIER_NUMERIC := 310120
+
+DEFAULT_PROPERTY_OVERRIDES += \
+        ro.secure=0 \
+        ro.adb.secure=0 \
+		ro.allow.mock.location=1 \
+        ro.debuggable=1 \
+        persist.service.adb.enable=1 \
+        persist.sys.usb.config=mtp,adb
 
 
 PRODUCT_PROPERTY_OVERRIDES += \
