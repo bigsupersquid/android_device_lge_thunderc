@@ -17,7 +17,12 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/thunder_keypad.kcm.bin:system/usr/keychars/thunder_keypad.kcm.bin \
 	$(LOCAL_PATH)/configs/touch_mcs6000.idc:system/usr/idc/touch_mcs6000.idc \
     $(LOCAL_PATH)/configs/999youtube:system/etc/init.d/999youtube \
-	$(LOCAL_PATH)/configs/synaptics-rmi-touchscreen.idc:system/usr/idc/synaptics-rmi-touchscreen.idc
+	$(LOCAL_PATH)/configs/synaptics-rmi-touchscreen.idc:system/usr/idc/synaptics-rmi-touchscreen.idc \
+	$(LOCAL_PATH)/configs/thunderc_keypad.kl:system/usr/keylayout/thunderc_keypad.kl \
+	$(LOCAL_PATH)/configs/thunderc_keypad.kcm.bin:system/usr/keychars/thunderc_keypad.kcm.bin \
+	$(LOCAL_PATH)/configs/7k_handset.kl:system/usr/keylayout/7k_handset.kl \
+	$(LOCAL_PATH)/configs/Generic.kl:system/usr/keylayout/Generic.kl \
+	$(LOCAL_PATH)/configs/default.prop:root/default.prop
 #	$(LOCAL_PATH)/configs/40a2sd:system/etc/init.d/40a2sd \
 #	$(LOCAL_PATH)/configs/05mountsd:system/etc/init.d/05mountsd \
 #	$(LOCAL_PATH)/configs/12Seeder:system/etc/init.d/12Seeder \
@@ -27,10 +32,10 @@ PRODUCT_COPY_FILES += \
  #   $(LOCAL_PATH)/configs/librasdioif.ko:system/lib/modules/librasdioif.ko \	
 
 #PRODUCT_COPY_FILES += device/lge/thunderc/configs/default.prop:root/default.prop
-PRODUCT_COPY_FILES += device/lge/thunderc/configs/thunderc_keypad.kl:system/usr/keylayout/thunderc_keypad.kl 
-PRODUCT_COPY_FILES += device/lge/thunderc/configs/thunderc_keypad.kcm.bin:system/usr/keychars/thunderc_keypad.kcm.bin 
-PRODUCT_COPY_FILES += device/lge/thunderc/configs/7k_handset.kl:system/usr/keylayout/7k_handset.kl 
-PRODUCT_COPY_FILES += device/lge/thunderc/configs/Generic.kl:system/usr/keylayout/Generic.kl 
+#PRODUCT_COPY_FILES += device/lge/thunderc/configs/thunderc_keypad.kl:system/usr/keylayout/thunderc_keypad.kl 
+#PRODUCT_COPY_FILES += device/lge/thunderc/configs/thunderc_keypad.kcm.bin:system/usr/keychars/thunderc_keypad.kcm.bin 
+#PRODUCT_COPY_FILES += device/lge/thunderc/configs/7k_handset.kl:system/usr/keylayout/7k_handset.kl 
+#PRODUCT_COPY_FILES += device/lge/thunderc/configs/Generic.kl:system/usr/keylayout/Generic.kl 
 
 # thunderc init
 PRODUCT_COPY_FILES += \

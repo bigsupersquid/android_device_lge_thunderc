@@ -9,7 +9,7 @@ misc			/misc		mtd	defaults		recoveryonly
 recovery		/recovery	mtd	defaults		recoveryonly
 /dev/block/mmcblk0p2	/sd-ext		auto	defaults		recoveryonly
 
-/devices/platform/msm_sdcc.1/mmc_host/mmc0	auto	auto	defaults	voldmanaged=sdcard0:auto
+/devices/platform/msm_sdcc.1/mmc_host/mmc0	auto	auto	defaults	voldmanaged=sdcard1:auto
 
 #mtd0: 00700000 00020000 "boot"
 #mtd1: 07c20000 00020000 "cache"
