@@ -31,11 +31,6 @@ PRODUCT_COPY_FILES += \
 #	$(LOCAL_PATH)/configs/tun.ko:system/lib/modules/tun.ko \
  #   $(LOCAL_PATH)/configs/librasdioif.ko:system/lib/modules/librasdioif.ko \	
 
-#PRODUCT_COPY_FILES += device/lge/thunderc/configs/default.prop:root/default.prop
-#PRODUCT_COPY_FILES += device/lge/thunderc/configs/thunderc_keypad.kl:system/usr/keylayout/thunderc_keypad.kl 
-#PRODUCT_COPY_FILES += device/lge/thunderc/configs/thunderc_keypad.kcm.bin:system/usr/keychars/thunderc_keypad.kcm.bin 
-#PRODUCT_COPY_FILES += device/lge/thunderc/configs/7k_handset.kl:system/usr/keylayout/7k_handset.kl 
-#PRODUCT_COPY_FILES += device/lge/thunderc/configs/Generic.kl:system/usr/keylayout/Generic.kl 
 
 # thunderc init
 PRODUCT_COPY_FILES += \
