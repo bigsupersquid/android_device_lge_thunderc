@@ -1,5 +1,5 @@
 # Include GSM stuff
-$(call inherit-product, vendor/cm/config/cdma.mk)
+#$(call inherit-product, vendor/cm/config/cdma.mk)
 # Inherit device configuration for thunderc.
 $(call inherit-product, device/lge/thunderc/thunderc.mk)
 # Boot Animation
