@@ -1,8 +1,4 @@
-#persist.mvpdm.ProxyServerAddr=68.28.31.1
-#persist.mvpdm.ProxyServerIp=80
-ro.lge.proximity.delay=100
-ro.ril.def.preferred.network=4
-ro.telephony.default_network=4
+# RIL
 rild.libpath=/system/lib/libril-qc-1.so
 rild.libargs=-d /dev/smd0
 persist.rild.nitz_plmn=
@@ -14,7 +10,6 @@ persist.rild.nitz_short_ons_0=
 persist.rild.nitz_short_ons_1=
 persist.rild.nitz_short_ons_2=
 persist.rild.nitz_short_ons_3=
-DEVICE_PROVISIONED=1
 
 ro.telephony.call_ring.multiple=false
 ro.telephony.call_ring.delay=3000
@@ -34,6 +29,12 @@ ro.opengles.version=131072
 # Screen density
 ro.sf.lcd_density=160
 
+#persist.mvpdm.ProxyServerAddr=68.28.31.1
+#persist.mvpdm.ProxyServerIp=80
+ro.lge.proximity.delay=100
+ro.ril.def.preferred.network=4
+
+DEVICE_PROVISIONED=1
 
 #ro.telephony.ril.v3=skipCdmaSubcription 
 #ril.subscription.types=NV,RUIM
@@ -44,7 +45,7 @@ ro.sf.lcd_density=160
 #wifi.supplicant_scan_interval=180
 #wifi.ap.interface=athap0
 # See also: init.qcom.usb.rc and init.qcom.post_boot.sh
-#persist.sys.usb.config=mass_storage,adb
+# persist.sys.usb.config=mass_storage,adb
 
 # System and Misc.
 ro.tether.denied=false
@@ -57,9 +58,6 @@ ro.ril.def.agps.feature=1
 # Force use of GPU on 2D rendering
 # persist.sys.force_hw_ui=true
 
-ro.opengles.version=131072
-
-ro.sf.lcd_density=160
 # dalvik options
 dalvik.vm.checkjni=false
 dalvik.vm.dexopt-data-only=1
@@ -73,7 +71,6 @@ dalvik.vm.heapmaxfree=2m
 
 
 ro.cdma.voicemail.number=mine
-ro.setupwizard.enable_bypass=1
 gsm.sim.operator.iso-country=us
 gsm.operator.iso-country=us
 
