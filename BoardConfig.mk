@@ -2,9 +2,7 @@
 -include device/lge/msm7x27-common/BoardConfigCommon.mk
 
 TARGET_KERNEL_CONFIG := thunderc-test_defconfig
-#BOARD_KERNEL_CMDLINE := androidboot.selinux=permissive
-BOARD_KERNEL_CMDLINE := mem=471M console=ttyMSM2,115200n8 androidboot.hardware=thunderc 
-#BOARD_KERNEL_CMDLINE := mem=471M console=ttyMSM2,115200n8 androidboot.hardware=thunderc androidboot.selinux=permissive 
+BOARD_KERNEL_CMDLINE := mem=471M console=ttyMSM2,115200n8 androidboot.hardware=thunderc lge.rev=10 
 ifneq (eng,$(TARGET_BUILD_VARIANT))
 COMMON_GLOBAL_CFLAGS += -DBOARD_CHARGING_CMDLINE_NAME='"lge.reboot"' -DBOARD_CHARGING_CMDLINE_VALUE='"pwroff"'
 else
@@ -12,9 +10,10 @@ else
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 0x00700000
 endif
 TARGET_BOOTLOADER_BOARD_NAME := thunderc
-TARGET_OTA_ASSERT_DEVICE := thunderc,LS670,VM670,thunderc_LS670,thunderc_VM670
+TARGET_OTA_ASSERT_DEVICE := thunderc,VM670,VM670,thunderc_VM670,thunderc_VM670
 TARGET_RECOVERY_FSTAB := device/lge/thunderc/fstab.thunderc
 
+#BOARD_HAVE_BLUETOOTH := true
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/lge/thunderc/bluetooth
 
 P500_SPEAKER_IN_CALL_FIX := true
@@ -41,4 +40,3 @@ BOARD_HAS_LOW_RESOLUTION := true
 #TARGET_RECOVERY_PIXEL_FORMAT := "RGB_565"
 
 #SMALLER_FONT_FOOTPRINT := true
-
