@@ -10,7 +10,7 @@ import init.qcom.rc
 #    start dhcp-service
 	
 on fs
-    mount_all /fstab.thunderc
+#    mount_all /fstab.thunderc
 
 # Kernel Samepage Merging (KSM)
 #    write /sys/kernel/mm/ksm/sleep_millisecs 4000

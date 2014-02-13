@@ -28,6 +28,10 @@ PRODUCT_PACKAGES += \
     VisualizationWallpapers \
     librs_jni
 
+PRODUCT_PACKAGES += \
+PCKeyboard \
+libjni_pckeyboard
+
 PRODUCT_COPY_FILES += device/lge/thunderc/configs/default.prop:root/default.prop 
 PRODUCT_COPY_FILES += device/lge/thunderc/configs/thunderc_keypad.kl:system/usr/keylayout/thunderc_keypad.kl 
 PRODUCT_COPY_FILES += device/lge/thunderc/configs/thunderc_keypad.kcm.bin:system/usr/keychars/thunderc_keypad.kcm.bin 

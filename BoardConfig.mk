@@ -9,12 +9,19 @@ else
 # Real recovery size
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 0x00700000
 endif
+## Partition Sizes: Fix this up by examining /proc/mtd on a running device
+BOARD_BOOTIMAGE_PARTITION_SIZE := 0x00440000
+BOARD_RECOVERYIMAGE_PARTITION_SIZE := 0x00600000
+BOARD_SYSTEMIMAGE_PARTITION_SIZE := 0xff00000
+BOARD_USERDATAIMAGE_PARTITION_SIZE := 0x0c780000
+BOARD_FLASH_BLOCK_SIZE := 0
 TARGET_BOOTLOADER_BOARD_NAME := thunderc
 TARGET_OTA_ASSERT_DEVICE := thunderc,LS670,VM670,thunderc_LS670,thunderc_VM670
 TARGET_RECOVERY_FSTAB := device/lge/thunderc/fstab.thunderc
 
 #BOARD_HAVE_BLUETOOTH := true
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/lge/thunderc/bluetooth
+BOARD_BLUEDROID_VENDOR_CONF := device/lge/thunderc/bluetooth/vnd_thunderc.txt
 
 P500_SPEAKER_IN_CALL_FIX := true
 
