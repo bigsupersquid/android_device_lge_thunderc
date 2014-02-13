@@ -24,3 +24,5 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
 
 #override cm apns-conf
 PRODUCT_COPY_FILES += device/lge/thunderc/prebuilt/common/etc/apns-conf.xml:/system/etc/apns-conf.xml
+#en_US only
+PRODUCT_LOCALES := en_US
