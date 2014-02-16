@@ -1,11 +1,28 @@
 # http://source.android.com/devices/tech/storage/index.html
 #<src>			<mnt_point>	<type>	<mnt_flags and options>	<fs_mgr_flags>
 
-system			/system		yaffs2	ro,barrier=1 wait
+/devices/platform/msm_sdcc.1/mmc_host/mmc0	auto	vfat	defaults	voldmanaged=sdcard0:auto,noemulatedsd
+
 boot			/boot		mtd	defaults		recoveryonly
-cache			/cache		yaffs2	noatime,nosuid,nodev,barrier=1,data=ordered,nomblk_io_submit,noauto_da_alloc,errors=panic wait,check
-userdata		/data		yaffs2	noatime,nosuid,nodev,barrier=1,data=ordered,nomblk_io_submit,noauto_da_alloc,errors=panic wait,check
 misc			/misc		mtd	defaults		recoveryonly
 recovery		/recovery	mtd	defaults		recoveryonly
-/dev/block/mmcblk0p2  /sd-ext    ext4  defaults    recoveryonly 
-/devices/platform/msm_sdcc.1/mmc_host/mmc0	auto	vfat	defaults	voldmanaged=sdcard0:auto
+
+## flags from hammerhead
+system    /system         yaffs2    ro,barrier=1                                                    wait
+userdata    /data           yaffs2    noatime,nosuid,nodev,barrier=1,data=ordered,nomblk_io_submit,noauto_da_alloc,errors=panic wait,check
+cache    /cache          yaffs2    noatime,nosuid,nodev,barrier=1,data=ordered,nomblk_io_submit,noauto_da_alloc,errors=panic wait,check
+
+/dev/block/mmcblk0p2	/sd-ext		auto	defaults		recoveryonly
+
+#mtd0: 00700000 00020000 "boot"
+#mtd1: 07c20000 00020000 "cache"
+#mtd2: 00700000 00020000 "recovery"
+#mtd3: 00140000 00020000 "splash"
+#mtd4: 00700000 00020000 "FOTA_ST"
+#mtd5: 09e80000 00020000 "system"
+#mtd6: 0a4e0000 00020000 "userdata"
+#mtd7: 00080000 00020000 "misc"
+#mtd8: 00180000 00020000 "persist" 
+
+#002c0000 00020000 "lgdrm"
+#00180000 00020000 "FOTABIN"
