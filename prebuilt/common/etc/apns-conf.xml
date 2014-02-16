@@ -20,5 +20,6 @@
 <!-- use empty string to specify no proxy or port -->
 <!-- This version must agree with that in apps/common/res/apns.xml -->
 <apns version="8">
-  <apn carrier="Virgin_Mobile" numeric="311490" mcc="311" mnc="490" apn="0" mmsproxy="205.239.233.136" mmsport="81" mmsc="http://mmsc.vmobl.com:8088/mms?" type="mms" />
+  <apn carrier="Virgin_Mobile" numeric="311490" mcc="311" mnc="490" apn="0" mmsproxy="205.239.233.136" mmsport="81" mmsc="http://mmsc.vmobl.com:8088/mms?" type="default,dun,mms,supl,hipri" />
+  <apn carrier="Virgin_Mobile" numeric="209099" mcc="209" mnc="099" apn="0" mmsproxy="205.239.233.136" mmsport="81" mmsc="http://mmsc.vmobl.com:8088/mms?" type="default,dun,mms,supl,hipri" />
 </apns>
