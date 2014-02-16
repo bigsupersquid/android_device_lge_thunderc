@@ -54,6 +54,11 @@ PRODUCT_MANUFACTURER := LGE
 PRODUCT_AAPT_PREF_CONFIG := mdpi 
 $(call inherit-product, device/mdpi-common/mdpi.mk)
 
+#override androidarmv6 init.qcom.rc that manually mounts internal partitions
+PRODUCT_COPY_FILES += device/lge/thunderc/rootdir/etc/init.qcom.rc:root/init.qcom.rc
+#still uses this
+PRODUCT_COPY_FILES += device/lge/thunderc/rootdir/etc/init.qcom.sh:root/init.qcom.sh
+
 # thunderc overlays (Most specific last)
 DEVICE_PACKAGE_OVERLAYS += device/lge/thunderc/overlay
 
