@@ -1,0 +1,61 @@
+# inherit qcom init
+import init.qcom.rc
+
+#service dhcp-service /system/bin/netcfg wlan0 dhcp
+#    class main
+#    oneshot
+
+#on property:dev.bootcomplete=1
+#    stop dhcp-service
+#    start dhcp-service
+	
+on fs
+#    mount_all /fstab.thunderc
+    # Mount /system rw first to give the filesystem a chance to save a checkpoint
+    mount yaffs2 mtd@system /system
+    mount yaffs2 mtd@system /system ro remount
+    mount yaffs2 mtd@userdata /data nosuid nodev
+    mount yaffs2 mtd@cache /cache nosuid nodev
+
+# Kernel Samepage Merging (KSM)
+#    write /sys/kernel/mm/ksm/sleep_millisecs 4000
+#    write /sys/kernel/mm/ksm/pages_to_scan 256
+#    write /sys/kernel/mm/ksm/run 1
+
+on boot
+
+    ## VIBRATOR
+    chmod 0660 /sys/class/timed_output/vibrator/amp
+
+    ## SENSOR
+    mkdir /data/amit 0777 ami304d ami304d
+    chmod 0666 /data/amit/AMI306_Config.ini
+    chmod 0666 /data/amit/AMI306_Config2.ini
+	
+    ## PROXIMITY SENSOR
+    chown compass system /sys/bus/i2c/drivers/proximity_gp2ap/4-0044/enable
+    chmod 0660 /sys/bus/i2c/drivers/proximity_gp2ap/4-0044/enable
+
+    # BACKLIGHT
+    chmod 0664 /sys/class/leds/lcd-backlight/alc
+    chown system system /sys/devices/platform/mddi_hitachi_hvga.10/lcd_onoff
+    chmod 0664 /sys/devices/platform/mddi_hitachi_hvga.10/lcd_onoff
+
+service ami304d /system/bin/ami304d
+    class main
+    user compass
+    group system
+	
+## CHARGER ##
+service charger /sbin/checkbootreason
+    class charger
+    user root
+    group root
+    oneshot
+
+on property:init.svc.charger=running
+    setprop sys.usb.config adb
+	
+	
+
+

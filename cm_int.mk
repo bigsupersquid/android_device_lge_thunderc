@@ -1,9 +1,9 @@
+# Inherit device configuration for thunderc.
+$(call inherit-product, device/lge/thunderc/thunderc.mk)
 
 TARGET_SCREEN_HEIGHT := 480
 TARGET_SCREEN_WIDTH := 320
 $(call inherit-product, vendor/cm/config/mini.mk)
-# Inherit device configuration for thunderc.
-$(call inherit-product, device/lge/thunderc/thunderc.mk)
 
 # Overrides
 PRODUCT_NAME := cm_thunderc
@@ -19,8 +19,3 @@ PRODUCT_VERSION_DEVICE_SPECIFIC :=
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
     PRODUCT_NAME=lge_VM670 \
-
-#override cm apns-conf
-PRODUCT_COPY_FILES += device/lge/thunderc/prebuilt/common/etc/apns-conf.xml:/system/etc/apns-conf.xml
-#en_US only
-PRODUCT_LOCALES := en_US

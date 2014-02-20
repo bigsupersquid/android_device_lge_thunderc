@@ -1,9 +1,9 @@
+# Inherit device configuration for thunderc.
+$(call inherit-product, device/lge/thunderc/thunderc.mk)
 
 TARGET_SCREEN_HEIGHT := 480
 TARGET_SCREEN_WIDTH := 320
 $(call inherit-product, vendor/cm/config/mini.mk)
-# Inherit device configuration for thunderc.
-$(call inherit-product, device/lge/thunderc/thunderc.mk)
 
 # Overrides
 PRODUCT_NAME := cm_thunderc
@@ -24,3 +24,15 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
 PRODUCT_COPY_FILES += device/lge/thunderc/prebuilt/common/etc/apns-conf.xml:/system/etc/apns-conf.xml
 #en_US only
 PRODUCT_LOCALES := en_US
+# thunderc init
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/init.thunderc_sd.rc:root/init.thunderc.rc \
+    $(LOCAL_PATH)/fstab.thunderc_sd:root/fstab.thunderc
+# Live wallpapers
+PRODUCT_PACKAGES += \
+    Galaxy4 \
+    HoloSpiral \
+    MagicSmoke \
+    MusicVisualization \
+    NoiseField \
+    PhaseBeam 

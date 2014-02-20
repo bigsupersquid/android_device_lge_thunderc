@@ -42,7 +42,7 @@ DEVICE_PROVISIONED=1
 
 # Wifi
 #wifi.interface=wlan0
-#wifi.supplicant_scan_interval=180
+wifi.supplicant_scan_interval=300
 #wifi.ap.interface=athap0
 # See also: init.qcom.usb.rc and init.qcom.post_boot.sh
 # persist.sys.usb.config=mass_storage,adb
@@ -124,4 +124,7 @@ ro.media.enc.vid.m4v.fps       = 1,30
 ro.media.dec.aud.wma.enabled=1 
 ro.media.dec.vid.wmv.enabled=1
 
+ro.cdma.home.operator.alpha=Virgin Mobile
+gsm.sim.operator.alpha = Virgin Mobile
+gsm.operator.alpha = Virgin Mobile
 
