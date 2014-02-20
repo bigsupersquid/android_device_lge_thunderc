@@ -1,9 +1,10 @@
+# Inherit device configuration for thunderc.
+$(call inherit-product, device/lge/thunderc/thunderc.mk)
 
 TARGET_SCREEN_HEIGHT := 480
 TARGET_SCREEN_WIDTH := 320
+TARGET_BOOTANIMATION_HALF_RES := true
 $(call inherit-product, vendor/cm/config/mini.mk)
-# Inherit device configuration for thunderc.
-$(call inherit-product, device/lge/thunderc/thunderc.mk)
 
 # Overrides
 PRODUCT_NAME := cm_thunderc
