@@ -9,9 +9,9 @@ recovery		/recovery	mtd	defaults		length=7340032
 /dev/block/mmcblk0p1 /sdcard auto defaults recoveryonly
 
 ## flags from hammerhead and more
-/dev/block/mmcblk0p2    /data           ext4    noatime,nosuid,nodev,barrier=1,data=ordered,nomblk_io_submit,noauto_da_alloc,errors=panic length=1073741824,check,wait
-/dev/block/mmcblk0p3    /system         ext4    ro,barrier=1 length=536870912,check,wait
-/dev/block/mmcblk0p4    /cache          ext4    noatime,nosuid,nodev,barrier=1,data=ordered,nomblk_io_submit,noauto_da_alloc,errors=panic length=536870912,check,wait
+/dev/block/mmcblk0p2    /data           ext4    noatime,nosuid,nodev,barrier=1,data=ordered,nomblk_io_submit,noauto_da_alloc,errors=panic length=1056858112,check,wait
+/dev/block/mmcblk0p3    /system         ext4    ro,barrier=1 length=528424960,check,wait
+/dev/block/mmcblk0p4    /cache          ext4    noatime,nosuid,nodev,barrier=1,data=ordered,nomblk_io_submit,noauto_da_alloc,errors=panic length=528424960,check,wait
 
 #/dev/block/mmcblk0p2	/sd-ext		auto	defaults		recoveryonly
 

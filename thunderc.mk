@@ -8,8 +8,8 @@ PRODUCT_COPY_FILES += \
 
 # thunderc init
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/init.thunderc.rc:root/init.thunderc.rc \
-    $(LOCAL_PATH)/fstab.thunderc:root/fstab.thunderc \
+    $(LOCAL_PATH)/init.thunderc_sd.rc:root/init.thunderc.rc \
+    $(LOCAL_PATH)/fstab.thunderc_sd:root/fstab.thunderc \
     $(LOCAL_PATH)/ueventd.thunderc.rc:root/ueventd.thunderc.rc 
 	
 # P500 bluetooth vendor configuration 
@@ -25,6 +25,12 @@ PRODUCT_PACKAGES += \
     LiveWallpapers \
     LiveWallpapersPicker \
     VisualizationWallpapers \
+    Galaxy4 \
+    HoloSpiral \
+    MagicSmoke \
+    MusicVisualization \
+    NoiseField \
+    PhaseBeam \
     librs_jni
 
 PRODUCT_PACKAGES += \
