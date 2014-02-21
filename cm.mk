@@ -20,12 +20,3 @@ PRODUCT_VERSION_DEVICE_SPECIFIC :=
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
     PRODUCT_NAME=lge_VM670 \
-
-#override cm apns-conf
-PRODUCT_COPY_FILES += device/lge/thunderc/prebuilt/common/etc/apns-conf.xml:/system/etc/apns-conf.xml
-#en_US only
-PRODUCT_LOCALES := en_US
-# thunderc init
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/init.thunderc_sd.rc:root/init.thunderc.rc \
-    $(LOCAL_PATH)/fstab.thunderc_sd:root/fstab.thunderc

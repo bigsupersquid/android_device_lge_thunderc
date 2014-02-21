@@ -22,4 +22,5 @@
 <apns version="8">
   <apn carrier="Virgin_Mobile" numeric="311490" mcc="311" mnc="490" apn="0" mmsproxy="205.239.233.136" mmsport="81" mmsc="http://mmsc.vmobl.com:8088/mms?" type="default,dun,mms,supl,hipri" />
   <apn carrier="Virgin_Mobile" numeric="209099" mcc="209" mnc="099" apn="0" mmsproxy="205.239.233.136" mmsport="81" mmsc="http://mmsc.vmobl.com:8088/mms?" type="default,dun,mms,supl,hipri" />
+  <apn carrier="Sprint" numeric="310120" mcc="310" mnc="120" apn="Sprint" mmsproxy="68.28.31.7" mmsport="80" mmsc="http://mms.sprintpcs.com" type="default,dun,mms,supl,hipri" />
 </apns>
