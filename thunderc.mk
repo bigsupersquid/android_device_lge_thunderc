@@ -25,12 +25,6 @@ PRODUCT_PACKAGES += \
     LiveWallpapers \
     LiveWallpapersPicker \
     VisualizationWallpapers \
-    Galaxy4 \
-    HoloSpiral \
-    MagicSmoke \
-    MusicVisualization \
-    NoiseField \
-    PhaseBeam \
     librs_jni
 
 PRODUCT_PACKAGES += \
