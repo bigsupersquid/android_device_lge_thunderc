@@ -26,7 +26,9 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilt/fonts/NotoColorEmoji.ttf:system/fonts/NotoColorEmoji.ttf
     
 # Live wallpapers
+PRODUCT_COPY_FILES += packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:/system/etc/permissions/android.software.live_wallpaper.xml
 PRODUCT_PACKAGES += \
+    Basic \
     LiveWallpapers \
     LiveWallpapersPicker \
     VisualizationWallpapers \
