@@ -19,7 +19,7 @@
 
 #include "../../msm7x27-common/bluetooth/bdroid_buildcfg.h"
 
-#define BTM_DEF_LOCAL_NAME   "LGE-LS670"
+#define BTM_DEF_LOCAL_NAME   "LGE-VM670"
 
 
 #endif
