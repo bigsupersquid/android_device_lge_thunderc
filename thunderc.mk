@@ -10,7 +10,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/init.thunderc.rc:root/init.thunderc.rc \
     $(LOCAL_PATH)/ueventd.thunderc.rc:root/ueventd.thunderc.rc \
-    $(LOCAL_PATH)/fstab.thunderc:root/fstab.thunderc \
+    $(LOCAL_PATH)/fstab.thunderc:root/fstab.thunderc 
 #	$(LOCAL_PATH)/extra.fstab:recovery/root/etc/extra.fstab
 	
 # P500 bluetooth vendor configuration 
@@ -20,6 +20,11 @@ PRODUCT_COPY_FILES += \
 #P500_SPEAKER_IN_CALL_FIX 
 PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/audio_policy.conf:system/etc/audio_policy.conf
 
+#emoji fonts
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/prebuilt/fonts/AndroidEmoji.ttf:system/fonts/AndroidEmoji.ttf \
+    $(LOCAL_PATH)/prebuilt/fonts/NotoColorEmoji.ttf:system/fonts/NotoColorEmoji.ttf
+    
 # Live wallpapers
 PRODUCT_PACKAGES += \
     LiveWallpapers \
