@@ -25,10 +25,13 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilt/fonts/AndroidEmoji.ttf:system/fonts/AndroidEmoji.ttf \
     $(LOCAL_PATH)/prebuilt/fonts/NotoColorEmoji.ttf:system/fonts/NotoColorEmoji.ttf
     
-# Live wallpapers
+# wallpapers and screensavers
 PRODUCT_COPY_FILES += packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:/system/etc/permissions/android.software.live_wallpaper.xml
 PRODUCT_PACKAGES += \
     Basic \
+    PhotoTable \
+    WebView \
+    CMWallpapers \
     LiveWallpapers \
     LiveWallpapersPicker \
     VisualizationWallpapers \
@@ -40,9 +43,21 @@ PRODUCT_PACKAGES += \
     PhaseBeam \
     librs_jni
 
+# input
 PRODUCT_PACKAGES += \
 PCKeyboard \
 libjni_pckeyboard
+
+# more stuff
+PRODUCT_PACKAGES += \
+Email \
+LockClock \
+Launcher3 \
+SpeechRecorder \
+Trebuchet \
+UnifiedEmail \
+VideoEditor 
+
 
 PRODUCT_COPY_FILES += device/lge/thunderc/configs/default.prop:root/default.prop 
 PRODUCT_COPY_FILES += device/lge/thunderc/configs/thunderc_keypad.kl:system/usr/keylayout/thunderc_keypad.kl 
@@ -82,13 +97,16 @@ DEFAULT_PROPERTY_OVERRIDES += \
 		ro.allow.mock.location=1 \
         ro.debuggable=1 \
         persist.service.adb.enable=1 \
-        persist.sys.usb.config=mtp,adb
+        persist.sys.usb.config=mtp,adb \
+        persist.sys.force_hw_ui=true \
+        debug.composition.type=mdp \
+        debug.egl.force_msaa=false 
+        
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.cdma.home.operator.numeric=311490 \
     ro.com.google.clientidbase=android-sprint-us \
     gsm.sim.operator.numeric = 311490 \
     gsm.sim.operator.iso-country = us \
     gsm.operator.numeric = 311490 \
-    gsm.operator.iso-country = us
-
-
+    gsm.operator.iso-country = us 
+    

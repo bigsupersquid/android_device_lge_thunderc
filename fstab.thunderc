@@ -13,6 +13,9 @@ recovery		/recovery	mtd	defaults		length=7340032
 /dev/block/mmcblk0p4    /cache          ext4    noatime,nosuid,nodev,barrier=1,data=ordered,nomblk_io_submit,noauto_da_alloc,errors=panic length=528424960,check,wait
 #/dev/block/mmcblk0p2	/sd-ext		auto	defaults		recoveryonly
 
+/dev/block/zram0 none swap defaults zramsize=67108864,swapprio=1
+#/dev/block/zram0 none swap defaults zramsize=<size in bytes>,swapprio=<swap partition priority>
+
 #mtd0: 00700000 00020000 "boot"
 #mtd1: 07c20000 00020000 "cache"
 #mtd2: 00700000 00020000 "recovery"
