@@ -94,7 +94,7 @@ ro.cdma.voicemail.number=mine
 
 # sleep modes
 #see if this keeps accelerometer awake
-pm.sleep_mode=3
+pm.sleep_mode=1
 #usage:
 #pm.sleep_mode=0 -> collapse suspend
 #pm.sleep_mode=1 -> collapse (will totally power off the cpu)

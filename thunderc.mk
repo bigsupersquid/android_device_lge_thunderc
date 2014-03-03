@@ -53,9 +53,7 @@ PRODUCT_PACKAGES += \
 Email \
 LockClock \
 Launcher3 \
-SpeechRecorder \
 Trebuchet \
-UnifiedEmail \
 VideoEditor 
 
 
