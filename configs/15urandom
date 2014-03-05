@@ -1,0 +1,3 @@
+#!/system/bin/sh
+# link /dev/urandom to /dev/random
+rm /dev/random && ln /dev/urandom /dev/random

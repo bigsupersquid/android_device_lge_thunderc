@@ -33,7 +33,6 @@ on boot
 
     ## SENSOR
     mkdir /data/amit 0777 ami304d ami304d
-    chown compass system /data/amit
     chmod 0666 /data/amit/AMI306_Config.ini
     chmod 0666 /data/amit/AMI306_Config2.ini
 	
@@ -61,6 +60,8 @@ service charger /sbin/checkbootreason
 on property:init.svc.charger=running
     setprop sys.usb.config adb
 	
-	
+# Run Haveged
+service haveged /system/xbin/haveged -r 4000000 -F
+    oneshot	
 
 
