@@ -10,7 +10,8 @@ recovery		/recovery	mtd	defaults		length=7340032
 ## flags from hammerhead and more
 /dev/block/mmcblk0p2    /data           ext4    noatime,nosuid,nodev,barrier=1,data=ordered,nomblk_io_submit,noauto_da_alloc,errors=panic length=1056858112,check,wait
 /dev/block/mmcblk0p3    /system         ext4    ro,barrier=1 length=528424960,check,wait
-/dev/block/mmcblk0p4    /cache          ext4    noatime,nosuid,nodev,barrier=1,data=ordered,nomblk_io_submit,noauto_da_alloc,errors=panic length=528424960,check,wait
+cache    /cache          yaffs2    noatime,nosuid,nodev,barrier=1,data=ordered,nomblk_io_submit,noauto_da_alloc,errors=panic length=130154496,wait
+
 #/dev/block/mmcblk0p2	/sd-ext		auto	defaults		recoveryonly
 
 /dev/block/zram0 none swap defaults zramsize=67108864,swapprio=1
