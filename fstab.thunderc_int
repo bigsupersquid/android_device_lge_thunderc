@@ -14,6 +14,9 @@ cache    /cache          yaffs2    noatime,nosuid,nodev,barrier=1,data=ordered,n
 
 /dev/block/mmcblk0p2	/sd-ext		auto	defaults		recoveryonly
 
+/dev/block/zram0 none swap defaults zramsize=67108864,swapprio=1
+#/dev/block/zram0 none swap defaults zramsize=<size in bytes>,swapprio=<swap partition priority>
+
 #mtd0: 00700000 00020000 "boot"
 #mtd1: 07c20000 00020000 "cache"
 #mtd2: 00700000 00020000 "recovery"

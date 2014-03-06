@@ -60,8 +60,3 @@ service charger /sbin/checkbootreason
 on property:init.svc.charger=running
     setprop sys.usb.config adb
 	
-# Run Haveged
-service haveged /system/xbin/haveged -r 4000000 -F
-    oneshot	
-
-

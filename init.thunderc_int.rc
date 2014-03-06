@@ -17,6 +17,9 @@ on fs
     mount yaffs2 mtd@userdata /data nosuid nodev
     mount yaffs2 mtd@cache /cache nosuid nodev
 
+#    read only 1 memory page at a time    
+    write /proc/sys/vm/page-cluster 0
+
 # Kernel Samepage Merging (KSM)
 #    write /sys/kernel/mm/ksm/sleep_millisecs 4000
 #    write /sys/kernel/mm/ksm/pages_to_scan 256

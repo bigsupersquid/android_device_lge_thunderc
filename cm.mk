@@ -25,3 +25,6 @@ PRODUCT_LOCALES := en_US
 
 #this is the USA not europe
 PRODUCT_COPY_FILES += device/lge/thunderc/configs/gps.conf:system/etc/gps.conf
+
+#override apns-conf
+PRODUCT_COPY_FILES += device/lge/thunderc/configs/apns-conf.xml:/system/etc/apns-conf.xml
