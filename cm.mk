@@ -13,7 +13,8 @@ PRODUCT_DEVICE := thunderc
 PRODUCT_MODEL := LG-VM670
 PRODUCT_MANUFACTURER := LGE
 PRODUCT_CHARACTERISTICS := phone
-
+ENABLE_AV_ENHANCEMENTS :=
+QCOM_LEGACY_MMPARSER :=
 # Release name and versioning
 PRODUCT_RELEASE_NAME := VM670
 PRODUCT_VERSION_DEVICE_SPECIFIC :=
@@ -21,10 +22,3 @@ PRODUCT_VERSION_DEVICE_SPECIFIC :=
 PRODUCT_BUILD_PROP_OVERRIDES += \
     PRODUCT_NAME=lge_VM670 
 
-PRODUCT_LOCALES := en_US
-
-#this is the USA not europe
-PRODUCT_COPY_FILES += device/lge/thunderc/configs/gps.conf:system/etc/gps.conf
-
-#override apns-conf
-PRODUCT_COPY_FILES += device/lge/thunderc/configs/apns-conf.xml:/system/etc/apns-conf.xml

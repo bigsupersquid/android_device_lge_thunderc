@@ -1,3 +1,8 @@
+# Inherit products (Most specific first)
+$(call inherit-product, vendor/lge/thunderc/thunderc-vendor.mk) 
+$(call inherit-product, device/lge/msm7x27-common/device.mk)
+$(call inherit-product, vendor/lge/msm7x27-common/msm7x27-common-vendor-blobs.mk)
+
 # thunderc configs
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/thunder_keypad.kl:system/usr/keylayout/thunder_keypad.kl \
@@ -63,10 +68,6 @@ PRODUCT_COPY_FILES += device/lge/thunderc/configs/thunderc_keypad.kcm.bin:system
 PRODUCT_COPY_FILES += device/lge/thunderc/configs/7k_handset.kl:system/usr/keylayout/7k_handset.kl 
 PRODUCT_COPY_FILES += device/lge/thunderc/configs/Generic.kl:system/usr/keylayout/Generic.kl 
 
-# Inherit products (Most specific first)
-$(call inherit-product, vendor/lge/thunderc/thunderc-vendor.mk) 
-$(call inherit-product, device/lge/msm7x27-common/device.mk)
-$(call inherit-product, vendor/lge/msm7x27-common/msm7x27-common-vendor-blobs.mk)
 #all audio
 include frameworks/base/data/sounds/AllAudio.mk
 
@@ -83,6 +84,14 @@ $(call inherit-product, device/mdpi-common/mdpi.mk)
 PRODUCT_COPY_FILES += device/lge/thunderc/rootdir/etc/init.qcom.rc:root/init.qcom.rc
 #still uses this
 PRODUCT_COPY_FILES += device/lge/thunderc/rootdir/etc/init.qcom.sh:root/init.qcom.sh
+
+PRODUCT_LOCALES := en_US
+
+#this is the USA not europe
+PRODUCT_COPY_FILES += device/lge/thunderc/configs/gps.conf:system/etc/gps.conf
+
+#override apns-conf
+PRODUCT_COPY_FILES += device/lge/thunderc/configs/apns-conf.xml:/system/etc/apns-conf.xml
 
 # thunderc overlays (Most specific last)
 DEVICE_PACKAGE_OVERLAYS += device/lge/thunderc/overlay

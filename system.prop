@@ -19,6 +19,7 @@ ro.telephony.ril.v3=signalstrength,skipdatareg,skipbrokendatacall,facilitylock,d
 #ro.telephony.ril.v3=signalstrength,usevoicetechfordata,skipbrokendatacall,facilitylock,datacall,icccardstatus,1
 #ro.telephony.ril.v3=usevoicetechfordata 
 mobiledata.interfaces=rmnet0,rmnet1,rmnet2
+ro.cdma.subscribe_on_nv_ready=true
 
 # Bluetooth path
 ro.bt.bdaddr_path=/data/misc/bd_addr
