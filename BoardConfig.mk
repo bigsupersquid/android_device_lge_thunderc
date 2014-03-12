@@ -44,7 +44,7 @@ BOARD_HAS_LOW_RESOLUTION := true
 BOARD_CDMA_NETWORK := true
 
 ## OTA script extras file (build/tools/releasetools)
-TARGET_OTA_EXTRAS_FILE := ($LOCAL_PATH)/releasetools/extras.txt
+TARGET_OTA_EXTRAS_FILE := device/lge/thunderc/releasetools/extras.txt
 
 #TARGET_RECOVERY_FSTAB := device/lge/thunderc/recovery.fstab
 

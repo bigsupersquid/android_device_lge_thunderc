@@ -71,14 +71,14 @@ Trebuchet \
 VideoEditor 
 
 
-PRODUCT_COPY_FILES += device/lge/thunderc/configs/default.prop:root/default.prop 
-PRODUCT_COPY_FILES += device/lge/thunderc/configs/thunderc_keypad.kl:system/usr/keylayout/thunderc_keypad.kl 
-PRODUCT_COPY_FILES += device/lge/thunderc/configs/thunderc_keypad.kcm.bin:system/usr/keychars/thunderc_keypad.kcm.bin 
-PRODUCT_COPY_FILES += device/lge/thunderc/configs/7k_handset.kl:system/usr/keylayout/7k_handset.kl 
-PRODUCT_COPY_FILES += device/lge/thunderc/configs/Generic.kl:system/usr/keylayout/Generic.kl 
+PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/default.prop:root/default.prop 
+PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/thunderc_keypad.kl:system/usr/keylayout/thunderc_keypad.kl 
+PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/thunderc_keypad.kcm.bin:system/usr/keychars/thunderc_keypad.kcm.bin 
+PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/7k_handset.kl:system/usr/keylayout/7k_handset.kl 
+PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/Generic.kl:system/usr/keylayout/Generic.kl 
 
 #all audio
-include frameworks/base/data/sounds/AllAudio.mk
+$(call inherit-product, frameworks/base/data/sounds/AllAudio.mk)
 
 # Overrides
 PRODUCT_NAME := thunderc
@@ -88,23 +88,24 @@ PRODUCT_MANUFACTURER := LGE
 
 $(call inherit-product, device/mdpi-common/mdpi.mk)
 # Common assets 
-PRODUCT_AAPT_CONFIG := normal mdpi
+PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := mdpi 
 
+#these should build from Android.mk now
 #override androidarmv6 init.qcom.rc that manually mounts internal partitions
-PRODUCT_COPY_FILES += device/lge/thunderc/rootdir/etc/init.qcom.rc:root/init.qcom.rc
+#PRODUCT_COPY_FILES += $(LOCAL_PATH)/prebuilt/etc/init.qcom.rc:root/init.qcom.rc
 #still uses this
-PRODUCT_COPY_FILES += device/lge/thunderc/rootdir/etc/init.qcom.sh:root/init.qcom.sh
+#PRODUCT_COPY_FILES += $(LOCAL_PATH)/prebuilt/etc/init.qcom.sh:root/init.qcom.sh
 
 #this is the USA not europe
-PRODUCT_COPY_FILES += device/lge/thunderc/configs/gps.conf:system/etc/gps.conf
+PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/gps.conf:system/etc/gps.conf
 PRODUCT_LOCALES := en_US
 
 #override apns-conf
-PRODUCT_COPY_FILES += device/lge/thunderc/configs/apns-conf.xml:/system/etc/apns-conf.xml
+PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/apns-conf.xml:/system/etc/apns-conf.xml
 
 # thunderc overlays (Most specific last)
-DEVICE_PACKAGE_OVERLAYS += device/lge/thunderc/overlay
+DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
 CDMA_GOOGLE_BASE := android-sprint-us
 CDMA_CARRIER_ALPHA := Virgin Mobile
