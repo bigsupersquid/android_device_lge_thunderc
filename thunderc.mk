@@ -3,6 +3,10 @@ $(call inherit-product, vendor/lge/thunderc/thunderc-vendor.mk)
 $(call inherit-product, device/lge/msm7x27-common/device.mk)
 $(call inherit-product, vendor/lge/msm7x27-common/msm7x27-common-vendor-blobs.mk)
 
+#PRODUCT_COPY_FILES += \
+	$(LOCAL_PATH)/configs/hostapd.conf:system/etc/wifi/hostapd.conf \
+    $(LOCAL_PATH)/configs/default.prop:root/default.prop
+
 # thunderc configs
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/thunder_keypad.kl:system/usr/keylayout/thunder_keypad.kl \
@@ -48,6 +52,11 @@ PRODUCT_PACKAGES += \
     PhaseBeam \
     librs_jni
 
+# Camera
+PRODUCT_PACKAGES += \
+	libcamera \
+    camera.msm7x27
+
 # input
 PRODUCT_PACKAGES += \
 PCKeyboard \
@@ -77,8 +86,12 @@ PRODUCT_DEVICE := thunderc
 PRODUCT_MODEL := LG-VM670
 PRODUCT_MANUFACTURER := LGE
 
-PRODUCT_AAPT_PREF_CONFIG := mdpi 
 $(call inherit-product, device/mdpi-common/mdpi.mk)
+# Common assets 
+PRODUCT_AAPT_CONFIG := normal mdpi
+PRODUCT_AAPT_PREF_CONFIG := mdpi 
+PRODUCT_LOCALES := en_US 
+
 
 #override androidarmv6 init.qcom.rc that manually mounts internal partitions
 PRODUCT_COPY_FILES += device/lge/thunderc/rootdir/etc/init.qcom.rc:root/init.qcom.rc
@@ -117,5 +130,15 @@ PRODUCT_PROPERTY_OVERRIDES += \
     gsm.sim.operator.numeric = 311490 \
     gsm.sim.operator.iso-country = us \
     gsm.operator.numeric = 311490 \
-    gsm.operator.iso-country = us 
-    
+    gsm.operator.iso-country = us \
+    com.qc.hdmi_out=false \
+    debug.sf.hw=1 \
+    debug.composition.type=mdp \
+	persist.sys.purgeable_assets=1 \
+    persist.service.adb.enable=1 
+
+  # Development settings
+ADDITIONAL_DEFAULT_PROPERTIES += \
+    ro.adb.secure=0 \
+    persist.sys.usb.config=mtp,adb 
+  
