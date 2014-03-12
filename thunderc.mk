@@ -70,6 +70,10 @@ Launcher3 \
 Trebuchet \
 VideoEditor 
 
+PRODUCT_PACKAGES += \
+init.qcom.rc \
+init.qcom.sh \
+init.qcom.post_boot.sh
 
 PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/default.prop:root/default.prop 
 PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/thunderc_keypad.kl:system/usr/keylayout/thunderc_keypad.kl 
