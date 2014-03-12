@@ -90,18 +90,15 @@ $(call inherit-product, device/mdpi-common/mdpi.mk)
 # Common assets 
 PRODUCT_AAPT_CONFIG := normal mdpi
 PRODUCT_AAPT_PREF_CONFIG := mdpi 
-PRODUCT_LOCALES := en_US 
-
 
 #override androidarmv6 init.qcom.rc that manually mounts internal partitions
 PRODUCT_COPY_FILES += device/lge/thunderc/rootdir/etc/init.qcom.rc:root/init.qcom.rc
 #still uses this
 PRODUCT_COPY_FILES += device/lge/thunderc/rootdir/etc/init.qcom.sh:root/init.qcom.sh
 
-PRODUCT_LOCALES := en_US
-
 #this is the USA not europe
 PRODUCT_COPY_FILES += device/lge/thunderc/configs/gps.conf:system/etc/gps.conf
+PRODUCT_LOCALES := en_US
 
 #override apns-conf
 PRODUCT_COPY_FILES += device/lge/thunderc/configs/apns-conf.xml:/system/etc/apns-conf.xml
