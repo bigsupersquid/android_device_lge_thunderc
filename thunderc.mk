@@ -106,8 +106,11 @@ PRODUCT_AAPT_PREF_CONFIG := mdpi
 PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/gps.conf:system/etc/gps.conf
 PRODUCT_LOCALES := en_US
 
+#sysctl tweaks
+PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/sysctl.conf:system/etc/sysctl.conf
+
 #override apns-conf
-PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/apns-conf.xml:/system/etc/apns-conf.xml
+PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/apns-conf.xml:system/etc/apns-conf.xml
 
 # thunderc overlays (Most specific last)
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
