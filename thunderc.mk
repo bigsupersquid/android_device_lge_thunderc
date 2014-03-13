@@ -2,6 +2,8 @@
 $(call inherit-product, vendor/lge/thunderc/thunderc-vendor.mk) 
 $(call inherit-product, device/lge/msm7x27-common/device.mk)
 $(call inherit-product, vendor/lge/msm7x27-common/msm7x27-common-vendor-blobs.mk)
+$(call inherit-product, vendor/cm/config/mini.mk)
+$(call inherit-product, device/mdpi-common/mdpi.mk)
 
 #PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/configs/hostapd.conf:system/etc/wifi/hostapd.conf \
@@ -90,7 +92,6 @@ PRODUCT_DEVICE := thunderc
 PRODUCT_MODEL := LG-VM670
 PRODUCT_MANUFACTURER := LGE
 
-$(call inherit-product, device/mdpi-common/mdpi.mk)
 # Common assets 
 PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := mdpi 
@@ -114,6 +115,10 @@ DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 CDMA_GOOGLE_BASE := android-sprint-us
 CDMA_CARRIER_ALPHA := Virgin Mobile
 CDMA_CARRIER_NUMERIC := 311490
+#data runs off gsm code, does it need these for decoding in the build?
+GSM_GOOGLE_BASE := android-sprint-us
+GSM_CARRIER_ALPHA := Virgin Mobile
+GSM_CARRIER_NUMERIC := 311490
 
 DEFAULT_PROPERTY_OVERRIDES += \
         ro.secure=0 \
