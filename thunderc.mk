@@ -3,7 +3,9 @@ $(call inherit-product, vendor/lge/thunderc/thunderc-vendor.mk)
 $(call inherit-product, device/lge/msm7x27-common/device.mk)
 $(call inherit-product, vendor/lge/msm7x27-common/msm7x27-common-vendor-blobs.mk)
 $(call inherit-product, vendor/cm/config/mini.mk)
+#$(call inherit-product, vendor/cm/config/common_full_phone.mk)
 $(call inherit-product, device/mdpi-common/mdpi.mk)
+
 
 #PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/configs/hostapd.conf:system/etc/wifi/hostapd.conf \
@@ -69,8 +71,18 @@ PRODUCT_PACKAGES += \
 Email \
 LockClock \
 Launcher3 \
-Trebuchet \
-VideoEditor 
+Trebuchet 
+
+# Bring in all video files
+$(call inherit-product, frameworks/base/data/videos/VideoPackage2.mk)
+
+PRODUCT_PACKAGES += \
+    VideoEditor \
+    libvideoeditor_jni \
+    libvideoeditor_core \
+    libvideoeditor_osal \
+    libvideoeditor_videofilters \
+    libvideoeditorplayer
 
 PRODUCT_PACKAGES += \
 init.qcom.rc \
@@ -83,14 +95,14 @@ PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/thunderc_keypad.kcm.bin:system/usr/k
 PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/7k_handset.kl:system/usr/keylayout/7k_handset.kl 
 PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/Generic.kl:system/usr/keylayout/Generic.kl 
 
-#all audio
-$(call inherit-product, frameworks/base/data/sounds/AllAudio.mk)
-
 # Overrides
 PRODUCT_NAME := thunderc
 PRODUCT_DEVICE := thunderc
 PRODUCT_MODEL := LG-VM670
 PRODUCT_MANUFACTURER := LGE
+
+#all audio
+$(call inherit-product, frameworks/base/data/sounds/AllAudio.mk)
 
 # Common assets 
 PRODUCT_AAPT_CONFIG := normal
