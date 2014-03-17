@@ -55,6 +55,10 @@ app/Apollo.apk
 app/Exchange2.apk
 app/LockClock.apk
 
+# LatinIME (about 3MB)
+app/LatinIME.apk
+lib/libjni_latinime.so
+
 # Pico TTS Language Files (5MB)
 tts/lang_pico/en-GB_kh0_sg.bin
 tts/lang_pico/en-GB_ta.bin
