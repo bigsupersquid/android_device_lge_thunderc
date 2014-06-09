@@ -18,6 +18,13 @@ lib/hw/gps.goldfish.so
 lib/hw/lights.goldfish.so
 lib/hw/sensors.goldfish.so
 
+# Unused libraries
+lib/hw/audio_policy.default.so
+lib/hw/audio.primary.default.so
+lib/hw/gralloc.default.so
+lib/hw/power.default.so
+
+
 # Junk (build artifacts)
 extras/ext4_utils/make_ext4fs_main.o
 extras/ext4_utils/make_ext4fs_main.P
@@ -28,9 +35,27 @@ lib/crtend_so.o
 lib/libC2D2.so
 lib/libOpenVG.so
 
+# Extra apps
+app/Exchange2.apk
+app/Email.apk
+app/Email2.apk
+app/DSPManager.apk
+app/PrintSpooler.apk
+app/WhisperPush.apk
+app/LatinIME.apk
+lib/libjni_latinime.so
+
+# OpenWnn (6.4MB)
+app/OpenWnn.apk
+lib/libWnnEngDic.so
+lib/libWnnJpnDic.so
+
 # Video editor (5MB)
 app/VideoEditor.apk
+lib/libvideoeditor_core.so
+lib/libvideoeditor_osal.so
 lib/libvideoeditor_jni.so
+lib/libvideoeditor_videofilters.so
 lib/libvideoeditorplayer.so
 
 # RomManager (2.5MB)
@@ -40,9 +65,6 @@ app/RomManager.apk
 app/CMWallpapers.apk
 
 # Live Wallpapers (3MB)
-etc/permissions/android.software.live_wallpaper.xml
-app/LiveWallpapers.apk
-app/LiveWallpapersPicker.apk
 app/Galaxy4.apk
 app/HoloSpiralWallpaper.apk
 app/MagicSmokeWallpapers.apk
@@ -55,10 +77,6 @@ app/Apollo.apk
 app/Exchange2.apk
 app/LockClock.apk
 
-# LatinIME (about 3MB)
-app/LatinIME.apk
-lib/libjni_latinime.so
-
 # Pico TTS Language Files (5MB)
 tts/lang_pico/en-GB_kh0_sg.bin
 tts/lang_pico/en-GB_ta.bin
@@ -70,6 +88,20 @@ tts/lang_pico/de-DE_ta.bin
 tts/lang_pico/es-ES_zl0_sg.bin
 tts/lang_pico/fr-FR_ta.bin
 tts/lang_pico/it-IT_ta.bin
+
+# webaudiores (non-functional?)
+app/webaudiores.apk
+
+# ART runtime (1.2MB)
+framework/core-libart.jar
+
+# Recovery resources (1.3MB)
+etc/recovery-resource.dat
+bin/recovery
+
+# Fonts
+fonts/LBhashitaComplexSans-Regular.ttf
+fonts/LBhashitaComplexSans-Bold.ttf
 
 # Ringtones (5.85MB)
 media/audio/ringtones/Acheron.ogg
@@ -94,7 +126,6 @@ media/audio/ringtones/Iridium.ogg
 media/audio/ringtones/Lyra.ogg
 media/audio/ringtones/Machina.ogg
 media/audio/ringtones/Nasqueron.ogg
-media/audio/ringtones/Orion.ogg
 media/audio/ringtones/Pegasus.ogg
 media/audio/ringtones/Perseus.ogg
 media/audio/ringtones/Pyxis.ogg
@@ -252,7 +283,6 @@ media/audio/notifications/DearDeer.ogg
 media/audio/notifications/DontPanic.ogg
 media/audio/notifications/Highwire.ogg
 media/audio/notifications/KzurbSonar.ogg
-media/audio/notifications/OnTheHunt.ogg
 media/audio/notifications/Voila.ogg
 media/audio/ringtones/CrazyDream.ogg
 media/audio/ringtones/DreamTheme.ogg
