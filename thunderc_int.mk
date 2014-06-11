@@ -165,3 +165,4 @@ ADDITIONAL_DEFAULT_PROPERTIES += \
     ro.adb.secure=0 \
     persist.sys.usb.config=mtp,adb 
   
+CM_EXTRAVERSION := -bigsuperROM-internal

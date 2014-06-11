@@ -44,6 +44,10 @@ app/PrintSpooler.apk
 app/WhisperPush.apk
 app/LatinIME.apk
 lib/libjni_latinime.so
+app/Term.apk
+lib/libjackpal-androidterm4.so
+app/LiveWallpapers.apk
+
 
 # OpenWnn (6.4MB)
 app/OpenWnn.apk
