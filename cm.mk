@@ -8,6 +8,7 @@ $(call inherit-product, device/lge/thunderc/thunderc.mk)
 # Overrides
 PRODUCT_NAME := cm_thunderc
 PRODUCT_CHARACTERISTICS := phone
+CM_EXTRAVERSION := bigsuperROM-thunderc
 
 # Release name and versioning
 PRODUCT_RELEASE_NAME := VM670

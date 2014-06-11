@@ -24,6 +24,7 @@ lib/hw/audio.primary.default.so
 lib/hw/gralloc.default.so
 lib/hw/power.default.so
 
+
 # Junk (build artifacts)
 extras/ext4_utils/make_ext4fs_main.o
 extras/ext4_utils/make_ext4fs_main.P
@@ -41,6 +42,8 @@ app/Email2.apk
 app/DSPManager.apk
 app/PrintSpooler.apk
 app/WhisperPush.apk
+app/LatinIME.apk
+lib/libjni_latinime.so
 
 # OpenWnn (6.4MB)
 app/OpenWnn.apk
