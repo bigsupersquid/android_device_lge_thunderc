@@ -68,6 +68,9 @@ app/RomManager.apk
 # CM Wallpapers (7MB)
 app/CMWallpapers.apk
 
+#Trebuchet
+priv-app/Trebuchet.apk
+
 # Live Wallpapers (3MB)
 app/Galaxy4.apk
 app/HoloSpiralWallpaper.apk
