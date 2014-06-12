@@ -1,5 +1,5 @@
 CM_BUILDTYPE := EXPERIMENTAL
-CM_EXTRAVERSION := bigsuperROM-os2sd
+CM_EXTRAVERSION := bigsuperROM_os2sd
 # Inherit products (Most specific first)
 $(call inherit-product, vendor/lge/thunderc/thunderc-vendor.mk) 
 $(call inherit-product, device/lge/msm7x27-common/device.mk)

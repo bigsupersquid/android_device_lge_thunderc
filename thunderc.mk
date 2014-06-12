@@ -1,5 +1,5 @@
 CM_BUILDTYPE := EXPERIMENTAL
-CM_EXTRAVERSION := bigsuperROM-internal
+CM_EXTRAVERSION := bigsuperROM_internal
 
 # Inherit products (Most specific first)
 $(call inherit-product, vendor/lge/thunderc/thunderc-vendor.mk) 
