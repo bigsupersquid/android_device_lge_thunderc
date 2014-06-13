@@ -1,20 +1,19 @@
 # http://source.android.com/devices/tech/storage/index.html
 #<src>			<mnt_point>	<type>	<mnt_flags and options>	<fs_mgr_flags>
 
-/devices/platform/msm_sdcc.1/mmc_host/mmc0	auto	vfat	defaults	voldmanaged=sdcard0:auto,noemulatedsd,nonremovable
-
+cache    /cache          yaffs2	nosuid,nodev		recoveryonly
+## flags from hammerhead and more
+/dev/block/mmcblk0p2    /data           ext4    noatime,nosuid,nodev,barrier=1,data=ordered,nomblk_io_submit,noauto_da_alloc,errors=panic length=1056858112,check,wait
+/dev/block/mmcblk0p3    /system         ext4    ro,barrier=1 length=528424960,check,wait
 boot			/boot		mtd	defaults		length=7340032
 misc			/misc		mtd	defaults		length=524288
 recovery		/recovery	mtd	defaults		length=7340032
 
-## flags from hammerhead and more
-userdata    /data           yaffs2    noatime,nosuid,nodev,barrier=1,data=ordered,nomblk_io_submit,noauto_da_alloc,errors=panic length=172883968,wait
-system    /system         yaffs2    ro,barrier=1 length=166199296,wait
-cache    /cache          yaffs2    noatime,nosuid,nodev,barrier=1,data=ordered,nomblk_io_submit,noauto_da_alloc,errors=panic length=130154496,wait
+/dev/block/mmcblk0p4	/sd-ext		auto	defaults		recoveryonly
 
-/dev/block/mmcblk0p2	/sd-ext		auto	defaults		recoveryonly
-
+/devices/platform/msm_sdcc.1/mmc_host/mmc0	auto	vfat	defaults	voldmanaged=sdcard0:auto,noemulatedsd,nonremovable
 /dev/block/zram0 none swap defaults zramsize=67108864,swapprio=1
+
 #/dev/block/zram0 none swap defaults zramsize=<size in bytes>,swapprio=<swap partition priority>
 
 #mtd0: 00700000 00020000 "boot"

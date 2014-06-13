@@ -1,15 +1,5 @@
 CM_BUILDTYPE := EXPERIMENTAL
-CM_EXTRAVERSION := bigsuperROM_internal
-
-# Inherit products (Most specific first)
-$(call inherit-product, vendor/lge/thunderc/thunderc-vendor.mk) 
-$(call inherit-product, device/lge/msm7x27-common/device.mk)
-$(call inherit-product, vendor/lge/msm7x27-common/msm7x27-common-vendor-blobs.mk)
-$(call inherit-product, vendor/cm/config/tiny.mk)
-#$(call inherit-product, vendor/cm/config/mini.mk)
-#$(call inherit-product, vendor/cm/config/common_full_phone.mk)
-$(call inherit-product, device/mdpi-common/mdpi.mk)
-
+CM_EXTRAVERSION := bigsuperROM_os2sd
 
 #PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/configs/hostapd.conf:system/etc/wifi/hostapd.conf \
@@ -29,7 +19,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/ueventd.thunderc.rc:root/ueventd.thunderc.rc \
     $(LOCAL_PATH)/fstab.thunderc:root/fstab.thunderc 
 #	$(LOCAL_PATH)/extra.fstab:recovery/root/etc/extra.fstab
-	
+
 # P500 bluetooth vendor configuration 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/bluetooth/bt_vendor.conf:system/etc/bluetooth/bt_vendor.conf
@@ -99,6 +89,16 @@ PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/thunderc_keypad.kcm.bin:system/usr/k
 PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/7k_handset.kl:system/usr/keylayout/7k_handset.kl 
 PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/Generic.kl:system/usr/keylayout/Generic.kl 
 
+	
+# Inherit products (Most specific first)
+$(call inherit-product, vendor/lge/thunderc/thunderc-vendor.mk) 
+$(call inherit-product, device/lge/msm7x27-common/device.mk)
+$(call inherit-product, vendor/lge/msm7x27-common/msm7x27-common-vendor-blobs.mk)
+$(call inherit-product, vendor/cm/config/tiny.mk)
+#$(call inherit-product, vendor/cm/config/mini.mk)
+#$(call inherit-product, vendor/cm/config/common_full_phone.mk)
+$(call inherit-product, device/mdpi-common/mdpi.mk)
+
 # Overrides
 PRODUCT_NAME := thunderc
 PRODUCT_DEVICE := thunderc
@@ -111,12 +111,6 @@ $(call inherit-product, frameworks/base/data/sounds/AllAudio.mk)
 # Common assets 
 PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := mdpi 
-
-#these should build from Android.mk now
-#override androidarmv6 init.qcom.rc that manually mounts internal partitions
-#PRODUCT_COPY_FILES += $(LOCAL_PATH)/prebuilt/etc/init.qcom.rc:root/init.qcom.rc
-#still uses this
-#PRODUCT_COPY_FILES += $(LOCAL_PATH)/prebuilt/etc/init.qcom.sh:root/init.qcom.sh
 
 #this is the USA not europe
 PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/gps.conf:system/etc/gps.conf
