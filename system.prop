@@ -14,10 +14,7 @@ persist.rild.nitz_short_ons_3=
 ro.telephony.call_ring.multiple=false
 ro.telephony.call_ring.delay=3000
 ro.telephony.default_network=4
-#ro.telephony.ril.v3=signalstrength,skipbrokendatacall,facilitylock,datacall,icccardstatus,1
 ro.telephony.ril.v3=signalstrength,skipdatareg,skipbrokendatacall,facilitylock,datacall,icccardstatus,1
-#ro.telephony.ril.v3=signalstrength,usevoicetechfordata,skipbrokendatacall,facilitylock,datacall,icccardstatus,1
-#ro.telephony.ril.v3=usevoicetechfordata 
 mobiledata.interfaces=rmnet0,rmnet1,rmnet2
 ro.cdma.subscribe_on_nv_ready=true
 
@@ -30,8 +27,6 @@ ro.opengles.version=131072
 # Screen density
 ro.sf.lcd_density=160
 
-#persist.mvpdm.ProxyServerAddr=68.28.31.1
-#persist.mvpdm.ProxyServerIp=80
 ro.lge.proximity.delay=100
 ro.ril.def.preferred.network=4
 ro.cdma.home.operator.alpha=Virgin Mobile
@@ -40,16 +35,9 @@ gsm.operator.alpha = Virgin Mobile
 
 DEVICE_PROVISIONED=1
 
-#ro.telephony.ril.v3=skipCdmaSubcription 
-#ril.subscription.types=NV,RUIM
-#ro.telephony.ril_class=QualcommSharedRIL
 
 # Wifi
-#wifi.interface=wlan0
 wifi.supplicant_scan_interval=300
-#wifi.ap.interface=athap0
-# See also: init.qcom.usb.rc and init.qcom.post_boot.sh
-# persist.sys.usb.config=mass_storage,adb
 
 # System and Misc.
 ro.tether.denied=false
@@ -67,34 +55,9 @@ persist.sys.ui.hw=true
 # Faster boot
 persist.sys.shutdown.mode=hibernate
 
-# dalvik options
-dalvik.vm.checkjni=false
-dalvik.vm.dexopt-data-only=1
-dalvik.vm.dexopt-flags=v=a,o=v,m=y,u=y
-dalvik.vm.execution-mode=int:jit
-dalvik.vm.heapstartsize=5m
-dalvik.vm.heapgrowthlimit=36m
-dalvik.vm.heapsize=64m
-dalvik.vm.heapminfree=512k
-dalvik.vm.heapmaxfree=2m
-
-
 ro.cdma.voicemail.number=mine
 
-# V6 SuperCharger settings
-#ro.ril.hsxpa=3
-#ro.ril.gprsclass=12
-#ro.ril.hep=1
-#ro.ril.enable.dtm=1
-#ro.ril.hsdpa.category=28
-#ro.ril.enable.a53=1
-#ro.ril.enable.3g.prefix=1
-#ro.ril.htcmaskw1.bitmask=4294967295
-#ro.ril.htcmaskw1=14449
-#ro.ril.hsupa.category=9
-
 # sleep modes
-#see if this keeps accelerometer awake
 pm.sleep_mode=1
 #usage:
 #pm.sleep_mode=0 -> collapse suspend
@@ -103,8 +66,7 @@ pm.sleep_mode=1
 #pm.sleep_mode=3 -> slow Clock and Wait for Interrupt (lowered frequency and voltage)
 #pm.sleep_mode=4 -> wait for interrupt (no change in cpu clock or voltage)
 
- #From CAI
-debug.performance.tuning=1
+#From CAI
 
 ro.ril.disable.power.collapse=0
 # More accurate touch
@@ -113,16 +75,9 @@ move hyst=0
 # Faster transfer rate for net connections
 net.tcp.buffersize.default=4096,87380,256960,4096, 16384,256960
 net.tcp.buffersize.wifi=4096,87380,256960,4096,163 84,256960
-# store launcher in memory - so that when you switch back to home it loads faster 
-ro.HOME_APP_ADJ=1
-#Improve Scrolling Build.prop Tweak
-ro.max.fling_velocity=4000
-# Disable strict mode flash on display 
-persist.sys.strictmode.visual=false
 #Disable_ADB_Notification_Icon
 persist.adb.notify=0
 
-windowsmgr.max_events_per_sec=150
 ro.config.vc_call_vol_steps=15
 # improve image and video quality (when taking pics and vids from cam and showing them in gallery)
 ro.media.enc.jpeg.quality=100 
@@ -130,12 +85,12 @@ ro.media.dec.jpeg.memcap=8000000
 ro.media.enc.hprof.vid.bps=8000000
 ro.media.enc.file.format       = 3gp,mp4 
 ro.media.enc.vid.codec         = m4v,h263
-ro.media.enc.vid.h263.width    = 176,640 
-ro.media.enc.vid.h263.height   = 144,480 
+#ro.media.enc.vid.h263.width    = 176,640 
+#ro.media.enc.vid.h263.height   = 144,480 
 ro.media.enc.vid.h263.bps      = 64000,1600000 
 ro.media.enc.vid.h263.fps      = 1,30 
-ro.media.enc.vid.m4v.width     = 176,640 
-ro.media.enc.vid.m4v.height    = 144,480 
+#ro.media.enc.vid.m4v.width     = 176,640 
+#ro.media.enc.vid.m4v.height    = 144,480 
 ro.media.enc.vid.m4v.bps       = 64000,1600000 
 ro.media.enc.vid.m4v.fps       = 1,30 
 ro.media.dec.aud.wma.enabled=1 
