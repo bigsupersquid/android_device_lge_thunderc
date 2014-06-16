@@ -1,18 +1,18 @@
 CM_BUILDTYPE := EXPERIMENTAL
 CM_EXTRAVERSION := bigsuperROM_os2sd
 
-#PRODUCT_COPY_FILES += \
-	$(LOCAL_PATH)/configs/hostapd.conf:system/etc/wifi/hostapd.conf \
+PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/default.prop:root/default.prop
 
 # thunderc configs
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/thunder_keypad.kl:system/usr/keylayout/thunder_keypad.kl \
     $(LOCAL_PATH)/configs/thunder_keypad.kcm.bin:system/usr/keychars/thunder_keypad.kcm.bin \
+   	$(LOCAL_PATH)/configs/7k_handset.kl:system/usr/keylayout/7k_handset.kl \
+	$(LOCAL_PATH)/configs/Generic.kl:system/usr/keylayout/Generic.kl \
     $(LOCAL_PATH)/configs/touch_mcs6000.idc:system/usr/idc/touch_mcs6000.idc \
-    $(LOCAL_PATH)/configs/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
-    $(LOCAL_PATH)/configs/synaptics-rmi-touchscreen.idc:system/usr/idc/synaptics-rmi-touchscreen.idc
-
+    $(LOCAL_PATH)/configs/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf
+    
 # thunderc init
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/init.thunderc.rc:root/init.thunderc.rc \
@@ -25,7 +25,8 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/bluetooth/bt_vendor.conf:system/etc/bluetooth/bt_vendor.conf
 	
 #P500_SPEAKER_IN_CALL_FIX 
-PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/audio_policy.conf:system/etc/audio_policy.conf
+PRODUCT_COPY_FILES += \
+	$(LOCAL_PATH)/configs/audio_policy.conf:system/etc/audio_policy.conf
 
 #emoji fonts
 PRODUCT_COPY_FILES += \
@@ -50,11 +51,6 @@ PRODUCT_PACKAGES += \
     PhaseBeam \
     librs_jni
 
-# Camera
-PRODUCT_PACKAGES += \
-	libcamera \
-    camera.msm7x27
-
 # input
 PRODUCT_PACKAGES += \
 PCKeyboard \
@@ -67,37 +63,15 @@ LockClock \
 Launcher3 \
 Trebuchet 
 
-# Bring in all video files
-$(call inherit-product, frameworks/base/data/videos/VideoPackage2.mk)
-
-PRODUCT_PACKAGES += \
-    VideoEditor \
-    libvideoeditor_jni \
-    libvideoeditor_core \
-    libvideoeditor_osal \
-    libvideoeditor_videofilters \
-    libvideoeditorplayer
-
 PRODUCT_PACKAGES += \
 init.qcom.rc \
 init.qcom.sh \
 init.qcom.post_boot.sh
-
-PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/default.prop:root/default.prop 
-PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/thunderc_keypad.kl:system/usr/keylayout/thunderc_keypad.kl 
-PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/thunderc_keypad.kcm.bin:system/usr/keychars/thunderc_keypad.kcm.bin 
-PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/7k_handset.kl:system/usr/keylayout/7k_handset.kl 
-PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/Generic.kl:system/usr/keylayout/Generic.kl 
-
 	
 # Inherit products (Most specific first)
 $(call inherit-product, vendor/lge/thunderc/thunderc-vendor.mk) 
 $(call inherit-product, device/lge/msm7x27-common/device.mk)
 $(call inherit-product, vendor/lge/msm7x27-common/msm7x27-common-vendor-blobs.mk)
-$(call inherit-product, vendor/cm/config/tiny.mk)
-#$(call inherit-product, vendor/cm/config/mini.mk)
-#$(call inherit-product, vendor/cm/config/common_full_phone.mk)
-$(call inherit-product, device/mdpi-common/mdpi.mk)
 
 # Overrides
 PRODUCT_NAME := thunderc
@@ -110,7 +84,8 @@ $(call inherit-product, frameworks/base/data/sounds/AllAudio.mk)
 
 # Common assets 
 PRODUCT_AAPT_CONFIG := normal
-PRODUCT_AAPT_PREF_CONFIG := mdpi 
+PRODUCT_AAPT_PREF_CONFIG := mdpi
+$(call inherit-product, device/mdpi-common/mdpi.mk)
 
 #this is the USA not europe
 PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/gps.conf:system/etc/gps.conf
@@ -121,6 +96,9 @@ PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/sysctl.conf:system/etc/sysctl.conf
 
 #override apns-conf
 PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/apns-conf.xml:system/etc/apns-conf.xml
+
+#override init.qcom.rc for external mounting
+PRODUCT_COPY_FILES += $(LOCAL_PATH)/rootdir/etc/init.qcom.rc:root/init.qcom.rc
 
 # thunderc overlays (Most specific last)
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
@@ -139,11 +117,8 @@ DEFAULT_PROPERTY_OVERRIDES += \
 		ro.allow.mock.location=1 \
         ro.debuggable=1 \
         persist.service.adb.enable=1 \
-        persist.sys.usb.config=mtp,adb \
-        persist.sys.force_hw_ui=true \
-        debug.composition.type=mdp \
-        debug.egl.force_msaa=false 
-        
+        persist.sys.usb.config=mtp,adb
+
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.cdma.home.operator.numeric=311490 \
     ro.com.google.clientidbase=android-sprint-us \
@@ -152,8 +127,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     gsm.operator.numeric = 311490 \
     gsm.operator.iso-country = us \
     com.qc.hdmi_out=false \
-    debug.sf.hw=1 \
-    debug.composition.type=mdp \
 	persist.sys.purgeable_assets=1 \
     persist.service.adb.enable=1 
 
