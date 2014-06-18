@@ -72,6 +72,7 @@ init.qcom.post_boot.sh
 $(call inherit-product, vendor/lge/thunderc/thunderc-vendor.mk) 
 $(call inherit-product, device/lge/msm7x27-common/device.mk)
 $(call inherit-product, vendor/lge/msm7x27-common/msm7x27-common-vendor-blobs.mk)
+$(call inherit-product, vendor/cm/config/common_full_phone.mk)
 
 # Overrides
 PRODUCT_NAME := thunderc
