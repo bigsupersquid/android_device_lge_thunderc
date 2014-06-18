@@ -82,18 +82,5 @@ ro.config.vc_call_vol_steps=15
 # improve image and video quality (when taking pics and vids from cam and showing them in gallery)
 ro.media.enc.jpeg.quality=100 
 ro.media.dec.jpeg.memcap=8000000 
-ro.media.enc.hprof.vid.bps=8000000
-ro.media.enc.file.format       = 3gp,mp4 
-ro.media.enc.vid.codec         = m4v,h263
-#ro.media.enc.vid.h263.width    = 176,640 
-#ro.media.enc.vid.h263.height   = 144,480 
-ro.media.enc.vid.h263.bps      = 64000,1600000 
-ro.media.enc.vid.h263.fps      = 1,30 
-#ro.media.enc.vid.m4v.width     = 176,640 
-#ro.media.enc.vid.m4v.height    = 144,480 
-ro.media.enc.vid.m4v.bps       = 64000,1600000 
-ro.media.enc.vid.m4v.fps       = 1,30 
-ro.media.dec.aud.wma.enabled=1 
-ro.media.dec.vid.wmv.enabled=1
 
 

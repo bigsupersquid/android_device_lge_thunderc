@@ -129,6 +129,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     com.qc.hdmi_out=false \
 	persist.sys.purgeable_assets=1 \
     persist.service.adb.enable=1 
+    persist.usb.serialno=0123456789ABCDEF
 
   # Development settings
 ADDITIONAL_DEFAULT_PROPERTIES += \

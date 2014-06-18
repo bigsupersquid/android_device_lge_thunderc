@@ -9,7 +9,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/thunder_keypad.kl:system/usr/keylayout/thunder_keypad.kl \
     $(LOCAL_PATH)/configs/thunder_keypad.kcm.bin:system/usr/keychars/thunder_keypad.kcm.bin \
    	$(LOCAL_PATH)/configs/7k_handset.kl:system/usr/keylayout/7k_handset.kl \
-	$(LOCAL_PATH)/configs/Generic.kl:system/usr/keylayout/Generic.kl \
+   	$(LOCAL_PATH)/configs/Generic.kl:system/usr/keylayout/Generic.kl \
     $(LOCAL_PATH)/configs/touch_mcs6000.idc:system/usr/idc/touch_mcs6000.idc \
     $(LOCAL_PATH)/configs/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf
     
@@ -114,7 +114,7 @@ GSM_CARRIER_NUMERIC := 311490
 DEFAULT_PROPERTY_OVERRIDES += \
         ro.secure=0 \
         ro.adb.secure=0 \
-		ro.allow.mock.location=1 \
+        ro.allow.mock.location=1 \
         ro.debuggable=1 \
         persist.service.adb.enable=1 \
         persist.sys.usb.config=mtp,adb
@@ -127,9 +127,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     gsm.operator.numeric = 311490 \
     gsm.operator.iso-country = us \
     com.qc.hdmi_out=false \
-	persist.sys.purgeable_assets=1 \
-    persist.service.adb.enable=1 
-
+    persist.sys.purgeable_assets=1 \
+    persist.service.adb.enable=1 \
+    persist.usb.serialno=0123456789ABCDEF
+    
   # Development settings
 ADDITIONAL_DEFAULT_PROPERTIES += \
     ro.adb.secure=0 \

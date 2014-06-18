@@ -3,7 +3,7 @@ TARGET_SCREEN_WIDTH := 320
 TARGET_BOOTANIMATION_HALF_RES := true
 # Inherit device configuration for thunderc.
 $(call inherit-product, device/lge/thunderc/thunderc.mk)
-
+$(call inherit-product, vendor/cm/config/mini.mk)
 # Overrides
 PRODUCT_NAME := cm_thunderc
 PRODUCT_BRAND := lge
