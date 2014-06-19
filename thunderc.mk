@@ -51,6 +51,11 @@ PRODUCT_PACKAGES += \
     PhaseBeam \
     librs_jni
 
+# Camera
+#PRODUCT_PACKAGES += \
+#	libcamera \
+#    camera.msm7x27
+
 # input
 PRODUCT_PACKAGES += \
 PCKeyboard \
@@ -72,6 +77,7 @@ init.qcom.post_boot.sh
 $(call inherit-product, vendor/lge/thunderc/thunderc-vendor.mk) 
 $(call inherit-product, device/lge/msm7x27-common/device.mk)
 $(call inherit-product, vendor/lge/msm7x27-common/msm7x27-common-vendor-blobs.mk)
+$(call inherit-product, device/mdpi-common/mdpi.mk)
 $(call inherit-product, vendor/cm/config/common_full_phone.mk)
 
 # Overrides
@@ -86,7 +92,6 @@ $(call inherit-product, frameworks/base/data/sounds/AllAudio.mk)
 # Common assets 
 PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := mdpi
-$(call inherit-product, device/mdpi-common/mdpi.mk)
 
 #this is the USA not europe
 PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/gps.conf:system/etc/gps.conf
@@ -98,7 +103,7 @@ PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/sysctl.conf:system/etc/sysctl.conf
 #override apns-conf
 PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/apns-conf.xml:system/etc/apns-conf.xml
 
-#override init.qcom.rc for external mounting
+#override init.qcom.rc for mounting fs in init.thunderc.rc
 PRODUCT_COPY_FILES += $(LOCAL_PATH)/rootdir/etc/init.qcom.rc:root/init.qcom.rc
 
 # thunderc overlays (Most specific last)
@@ -118,8 +123,9 @@ DEFAULT_PROPERTY_OVERRIDES += \
 		ro.allow.mock.location=1 \
         ro.debuggable=1 \
         persist.service.adb.enable=1 \
-        persist.sys.usb.config=mtp,adb
-
+        persist.sys.usb.config=mtp,adb \
+        persist.sys.force_hw_ui=true 
+        
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.cdma.home.operator.numeric=311490 \
     ro.com.google.clientidbase=android-sprint-us \
@@ -128,6 +134,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     gsm.operator.numeric = 311490 \
     gsm.operator.iso-country = us \
     com.qc.hdmi_out=false \
+    debug.sf.hw=1 \
+    debug.composition.type=mdp \
 	persist.sys.purgeable_assets=1 \
     persist.service.adb.enable=1 
     persist.usb.serialno=0123456789ABCDEF
