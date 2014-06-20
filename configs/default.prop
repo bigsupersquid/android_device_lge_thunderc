@@ -7,3 +7,5 @@ ro.allow.mock.location=1
 ro.debuggable=1
 persist.service.adb.enable=1
 persist.sys.usb.config=mtp,adb
+ro.setupwizard.enable_bypass=1
+ro.setupwizard.enterprise_mode=1
