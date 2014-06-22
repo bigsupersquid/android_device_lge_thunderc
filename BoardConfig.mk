@@ -9,7 +9,8 @@ BOARD_KERNEL_BASE := 0x12200000
 TARGET_KERNEL_CONFIG := thunderc-test_defconfig
 BOARD_KERNEL_CMDLINE := mem=471M console=ttyMSM2,115200n8 androidboot.hardware=thunderc lge.rev=10 
 #mtdparts=msm_nand:112k@0x2f20000(boot),1762k@0x2f20000(cache),112k@0x9d40000(recovery)5494k@0xa680000(system)
-TARGET_KERNEL_CUSTOM_TOOLCHAIN := ../../../prebuilts/gcc/linux-x86/arm/arm-eabi-4.7
+#TARGET_KERNEL_CUSTOM_TOOLCHAIN := ../../../prebuilts/gcc/linux-x86/arm/arm-eabi-4.7
+TARGET_KERNEL_CUSTOM_TOOLCHAIN := arm-eabi-4.7-sm
 #TARGET_KERNEL_CUSTOM_TOOLCHAIN := ../../../prebuilts/gcc/linux-x86/arm/sm-arm-eabi-4.10
 
 BOARD_CHARGING_CMDLINE_NAME := "lge.reboot"
