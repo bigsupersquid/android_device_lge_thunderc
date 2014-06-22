@@ -19,7 +19,11 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/init.thunderc.rc:root/init.thunderc.rc \
     $(LOCAL_PATH)/ueventd.thunderc.rc:root/ueventd.thunderc.rc \
     $(LOCAL_PATH)/fstab.thunderc:root/fstab.thunderc 
-#	$(LOCAL_PATH)/extra.fstab:recovery/root/etc/extra.fstab
+
+# recovery
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/recovery/fstab:recovery/root/etc/fstab \
+    $(LOCAL_PATH)/recovery/twrp.fstab:recovery/root/etc/twrp.fstab
 
 # P500 bluetooth vendor configuration 
 PRODUCT_COPY_FILES += \
