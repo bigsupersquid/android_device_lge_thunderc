@@ -8,6 +8,6 @@
 /recovery   mtd         recovery
 /os2sd_system     ext4      /dev/block/mmcblk0p3                      flags=backup=1;canbewiped;wipeingui
 /system     yaffs2      system                      flags=backup=1;canbewiped;wipeingui
-/sd-ext     ext4        /dev/block/mmcblk0p2
+/swap		swap        /dev/block/mmcblk0p2
 /sdcard     vfat        /dev/block/mmcblk0p1        flags=display="SD Card";storage;wipeingui;settingsstorage;removable
 
