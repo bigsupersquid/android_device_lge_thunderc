@@ -28,3 +28,6 @@ lib/libvideoeditorplayer.so
 
 # RomManager (2.5MB)
 app/RomManager.apk
+
+#CM Updater
+priv-app/CMUpdater.apk
