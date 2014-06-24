@@ -7,7 +7,7 @@ system			/system		yaffs2	defaults		recoveryonly
 boot			/boot		mtd	defaults		recoveryonly
 misc			/misc		mtd	defaults		recoveryonly
 recovery		/recovery	mtd	defaults		recoveryonly
-/dev/block/mmcblk0p2	/sd-ext	linux-swap	defaults	swapprio=0
+/dev/block/mmcblk0p2	/sd-ext	swap	defaults	swapprio=0
 
 /devices/platform/msm_sdcc.1/mmc_host/mmc0	auto	vfat	defaults	voldmanaged=sdcard0:auto,noemulatedsd
 
