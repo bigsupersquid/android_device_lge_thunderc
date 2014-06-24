@@ -5,4 +5,4 @@
 /dev/block/mtdblock5 /system yaffs2 defaults 0 0
 /dev/block/mtdblock6 /data yaffs2 defaults 0 0
 /dev/block/mmcblk0p1 /sdcard/ vfat defaults 0 0
-/dev/block/mmcblk0p2 /swap swap defaults 0 0
+/dev/block/mmcblk0p2 /sd-ext linux-swap defaults 0 0

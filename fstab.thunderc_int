@@ -7,11 +7,11 @@ system			/system		yaffs2	defaults		recoveryonly
 boot			/boot		mtd	defaults		recoveryonly
 misc			/misc		mtd	defaults		recoveryonly
 recovery		/recovery	mtd	defaults		recoveryonly
-/dev/block/mmcblk0p2	/sd-ext	swap	defaults	swapprio=0
+/dev/block/mmcblk0p2	/sd-ext	linux-swap	defaults	swapprio=0
 
 /devices/platform/msm_sdcc.1/mmc_host/mmc0	auto	vfat	defaults	voldmanaged=sdcard0:auto,noemulatedsd
 
-/dev/block/zram0				none	swap	defaults	zramsize=50331648,swapprio=1
+/dev/block/zram0				none	linux-swap	defaults	zramsize=50331648,swapprio=1
 
 #mtd0: 00700000 00020000 "boot"
 #mtd1: 07c20000 00020000 "cache"
