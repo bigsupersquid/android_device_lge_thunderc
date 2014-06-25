@@ -31,3 +31,7 @@ app/RomManager.apk
 
 #CM Updater
 priv-app/CMUpdater.apk
+
+#Foul first boot with gapps
+priv-app/OneTimeInitializer.apk
+priv-app/CMAccount.apk

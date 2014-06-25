@@ -2,7 +2,6 @@
 
 /boot       mtd         boot
 /cache      yaffs2      cache                       flags=backup=1;canbewiped;wipeingui;wipeduringfactoryreset
-/os2sd_data       ext4      /dev/block/mmcblk0p4                    flags=backup=1;canbewiped;wipeingui;wipeduringfactoryreset
 /data       yaffs2      userdata                    flags=backup=1;canbewiped;wipeingui;wipeduringfactoryreset
 /misc       mtd         misc
 /recovery   mtd         recovery
