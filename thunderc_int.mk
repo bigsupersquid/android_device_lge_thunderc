@@ -1,5 +1,5 @@
 CM_BUILDTYPE := EXPERIMENTAL
-CM_EXTRAVERSION := bigsuperROM_internal
+CM_EXTRAVERSION := internal_bigsuperROM
 
 
 #PRODUCT_COPY_FILES += \

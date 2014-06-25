@@ -1,5 +1,5 @@
 CM_BUILDTYPE := EXPERIMENTAL
-CM_EXTRAVERSION := bigsuperROM_os2sd
+CM_EXTRAVERSION := os2sd_bigsuperROM
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/default.prop:root/default.prop
