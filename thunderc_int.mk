@@ -31,7 +31,7 @@ PRODUCT_COPY_FILES += \
 	
 #P500_SPEAKER_IN_CALL_FIX 
 PRODUCT_COPY_FILES += \
-	$(LOCAL_PATH)/configs/audio_policy.conf:system/etc/audio_policy.conf
+    $(LOCAL_PATH)/configs/audio_policy.conf:system/etc/audio_policy.conf
 
 #emoji fonts
 PRODUCT_COPY_FILES += \
@@ -84,7 +84,7 @@ $(call inherit-product, vendor/lge/thunderc/thunderc-vendor.mk)
 $(call inherit-product, device/lge/msm7x27-common/device.mk)
 $(call inherit-product, vendor/lge/msm7x27-common/msm7x27-common-vendor-blobs.mk)
 $(call inherit-product, device/mdpi-common/mdpi.mk)
-$(call inherit-product, device/lge/thunderc/tiny_cm.mk)
+$(call inherit-product, vendor/cm/config/tiny.mk)
 
 # Overrides
 PRODUCT_NAME := thunderc
@@ -126,9 +126,8 @@ GSM_CARRIER_NUMERIC := 311490
 DEFAULT_PROPERTY_OVERRIDES += \
         ro.secure=0 \
         ro.adb.secure=0 \
-		ro.allow.mock.location=1 \
+        ro.allow.mock.location=1 \
         ro.debuggable=1 \
-        persist.service.adb.enable=1 \
         persist.sys.usb.config=mtp,adb \
         persist.sys.force_hw_ui=true 
         
@@ -142,11 +141,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     com.qc.hdmi_out=false \
     debug.sf.hw=1 \
     debug.composition.type=mdp \
-	persist.sys.purgeable_assets=1 \
-    persist.service.adb.enable=1 
+    persist.sys.purgeable_assets=1 \
     persist.usb.serialno=0123456789ABCDEF
 
   # Development settings
 ADDITIONAL_DEFAULT_PROPERTIES += \
-    ro.adb.secure=0 \
-    persist.sys.usb.config=mtp,adb 
+    ro.adb.secure=0 
+#    persist.sys.usb.config=mtp,adb 

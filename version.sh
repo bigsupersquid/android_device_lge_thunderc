@@ -9,6 +9,9 @@ then
 	cp -v recovery/twrp_sd.fstab recovery/twrp.fstab
 	cp -v recovery/fstab_sd recovery/fstab
 	cp -v releasetools/extras.txt.sd releasetools/extras.txt
+	cd ~/JBC/bootable/recovery
+	git checkout cm-11.0
+	git reset --hard HEAD
 	fi
 if [ "$1" = 'int' ]
 then
@@ -19,7 +22,11 @@ then
 	cp -v recovery/fstab_int recovery/fstab
 	cp -v recovery/twrp_int.fstab recovery/twrp.fstab
 	cp -v releasetools/extras.txt.int releasetools/extras.txt
+	cd ~/JBC/bootable/recovery
+	git checkout android-4.4
+	git reset --hard HEAD
 fi
+	cd ~/JBC
 if [ "$1" = '' ]
 then
 	echo "version.sh [int][ext]"

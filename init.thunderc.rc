@@ -12,15 +12,7 @@ import init.qcom.rc
 on fs
     mount_all /fstab.thunderc
     swapon_all /fstab.thunderc
-    # Mount /system rw first to give the filesystem a chance to save a checkpoint
-    mount yaffs2 mtd@system /system
-    mount yaffs2 mtd@system /system ro remount
-    mount yaffs2 mtd@userdata /data nosuid nodev
-    mount yaffs2 mtd@cache /cache nosuid nodev
-
-#    read only 1 memory page at a time    
-    write /proc/sys/vm/page-cluster 0
-
+	mount yaffs2 mtd@cache /cache nosuid nodev
 # Kernel Samepage Merging (KSM)
 #    write /sys/kernel/mm/ksm/sleep_millisecs 4000
 #    write /sys/kernel/mm/ksm/pages_to_scan 256
@@ -45,6 +37,10 @@ on boot
     chown system system /sys/devices/platform/mddi_hitachi_hvga.10/lcd_onoff
     chmod 0664 /sys/devices/platform/mddi_hitachi_hvga.10/lcd_onoff
 
+	#ZRAM
+	#    read only 1 memory page at a time    
+    write /proc/sys/vm/page-cluster 0
+
 service ami304d /system/bin/ami304d
     class main
     user compass
@@ -60,6 +56,3 @@ service charger /sbin/checkbootreason
 on property:init.svc.charger=running
     setprop sys.usb.config adb
 	
-	
-
-

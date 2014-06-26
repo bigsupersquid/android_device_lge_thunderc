@@ -1,8 +1,7 @@
 CM_BUILDTYPE := EXPERIMENTAL
-CM_EXTRAVERSION := internal_bigsuperROM
+CM_EXTRAVERSION := os2sd_bigsuperROM
 
-
-#PRODUCT_COPY_FILES += \
+PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/default.prop:root/default.prop
 
 # thunderc configs
@@ -10,7 +9,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/thunder_keypad.kl:system/usr/keylayout/thunder_keypad.kl \
     $(LOCAL_PATH)/configs/thunder_keypad.kcm.bin:system/usr/keychars/thunder_keypad.kcm.bin \
    	$(LOCAL_PATH)/configs/7k_handset.kl:system/usr/keylayout/7k_handset.kl \
-	$(LOCAL_PATH)/configs/Generic.kl:system/usr/keylayout/Generic.kl \
+   	$(LOCAL_PATH)/configs/Generic.kl:system/usr/keylayout/Generic.kl \
     $(LOCAL_PATH)/configs/touch_mcs6000.idc:system/usr/idc/touch_mcs6000.idc \
     $(LOCAL_PATH)/configs/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf
     
@@ -19,6 +18,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/init.thunderc.rc:root/init.thunderc.rc \
     $(LOCAL_PATH)/ueventd.thunderc.rc:root/ueventd.thunderc.rc \
     $(LOCAL_PATH)/fstab.thunderc:root/fstab.thunderc 
+#	$(LOCAL_PATH)/extra.fstab:recovery/root/etc/extra.fstab
 
 # recovery
 PRODUCT_COPY_FILES += \
@@ -31,7 +31,7 @@ PRODUCT_COPY_FILES += \
 	
 #P500_SPEAKER_IN_CALL_FIX 
 PRODUCT_COPY_FILES += \
-	$(LOCAL_PATH)/configs/audio_policy.conf:system/etc/audio_policy.conf
+    $(LOCAL_PATH)/configs/audio_policy.conf:system/etc/audio_policy.conf
 
 #emoji fonts
 PRODUCT_COPY_FILES += \
@@ -54,7 +54,6 @@ PRODUCT_PACKAGES += \
     MusicVisualization \
     NoiseField \
     PhaseBeam \
-    CMAccount \
     librs_jni
 
 # Camera
@@ -84,7 +83,7 @@ $(call inherit-product, vendor/lge/thunderc/thunderc-vendor.mk)
 $(call inherit-product, device/lge/msm7x27-common/device.mk)
 $(call inherit-product, vendor/lge/msm7x27-common/msm7x27-common-vendor-blobs.mk)
 $(call inherit-product, device/mdpi-common/mdpi.mk)
-$(call inherit-product, device/lge/thunderc/tiny_cm.mk)
+$(call inherit-product, vendor/cm/config/common_full_phone.mk)
 
 # Overrides
 PRODUCT_NAME := thunderc
@@ -93,7 +92,7 @@ PRODUCT_MODEL := LG-VM670
 PRODUCT_MANUFACTURER := LGE
 
 #all audio
-#$(call inherit-product, frameworks/base/data/sounds/AllAudio.mk)
+$(call inherit-product, frameworks/base/data/sounds/AllAudio.mk)
 
 # Common assets 
 PRODUCT_AAPT_CONFIG := normal
@@ -126,9 +125,8 @@ GSM_CARRIER_NUMERIC := 311490
 DEFAULT_PROPERTY_OVERRIDES += \
         ro.secure=0 \
         ro.adb.secure=0 \
-		ro.allow.mock.location=1 \
+        ro.allow.mock.location=1 \
         ro.debuggable=1 \
-        persist.service.adb.enable=1 \
         persist.sys.usb.config=mtp,adb \
         persist.sys.force_hw_ui=true 
         
@@ -142,8 +140,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     com.qc.hdmi_out=false \
     debug.sf.hw=1 \
     debug.composition.type=mdp \
-	persist.sys.purgeable_assets=1 \
-    persist.service.adb.enable=1 
+    persist.sys.purgeable_assets=1 \
     persist.usb.serialno=0123456789ABCDEF
 
   # Development settings
