@@ -54,7 +54,6 @@ PRODUCT_PACKAGES += \
     MusicVisualization \
     NoiseField \
     PhaseBeam \
-    CMAccount \
     librs_jni
 
 # Camera
@@ -84,7 +83,7 @@ $(call inherit-product, vendor/lge/thunderc/thunderc-vendor.mk)
 $(call inherit-product, device/lge/msm7x27-common/device.mk)
 $(call inherit-product, vendor/lge/msm7x27-common/msm7x27-common-vendor-blobs.mk)
 $(call inherit-product, device/mdpi-common/mdpi.mk)
-$(call inherit-product, vendor/cm/config/tiny.mk)
+#$(call inherit-product, vendor/cm/config/tiny.mk)
 
 # Overrides
 PRODUCT_NAME := thunderc
@@ -124,12 +123,7 @@ GSM_CARRIER_ALPHA := Virgin Mobile
 GSM_CARRIER_NUMERIC := 311490
 
 DEFAULT_PROPERTY_OVERRIDES += \
-        ro.secure=0 \
-        ro.adb.secure=0 \
-        ro.allow.mock.location=1 \
-        ro.debuggable=1 \
-        persist.sys.usb.config=mtp,adb \
-        persist.sys.force_hw_ui=true 
+    persist.sys.force_hw_ui=true 
         
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.cdma.home.operator.numeric=311490 \
@@ -143,8 +137,3 @@ PRODUCT_PROPERTY_OVERRIDES += \
     debug.composition.type=mdp \
     persist.sys.purgeable_assets=1 \
     persist.usb.serialno=0123456789ABCDEF
-
-  # Development settings
-ADDITIONAL_DEFAULT_PROPERTIES += \
-    ro.adb.secure=0 
-#    persist.sys.usb.config=mtp,adb 

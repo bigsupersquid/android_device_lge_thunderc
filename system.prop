@@ -28,13 +28,14 @@ ro.opengles.version=131072
 ro.sf.lcd_density=160
 
 ro.lge.proximity.delay=100
+
 ro.ril.def.preferred.network=4
+ro.cdma.voicemail.number=mine
 ro.cdma.home.operator.alpha=Virgin Mobile
 gsm.sim.operator.alpha=Virgin Mobile
 gsm.operator.alpha=Virgin Mobile
 
 DEVICE_PROVISIONED=1
-
 
 # Wifi
 wifi.supplicant_scan_interval=300
@@ -52,13 +53,22 @@ debug.composition.type=mdp
 debug.egl.force_msaa=false
 persist.sys.ui.hw=true
 
+# dalvik options
+dalvik.vm.checkjni=false
+dalvik.vm.dexopt-data-only=1
+dalvik.vm.dexopt-flags=v=a,o=v,m=y,u=y
+dalvik.vm.execution-mode=int:jit
+dalvik.vm.heapstartsize=5m
+dalvik.vm.heapgrowthlimit=36m
+dalvik.vm.heapsize=64m
+dalvik.vm.heapminfree=512k
+dalvik.vm.heapmaxfree=2m
+
 # Faster boot
 persist.sys.shutdown.mode=hibernate
 
-ro.cdma.voicemail.number=mine
-
 # sleep modes
-pm.sleep_mode=1
+pm.sleep_mode=0
 #usage:
 #pm.sleep_mode=0 -> collapse suspend
 #pm.sleep_mode=1 -> collapse (will totally power off the cpu)
@@ -75,9 +85,16 @@ move hyst=0
 # Faster transfer rate for net connections
 net.tcp.buffersize.default=4096,87380,256960,4096, 16384,256960
 net.tcp.buffersize.wifi=4096,87380,256960,4096,163 84,256960
+# store launcher in memory - so that when you switch back to home it loads faster 
+ro.HOME_APP_ADJ=1
+#Improve Scrolling Build.prop Tweak
+ro.max.fling_velocity=4000
+# Disable strict mode flash on display 
+persist.sys.strictmode.visual=false
 #Disable_ADB_Notification_Icon
 persist.adb.notify=0
 
+windowsmgr.max_events_per_sec=150
 ro.config.vc_call_vol_steps=15
 # improve image and video quality (when taking pics and vids from cam and showing them in gallery)
 ro.media.enc.jpeg.quality=100 

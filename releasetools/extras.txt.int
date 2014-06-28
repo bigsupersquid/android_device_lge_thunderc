@@ -84,6 +84,7 @@ app/Apollo.apk
 app/Exchange2.apk
 app/LockClock.apk
 app/CMFileManager.apk
+app/Term.apk
 
 #CM Updater
 priv-app/CMUpdater.apk
