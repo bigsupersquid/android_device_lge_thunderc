@@ -51,4 +51,4 @@ TARGET_RECOVERY_PIXEL_FORMAT := "RGB_565"
 SMALLER_FONT_FOOTPRINT := true
 TW_NO_SCREEN_TIMEOUT := true
 #LOCAL_CFLAGS += -DTW_NO_REBOOT_BOOTLOADER
-TARGET_EXTRA_CFLAGS += $(call cc-option,-mtune=arm1136j-s) $(call cc-option,-mcpu=arm1136j-s)
+TARGET_EXTRA_CFLAGS += $(call cc-option,-mtune=arm1136jzf-s) $(call cc-option,-mcpu=arm1136jzf-s) $(call cc-option,-mfpu=vfp) $(call cc-option,-march=armv6k) $(call cc-option,-mfloat-abi=soft)
