@@ -12,7 +12,7 @@ BOARD_KERNEL_CMDLINE := mem=471M console=ttyMSM2,115200n8 androidboot.hardware=t
 #TARGET_KERNEL_CUSTOM_TOOLCHAIN := ../../../prebuilts/gcc/linux-x86/arm/arm-eabi-4.7
 TARGET_KERNEL_CUSTOM_TOOLCHAIN := arm-eabi-4.7-sm
 #TARGET_KERNEL_CUSTOM_TOOLCHAIN := $(ANDROID_BUILD_TOP)/prebuilt/linux-x86/toolchain/arm-eabi-4.9-sm
-TARGET_GCC_VERSION_AND := 4.7-sm
+TARGET_GCC_VERSION_AND := 4.8-sm
 
 BOARD_CHARGING_CMDLINE_NAME := "lge.reboot"
 BOARD_CHARGING_CMDLINE_VALUE := "pwroff"
@@ -51,4 +51,4 @@ TARGET_RECOVERY_PIXEL_FORMAT := "RGB_565"
 SMALLER_FONT_FOOTPRINT := true
 TW_NO_SCREEN_TIMEOUT := true
 #LOCAL_CFLAGS += -DTW_NO_REBOOT_BOOTLOADER
-TARGET_EXTRA_CFLAGS += $(call cc-option,-mtune=arm1136jzf-s) $(call cc-option,-mcpu=arm1136jzf-s) $(call cc-option,-mfpu=vfp) $(call cc-option,-march=armv6k) $(call cc-option,-mfloat-abi=soft)
+TARGET_EXTRA_CFLAGS += $(call cc-option,-mcpu=arm1136jzf-s) $(call cc-option,-mfpu=vfp) $(call cc-option,-mfloat-abi=softfp)

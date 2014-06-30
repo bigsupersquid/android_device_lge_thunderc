@@ -19,24 +19,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/ueventd.thunderc.rc:root/ueventd.thunderc.rc \
     $(LOCAL_PATH)/fstab.thunderc:root/fstab.thunderc 
 
-# recovery
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/recovery/fstab:recovery/root/etc/fstab \
-    $(LOCAL_PATH)/recovery/twrp.fstab:recovery/root/etc/twrp.fstab
-
-# P500 bluetooth vendor configuration 
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/bluetooth/bt_vendor.conf:system/etc/bluetooth/bt_vendor.conf
-	
-#P500_SPEAKER_IN_CALL_FIX 
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/audio_policy.conf:system/etc/audio_policy.conf
-
-#emoji fonts
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/prebuilt/fonts/AndroidEmoji.ttf:system/fonts/AndroidEmoji.ttf \
-    $(LOCAL_PATH)/prebuilt/fonts/NotoColorEmoji.ttf:system/fonts/NotoColorEmoji.ttf
-    
 # wallpapers and screensavers
 PRODUCT_COPY_FILES += packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:/system/etc/permissions/android.software.live_wallpaper.xml
 PRODUCT_PACKAGES += \
@@ -104,6 +86,29 @@ PRODUCT_LOCALES := en_US
 #sysctl tweaks
 PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/sysctl.conf:system/etc/sysctl.conf
 
+# recovery
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/recovery/fstab:recovery/root/etc/fstab \
+    $(LOCAL_PATH)/recovery/twrp.fstab:recovery/root/etc/twrp.fstab
+
+# P500 bluetooth vendor configuration 
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/bluetooth/bt_vendor.conf:system/etc/bluetooth/bt_vendor.conf
+	
+#P500_SPEAKER_IN_CALL_FIX 
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/audio_policy.conf:system/etc/audio_policy.conf
+
+#emoji fonts
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/prebuilt/fonts/AndroidEmoji.ttf:system/fonts/AndroidEmoji.ttf \
+    $(LOCAL_PATH)/prebuilt/fonts/NotoColorEmoji.ttf:system/fonts/NotoColorEmoji.ttf
+    
+#codecs
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/media_profiles.xml:system/etc/media_profiles.xml \
+    $(LOCAL_PATH)/configs/media_codecs.xml:system/etc/media_codecs.xml
+    
 #override apns-conf
 PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/apns-conf.xml:system/etc/apns-conf.xml
 
