@@ -6,13 +6,14 @@ SKIP_SET_METADATA := true
 
 ## Kernel
 BOARD_KERNEL_BASE := 0x12200000
-TARGET_KERNEL_CONFIG := thunderc-test_defconfig
+#TARGET_KERNEL_CONFIG := thunderc-permissive_defconfig
+TARGET_KERNEL_CONFIG := thunderc-enforcing_defconfig
 BOARD_KERNEL_CMDLINE := mem=471M console=ttyMSM2,115200n8 androidboot.hardware=thunderc lge.rev=10 
 #mtdparts=msm_nand:112k@0x2f20000(boot),1762k@0x2f20000(cache),112k@0x9d40000(recovery)5494k@0xa680000(system)
 #TARGET_KERNEL_CUSTOM_TOOLCHAIN := ../../../prebuilts/gcc/linux-x86/arm/arm-eabi-4.7
 TARGET_KERNEL_CUSTOM_TOOLCHAIN := arm-eabi-4.7-sm
 #TARGET_KERNEL_CUSTOM_TOOLCHAIN := $(ANDROID_BUILD_TOP)/prebuilt/linux-x86/toolchain/arm-eabi-4.9-sm
-TARGET_GCC_VERSION_AND := 4.8-sm
+TARGET_GCC_VERSION_AND := 4.7-sm
 
 BOARD_CHARGING_CMDLINE_NAME := "lge.reboot"
 BOARD_CHARGING_CMDLINE_VALUE := "pwroff"
@@ -52,3 +53,33 @@ SMALLER_FONT_FOOTPRINT := true
 TW_NO_SCREEN_TIMEOUT := true
 #LOCAL_CFLAGS += -DTW_NO_REBOOT_BOOTLOADER
 TARGET_EXTRA_CFLAGS += $(call cc-option,-mcpu=arm1136jzf-s) $(call cc-option,-mfpu=vfp) $(call cc-option,-mfloat-abi=softfp)
+
+# SELinux
+BOARD_SEPOLICY_DIRS += \
+    device/lge/thunderc/sepolicy
+
+BOARD_SEPOLICY_UNION += \
+    app.te \
+    bluetooth.te \
+    device.te \
+    domain.te \
+    drmserver.te \
+    file_contexts \
+    files \
+    file.te \
+    hci_init.te \
+    healthd.te \
+    init.te \
+    init_shell.te \
+    keystore.te \
+    kickstart.te \
+    mediaserver.te \
+    netd.te \
+    rild.te \
+    surfaceflinger.te \
+    system.te \
+    ueventd.te \
+    untrusted_app.te \
+    vold.te \
+    wpa.te \
+    wpa_socket.te

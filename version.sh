@@ -29,5 +29,5 @@ fi
 	cd ~/JBC
 if [ "$1" = '' ]
 then
-	echo "version.sh [int][ext]"
+	echo "version.sh [int][sd]"
 fi

@@ -65,7 +65,6 @@ $(call inherit-product, vendor/lge/thunderc/thunderc-vendor.mk)
 $(call inherit-product, device/lge/msm7x27-common/device.mk)
 $(call inherit-product, vendor/lge/msm7x27-common/msm7x27-common-vendor-blobs.mk)
 $(call inherit-product, device/mdpi-common/mdpi.mk)
-#$(call inherit-product, vendor/cm/config/tiny.mk)
 
 # Overrides
 PRODUCT_NAME := thunderc
@@ -106,9 +105,9 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilt/fonts/NotoColorEmoji.ttf:system/fonts/NotoColorEmoji.ttf
     
 #codecs
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/media_profiles.xml:system/etc/media_profiles.xml \
-    $(LOCAL_PATH)/configs/media_codecs.xml:system/etc/media_codecs.xml
+#PRODUCT_COPY_FILES += \
+#    $(LOCAL_PATH)/configs/media_profiles.xml:system/etc/media_profiles.xml \
+#    $(LOCAL_PATH)/configs/media_codecs.xml:system/etc/media_codecs.xml
 
 #override apns-conf
 PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/apns-conf.xml:system/etc/apns-conf.xml
