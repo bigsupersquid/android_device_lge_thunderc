@@ -52,8 +52,10 @@ TARGET_RECOVERY_PIXEL_FORMAT := "RGB_565"
 SMALLER_FONT_FOOTPRINT := true
 TW_NO_SCREEN_TIMEOUT := true
 #LOCAL_CFLAGS += -DTW_NO_REBOOT_BOOTLOADER
-TARGET_EXTRA_CFLAGS += $(call cc-option,-mcpu=arm1136jzf-s) $(call cc-option,-mfpu=vfp) $(call cc-option,-mfloat-abi=softfp)
 
+
+TARGET_EXTRA_CFLAGS += $(call cc-option,-mcpu=arm1136jzf-s) $(call cc-option,-mfpu=vfp) $(call cc-option,-mfloat-abi=softfp)
+AUDIO_OUTPUT_FLAG_FAST := 44100
 # SELinux
 BOARD_SEPOLICY_DIRS += \
     device/lge/thunderc/sepolicy

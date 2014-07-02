@@ -12,7 +12,10 @@ then
 	cd ~/JBC/bootable/recovery
 	git checkout cm-11.0
 	git reset --hard HEAD
-	fi
+	cd ~/JBC/device/lge/thunderc
+	return
+fi
+else
 if [ "$1" = 'int' ]
 then
 	cp -v thunderc_int.mk thunderc.mk
@@ -25,9 +28,9 @@ then
 	cd ~/JBC/bootable/recovery
 	git checkout android-4.4
 	git reset --hard HEAD
+	cd ~/JBC/device/lge/thunderc
+	return
 fi
-	cd ~/JBC
-if [ "$1" = '' ]
-then
-	echo "version.sh [int][sd]"
-fi
+echo "version.sh [int][sd]"
+return
+	

@@ -1,8 +1,7 @@
 CM_BUILDTYPE := EXPERIMENTAL
 CM_EXTRAVERSION := internal_bigsuperROM
 
-
-#PRODUCT_COPY_FILES += \
+PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/default.prop:root/default.prop
 
 # thunderc configs

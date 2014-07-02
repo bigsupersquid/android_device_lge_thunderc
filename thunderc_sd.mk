@@ -59,6 +59,11 @@ init.qcom.rc \
 init.qcom.sh \
 init.qcom.post_boot.sh
 	
+# recovery
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/recovery/fstab:recovery/root/etc/fstab \
+    $(LOCAL_PATH)/recovery/twrp.fstab:recovery/root/etc/twrp.fstab
+
 # Inherit products (Most specific first)
 $(call inherit-product, vendor/lge/thunderc/thunderc-vendor.mk) 
 $(call inherit-product, device/lge/msm7x27-common/device.mk)
@@ -86,11 +91,6 @@ PRODUCT_LOCALES := en_US
 #sysctl tweaks
 PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/sysctl.conf:system/etc/sysctl.conf
 
-# recovery
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/recovery/fstab:recovery/root/etc/fstab \
-    $(LOCAL_PATH)/recovery/twrp.fstab:recovery/root/etc/twrp.fstab
-
 # P500 bluetooth vendor configuration 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/bluetooth/bt_vendor.conf:system/etc/bluetooth/bt_vendor.conf
@@ -108,7 +108,7 @@ PRODUCT_COPY_FILES += \
 #PRODUCT_COPY_FILES += \
 #    $(LOCAL_PATH)/configs/media_profiles.xml:system/etc/media_profiles.xml \
 #    $(LOCAL_PATH)/configs/media_codecs.xml:system/etc/media_codecs.xml
-    
+
 #override apns-conf
 PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/apns-conf.xml:system/etc/apns-conf.xml
 
