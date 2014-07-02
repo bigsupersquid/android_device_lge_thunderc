@@ -10,7 +10,7 @@ BOARD_KERNEL_BASE := 0x12200000
 TARGET_KERNEL_CONFIG := thunderc-enforcing_defconfig
 BOARD_KERNEL_CMDLINE := mem=471M console=ttyMSM2,115200n8 androidboot.hardware=thunderc lge.rev=10 
 #mtdparts=msm_nand:112k@0x2f20000(boot),1762k@0x2f20000(cache),112k@0x9d40000(recovery)5494k@0xa680000(system)
-#TARGET_KERNEL_CUSTOM_TOOLCHAIN := ../../../prebuilts/gcc/linux-x86/arm/arm-eabi-4.7
+#TARGET_KERNEL_CUSTOM_TOOLCHAIN := arm-v6k-eabi-4.8
 TARGET_KERNEL_CUSTOM_TOOLCHAIN := arm-eabi-4.7-sm
 #TARGET_KERNEL_CUSTOM_TOOLCHAIN := $(ANDROID_BUILD_TOP)/prebuilt/linux-x86/toolchain/arm-eabi-4.9-sm
 TARGET_GCC_VERSION_AND := 4.7-sm
@@ -60,7 +60,9 @@ BOARD_SEPOLICY_DIRS += \
 
 BOARD_SEPOLICY_UNION += \
     app.te \
+    auditd.te \
     bluetooth.te \
+    bootanim.te \
     device.te \
     domain.te \
     drmserver.te \

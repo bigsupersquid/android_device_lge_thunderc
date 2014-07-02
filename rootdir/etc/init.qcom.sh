@@ -27,7 +27,7 @@
 #
 
 setprop ro.sf.lcd_density 160
-
+setprop ro.serialno 123456789ABCDEF
 #
 # Allow unique persistent serial numbers for devices connected via usb
 # User needs to set unique usb serial number to persist.usb.serialno
