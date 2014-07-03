@@ -15,9 +15,9 @@ PRODUCT_COPY_FILES += \
     
 # thunderc init
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/init.thunderc.rc:root/init.thunderc.rc \
+    $(LOCAL_PATH)/init.thunderc_sd.rc:root/init.thunderc.rc \
     $(LOCAL_PATH)/ueventd.thunderc.rc:root/ueventd.thunderc.rc \
-    $(LOCAL_PATH)/fstab.thunderc:root/fstab.thunderc 
+    $(LOCAL_PATH)/fstab.thunderc_sd:root/fstab.thunderc 
 
 # wallpapers and screensavers
 PRODUCT_COPY_FILES += packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:/system/etc/permissions/android.software.live_wallpaper.xml
@@ -90,6 +90,7 @@ PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/sysctl.conf:system/etc/sysctl.conf
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/recovery/fstab_sd:recovery/root/etc/fstab \
     $(LOCAL_PATH)/recovery/twrp_sd.fstab:recovery/root/etc/twrp.fstab
+    $(LOCAL_PATH)/recovery_sd.fstab:$(LOCAL_PATH)/recovery.fstab
 
 # P500 bluetooth vendor configuration 
 PRODUCT_COPY_FILES += \
