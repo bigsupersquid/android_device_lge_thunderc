@@ -38,4 +38,5 @@ PRODUCT_COPY_FILES += \
 $(call inherit-product, frameworks/base/data/sounds/AllAudio.mk)
 
 #releasetools
+PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/releasetools/extras.txt.sd:$(LOCAL_PATH)/releasetools/extras.txt

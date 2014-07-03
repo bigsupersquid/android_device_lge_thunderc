@@ -2,10 +2,10 @@
 
 /boot       mtd         boot
 /cache      yaffs2      cache                       flags=backup=1;canbewiped;wipeingui;wipeduringfactoryreset
-/data       ext4      /dev/block/mmcblk0p4                    flags=backup=1;canbewiped;wipeingui;wipeduringfactoryreset
+/data       ext4      /dev/block/mmcblk0p4          flags=backup=1;canbewiped;wipeingui;wipeduringfactoryreset
 /misc       mtd         misc
 /recovery   mtd         recovery
-/system     ext4      /dev/block/mmcblk0p3                      flags=backup=1;canbewiped;wipeingui
+/system     ext4      /dev/block/mmcblk0p3          flags=backup=1;canbewiped;wipeingui
 /sd-ext		auto      /dev/block/mmcblk0p2			flags=display="SD-ext";backup=1;canbewiped;wipeingui
 /sdcard     vfat        /dev/block/mmcblk0p1        flags=display="SD Card";storage;wipeingui;settingsstorage;removable
 

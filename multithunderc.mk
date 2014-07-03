@@ -21,12 +21,6 @@ PRODUCT_PACKAGES += \
 PCKeyboard \
 libjni_pckeyboard
 
-# more stuff
-PRODUCT_PACKAGES += \
-LockClock \
-Launcher3 \
-Trebuchet 
-
 PRODUCT_PACKAGES += \
 init.qcom.rc \
 init.qcom.sh \
@@ -75,9 +69,6 @@ PRODUCT_COPY_FILES += \
 
 #override apns-conf
 PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/apns-conf.xml:system/etc/apns-conf.xml
-
-#override init.qcom.rc for mounting fs in init.thunderc.rc
-PRODUCT_COPY_FILES += $(LOCAL_PATH)/rootdir/etc/init.qcom.rc:root/init.qcom.rc
 
 # thunderc overlays (Most specific last)
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
