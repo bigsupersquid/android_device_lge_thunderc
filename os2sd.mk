@@ -32,7 +32,7 @@ Email
 # recovery
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/recovery/fstab_sd:recovery/root/etc/fstab \
-    $(LOCAL_PATH)/recovery/twrp_sd.fstab:recovery/root/etc/twrp.fstab
+    $(LOCAL_PATH)/recovery/twrp_sd.fstab:recovery/root/etc/twrp.fstab \
     $(LOCAL_PATH)/recovery_sd.fstab:$(LOCAL_PATH)/recovery.fstab
 #all audio
 $(call inherit-product, frameworks/base/data/sounds/AllAudio.mk)
