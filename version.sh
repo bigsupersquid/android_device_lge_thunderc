@@ -15,7 +15,6 @@ then
 	cd ~/JBC/device/lge/thunderc
 	return
 fi
-else
 if [ "$1" = 'int' ]
 then
 	cp -v thunderc_int.mk thunderc.mk
