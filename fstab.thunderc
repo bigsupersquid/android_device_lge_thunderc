@@ -9,7 +9,7 @@ boot			/boot		mtd	defaults		length=7340032
 misc			/misc		mtd	defaults		length=524288
 recovery		/recovery	mtd	defaults		length=7340032
 
-/dev/block/mmcblk0p2	/sd-ext	 auto	defaults  recoveryonly
+/dev/block/mmcblk0p2	/sd-ext	 ext4	defaults  recoveryonly
 
 /devices/platform/msm_sdcc.1/mmc_host/mmc0	auto	vfat	defaults	voldmanaged=sdcard0:auto,noemulatedsd,nonremovable
 /dev/block/zram0 none swap defaults zramsize=67108864,swapprio=1
