@@ -20,9 +20,9 @@ then
 	cp -v thunderc_int.mk thunderc.mk
 	cp -v init.thunderc_int.rc init.thunderc.rc
 	cp -v fstab.thunderc_int fstab.thunderc
-	cp -v recovery_int.fstab recovery.fstab
 	cp -v recovery/fstab_int recovery/fstab
 	cp -v recovery/twrp_int.fstab recovery/twrp.fstab
+	cp -v recovery_int.fstab recovery.fstab
 	cp -v releasetools/extras.txt.int releasetools/extras.txt
 	cd ~/JBC/bootable/recovery
 	git checkout android-4.4
