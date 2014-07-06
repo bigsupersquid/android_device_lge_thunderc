@@ -27,7 +27,7 @@ BOARD_FLASH_BLOCK_SIZE := 0
 TARGET_BOOTLOADER_BOARD_NAME := thunderc
 TARGET_OTA_ASSERT_DEVICE := thunderc,LS670,VM670,thunderc_LS670,thunderc_VM670
 TARGET_RECOVERY_FSTAB := device/lge/thunderc/fstab.thunderc
-
+TARGET_OTA_NO_SEPERATE_RECOVERY := false
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/lge/thunderc/bluetooth
 
 BOARD_HAS_LOW_RESOLUTION := true
@@ -38,7 +38,6 @@ BOARD_CDMA_NETWORK := true
 TARGET_OTA_EXTRAS_FILE := device/lge/thunderc/releasetools/extras.txt
 
 #TARGET_RECOVERY_FSTAB := device/lge/thunderc/recovery.fstab
-
 #BOARD_HAS_NO_SELECT_BUTTON := true
 #TARGET_NO_BOOTLOADER := true
 #BOARD_USES_RECOVERY_CHARGEMODE := false
@@ -57,6 +56,7 @@ TW_NO_SCREEN_TIMEOUT := true
 
 TARGET_EXTRA_CFLAGS += $(call cc-option,-mcpu=arm1136jzf-s) $(call cc-option,-mfpu=vfp) $(call cc-option,-mfloat-abi=softfp)
 AUDIO_OUTPUT_FLAG_FAST := 44100
+
 # SELinux
 BOARD_SEPOLICY_DIRS += \
     device/lge/thunderc/sepolicy
