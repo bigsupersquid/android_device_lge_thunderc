@@ -6,8 +6,8 @@ SKIP_SET_METADATA := true
 
 ## Kernel
 BOARD_KERNEL_BASE := 0x12200000
-#TARGET_KERNEL_CONFIG := thunderc-permissive_defconfig
-TARGET_KERNEL_CONFIG := thunderc-enforcing_defconfig
+TARGET_KERNEL_CONFIG := thunderc-permissive_defconfig
+#TARGET_KERNEL_CONFIG := thunderc-enforcing_defconfig
 BOARD_KERNEL_CMDLINE := mem=471M console=ttyMSM2,115200n8 androidboot.hardware=thunderc lge.rev=10 
 #mtdparts=msm_nand:112k@0x2f20000(boot),1762k@0x2f20000(cache),112k@0x9d40000(recovery)5494k@0xa680000(system)
 TARGET_KERNEL_CUSTOM_TOOLCHAIN := arm-unknown-eabi-4.7
@@ -36,6 +36,7 @@ BOARD_CDMA_NETWORK := true
 
 ## OTA script extras file (build/tools/releasetools)
 TARGET_OTA_EXTRAS_FILE := device/lge/thunderc/releasetools/extras.txt
+TARGET_OTA_TRASH_FILE := device/lge/thunderc/releasetools/trash.txt
 
 #TARGET_RECOVERY_FSTAB := device/lge/thunderc/recovery.fstab
 #BOARD_HAS_NO_SELECT_BUTTON := true
