@@ -33,7 +33,7 @@ BOARD_USERDATAIMAGE_PARTITION_SIZE := 0x0c780000
 BOARD_FLASH_BLOCK_SIZE := 0
 TARGET_BOOTLOADER_BOARD_NAME := thunderc
 TARGET_OTA_ASSERT_DEVICE := thunderc,LS670,VM670,thunderc_LS670,thunderc_VM670
-TARGET_RECOVERY_FSTAB := device/lge/thunderc/fstab.thunderc
+TARGET_RECOVERY_FSTAB := device/lge/thunderc/recovery.fstab
 TARGET_OTA_NO_SEPERATE_RECOVERY := false
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/lge/thunderc/bluetooth
 
@@ -47,7 +47,8 @@ TARGET_OTA_TRASH_FILE := device/lge/thunderc/releasetools/trash.txt
 
 #Art
 ART_USE_PORTABLE_COMPILER := true
-PRODUCT_RUNTIMES += runtime_libart
+PRODUCT_RUNTIMES := runtime_libart
+PRODUCT_RUNTIMES += runtime_libdvm_default
 WITH_ART_USE_PORTABLE_COMPILER := true
 
 #TARGET_RECOVERY_FSTAB := device/lge/thunderc/recovery.fstab
@@ -69,8 +70,7 @@ TW_NO_SCREEN_TIMEOUT := true
 
 TARGET_EXTRA_CFLAGS += $(call cc-option,-mcpu=arm1136jzf-s) $(call cc-option,-mfpu=vfp) $(call cc-option,-mfloat-abi=softfp)
 AUDIO_OUTPUT_FLAG_FAST := 44100
-PRODUCT_RUNTIMES := runtime_libdvm_default
-#PRODUCT_RUNTIMES += runtime_libart
+
 # SELinux
 BOARD_SEPOLICY_DIRS += \
     device/lge/thunderc/sepolicy

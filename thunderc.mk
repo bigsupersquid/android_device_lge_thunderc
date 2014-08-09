@@ -61,7 +61,7 @@ init.qcom.post_boot.sh
 
 # dual-mode recovery
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/recovery/fstab_sd:recovery/root/etc/fstab \
+    $(LOCAL_PATH)/recovery_sd.fstab:recovery/root/etc/recovery.fstab \
     $(LOCAL_PATH)/recovery/fstab_sd:recovery/root/etc/fstab_sd \
     $(LOCAL_PATH)/recovery/fstab_int:recovery/root/etc/fstab_int \
     $(LOCAL_PATH)/recovery/twrp_sd.fstab:recovery/root/fstab.thunderc \
