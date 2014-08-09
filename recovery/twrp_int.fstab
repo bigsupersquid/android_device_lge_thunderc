@@ -6,5 +6,6 @@
 /misc       	mtd         misc
 /recovery   	mtd         recovery
 /system     	yaffs2      system                      flags=backup=1;canbewiped;wipeingui
+#none			swap		/dev/block/mmcblk0p3		flags=display="swap";backup=0
 /sd-ext			ext4        /dev/block/mmcblk0p2		flags=display="SD-ext";backup=1;canbewiped;wipeingui;wipeduringfactoryreset
 /sdcard     	vfat        /dev/block/mmcblk0p1        flags=display="SD Card";storage;wipeingui;settingsstorage;removable

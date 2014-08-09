@@ -45,7 +45,7 @@ priv-app/CMAccount.apk
 app/webaudiores.apk
 
 # ART runtime (1.2MB)
-framework/core-libart.jar
+#framework/core-libart.jar
 
 # Recovery resources (1.3MB)
 etc/recovery-resource.dat

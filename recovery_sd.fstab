@@ -1,30 +1,10 @@
-# http://source.android.com/devices/tech/storage/index.html
-#<src>			<mnt_point>	<type>	<mnt_flags and options>	<fs_mgr_flags>
+#mount point	fstype		device						[options]
 
-#/devices/platform/msm_sdcc.1/mmc_host/mmc0	auto	vfat	defaults	voldmanaged=sdcard0:auto,noemulatedsd,nonremovable
-
-boot			/boot		mtd	defaults		length=7340032
-misc			/misc		mtd	defaults		length=524288
-recovery		/recovery	mtd	defaults		length=7340032
-/dev/block/mmcblk0p1 /sdcard auto defaults recoveryonly
-
-## flags from hammerhead and more
-/dev/block/mmcblk0p4    /data           ext4    noatime,nosuid,nodev,barrier=1,data=ordered,nomblk_io_submit,noauto_da_alloc,errors=panic length=1056858112,check,wait
-/dev/block/mmcblk0p3    /system         ext4    ro,barrier=1 length=528424960,check,wait
-cache    /cache          yaffs2    noatime,nosuid,nodev,barrier=1,data=ordered,nomblk_io_submit,noauto_da_alloc,errors=panic length=130154496,wait
-
-#/dev/block/mmcblk0p2	/sd-ext		auto	defaults		recoveryonly
-
-
-#mtd0: 00700000 00020000 "boot"
-#mtd1: 07c20000 00020000 "cache"
-#mtd2: 00700000 00020000 "recovery"
-#mtd3: 00140000 00020000 "splash"
-#mtd4: 00700000 00020000 "FOTA_ST"
-#mtd5: 09e80000 00020000 "system"
-#mtd6: 0a4e0000 00020000 "userdata"
-#mtd7: 00080000 00020000 "misc"
-#mtd8: 00180000 00020000 "persist" 
-
-#002c0000 00020000 "lgdrm"
-#00180000 00020000 "FOTABIN"
+/boot       	mtd         boot
+/cache      	yaffs2      cache                       flags=backup=1;canbewiped;wipeingui;wipeduringfactoryreset
+/data       	ext4		/dev/block/mmcblk0p4		flags=backup=1;canbewiped;wipeingui;wipeduringfactoryreset
+/misc       	mtd         misc
+/recovery   	mtd         recovery
+/system     	ext4		/dev/block/mmcblk0p2		flags=backup=1;canbewiped;wipeingui
+#none			swap		/dev/block/mmcblk0p3		flags=display="swap";backup=0
+/sdcard     	vfat        /dev/block/mmcblk0p1        flags=display="SD Card";storage;wipeingui;settingsstorage;removable

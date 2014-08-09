@@ -6,13 +6,19 @@ SKIP_SET_METADATA := true
 
 ## Kernel
 BOARD_KERNEL_BASE := 0x12200000
-TARGET_KERNEL_CONFIG := thunderc-permissive_defconfig
+#for recovery:
+#TARGET_KERNEL_CONFIG := thunderc-recovery_defconfig
+
+#selinux enforcing mode sucks
 #TARGET_KERNEL_CONFIG := thunderc-enforcing_defconfig
+TARGET_KERNEL_CONFIG := thunderc-permissive_defconfig
 BOARD_KERNEL_CMDLINE := mem=471M console=ttyMSM2,115200n8 androidboot.hardware=thunderc lge.rev=10 
 #mtdparts=msm_nand:112k@0x2f20000(boot),1762k@0x2f20000(cache),112k@0x9d40000(recovery)5494k@0xa680000(system)
-TARGET_KERNEL_CUSTOM_TOOLCHAIN := arm-unknown-eabi-4.7
+#ARM_EABI_TOOLCHAIN := $(ANDROID_BUILD_TOP)/prebuilts/gcc/linux-x86/arm/arm-eabi-4.9/bin 
+ARM_EABI_TOOLCHAIN := $(ANDROID_BUILD_TOP)/prebuilt/linux-x86/toolchain/arm-unknown-eabi-4.7/bin
+#TARGET_KERNEL_CUSTOM_TOOLCHAIN := arm-unknown-eabi-4.7
 #TARGET_KERNEL_CUSTOM_TOOLCHAIN := arm-v6k-eabi-4.8
-#TARGET_KERNEL_CUSTOM_TOOLCHAIN := $(ANDROID_BUILD_TOP)/prebuilt/linux-x86/toolchain/arm-eabi-4.9-sm
+#TARGET_KERNEL_CUSTOM_TOOLCHAIN := $(ANDROID_BUILD_TOP)/prebuilt/linux-x86/toolchain/arm-unknown-eabi-4.7
 TARGET_GCC_VERSION_AND := 4.7-sm
 
 BOARD_CHARGING_CMDLINE_NAME := "lge.reboot"
@@ -20,6 +26,7 @@ BOARD_CHARGING_CMDLINE_VALUE := "pwroff"
 ## Partition Sizes: Fix this up by examining /proc/mtd on a running device
 BOARD_BOOTIMAGE_PARTITION_SIZE := 0x00440000
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 0x00600000
+MINIGZIP := $(shell which lzma)
 #BOARD_SYSTEMIMAGE_PARTITION_SIZE := 0x09E00000
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 0x10000000
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 0x0c780000
@@ -37,6 +44,11 @@ BOARD_CDMA_NETWORK := true
 ## OTA script extras file (build/tools/releasetools)
 TARGET_OTA_EXTRAS_FILE := device/lge/thunderc/releasetools/extras.txt
 TARGET_OTA_TRASH_FILE := device/lge/thunderc/releasetools/trash.txt
+
+#Art
+ART_USE_PORTABLE_COMPILER := true
+PRODUCT_RUNTIMES += runtime_libart
+WITH_ART_USE_PORTABLE_COMPILER := true
 
 #TARGET_RECOVERY_FSTAB := device/lge/thunderc/recovery.fstab
 #BOARD_HAS_NO_SELECT_BUTTON := true
@@ -57,7 +69,8 @@ TW_NO_SCREEN_TIMEOUT := true
 
 TARGET_EXTRA_CFLAGS += $(call cc-option,-mcpu=arm1136jzf-s) $(call cc-option,-mfpu=vfp) $(call cc-option,-mfloat-abi=softfp)
 AUDIO_OUTPUT_FLAG_FAST := 44100
-
+PRODUCT_RUNTIMES := runtime_libdvm_default
+#PRODUCT_RUNTIMES += runtime_libart
 # SELinux
 BOARD_SEPOLICY_DIRS += \
     device/lge/thunderc/sepolicy

@@ -58,12 +58,6 @@ PRODUCT_PACKAGES += \
 init.qcom.rc \
 init.qcom.sh \
 init.qcom.post_boot.sh
-	
-# Inherit products (Most specific first)
-$(call inherit-product, vendor/lge/thunderc/thunderc-vendor.mk) 
-$(call inherit-product, device/lge/msm7x27-common/device.mk)
-$(call inherit-product, vendor/lge/msm7x27-common/msm7x27-common-vendor-blobs.mk)
-$(call inherit-product, device/mdpi-common/mdpi.mk)
 
 # Overrides
 PRODUCT_NAME := thunderc
@@ -85,10 +79,18 @@ PRODUCT_LOCALES := en_US
 #sysctl tweaks
 PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/sysctl.conf:system/etc/sysctl.conf
 
-# recovery
+# dual-mode recovery
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/recovery/fstab:recovery/root/etc/fstab \
-    $(LOCAL_PATH)/recovery/twrp.fstab:recovery/root/etc/twrp.fstab
+    $(LOCAL_PATH)/recovery/fstab_sd:recovery/root/etc/fstab \
+    $(LOCAL_PATH)/recovery/fstab_sd:recovery/root/etc/fstab_sd \
+    $(LOCAL_PATH)/recovery/fstab_int:recovery/root/etc/fstab_int \
+    $(LOCAL_PATH)/recovery/twrp_sd.fstab:recovery/root/fstab.thunderc \
+    $(LOCAL_PATH)/recovery/twrp_sd.fstab:recovery/root/etc/twrp_sd.fstab \
+    $(LOCAL_PATH)/recovery/twrp_sd.fstab:recovery/root/etc/twrp.fstab \
+    $(LOCAL_PATH)/recovery/twrp_int.fstab:recovery/root/etc/twrp_int.fstab \
+    $(LOCAL_PATH)/recovery/ui_sd.xml:recovery/root/res/ui.xml \
+    $(LOCAL_PATH)/recovery/ui_sd.xml:recovery/root/res/ui_sd \
+    $(LOCAL_PATH)/recovery/ui_int.xml:recovery/root/res/ui_int
 
 # P500 bluetooth vendor configuration 
 PRODUCT_COPY_FILES += \
@@ -140,3 +142,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
     debug.composition.type=mdp \
     persist.sys.purgeable_assets=1 \
     persist.usb.serialno=0123456789ABCDEF
+	
+# Inherit products (Most specific first)
+$(call inherit-product, vendor/lge/thunderc/thunderc-vendor.mk) 
+$(call inherit-product, device/lge/msm7x27-common/device.mk)
+$(call inherit-product, vendor/lge/msm7x27-common/msm7x27-common-vendor-blobs.mk)
+$(call inherit-product, device/mdpi-common/mdpi.mk)
