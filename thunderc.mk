@@ -1,5 +1,5 @@
 CM_BUILDTYPE := EXPERIMENTAL
-CM_EXTRAVERSION := internal_bigsuperROM
+CM_EXTRAVERSION := os2sd_bigsuperROM
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/default.prop:root/default.prop
@@ -22,19 +22,19 @@ PRODUCT_COPY_FILES += \
 # wallpapers and screensavers
 PRODUCT_COPY_FILES += packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:/system/etc/permissions/android.software.live_wallpaper.xml
 PRODUCT_PACKAGES += \
-#    Basic \
-#    PhotoTable \
-#    WebView \
-#    CMWallpapers \
-#    LiveWallpapers \
-#    LiveWallpapersPicker \
-#    VisualizationWallpapers \
-#    Galaxy4 \
-#    HoloSpiral \
-#    MagicSmoke \
-#    MusicVisualization \
-#    NoiseField \
-#    PhaseBeam \
+    Basic \
+    PhotoTable \
+    WebView \
+    CMWallpapers \
+    LiveWallpapers \
+    LiveWallpapersPicker \
+    VisualizationWallpapers \
+    Galaxy4 \
+    HoloSpiral \
+    MagicSmoke \
+    MusicVisualization \
+    NoiseField \
+    PhaseBeam \
     librs_jni
 
 # Camera
@@ -48,17 +48,16 @@ PCKeyboard \
 libjni_pckeyboard
 
 # more stuff
-#PRODUCT_PACKAGES += \
-#Email \
-#LockClock \
-#Launcher3 \
-#Trebuchet 
+PRODUCT_PACKAGES += \
+Email \
+LockClock \
+Launcher3 \
+Trebuchet 
 
 PRODUCT_PACKAGES += \
 init.qcom.rc \
 init.qcom.sh \
-init.qcom.post_boot.sh 
-#libart
+init.qcom.post_boot.sh
 
 # dual-mode recovery
 PRODUCT_COPY_FILES += \
@@ -68,10 +67,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/recovery/twrp_sd.fstab:recovery/root/fstab.thunderc \
     $(LOCAL_PATH)/recovery/twrp_sd.fstab:recovery/root/etc/twrp_sd.fstab \
     $(LOCAL_PATH)/recovery/twrp_sd.fstab:recovery/root/etc/twrp.fstab \
-    $(LOCAL_PATH)/recovery/twrp_int.fstab:recovery/root/etc/twrp_int.fstab \
-    $(LOCAL_PATH)/recovery/ui_sd.xml:recovery/root/res/ui.xml \
-    $(LOCAL_PATH)/recovery/ui_sd.xml:recovery/root/res/ui_sd \
-    $(LOCAL_PATH)/recovery/ui_int.xml:recovery/root/res/ui_int
+    $(LOCAL_PATH)/recovery/twrp_int.fstab:recovery/root/etc/twrp_int.fstab
 
 # Overrides
 PRODUCT_NAME := thunderc
@@ -80,7 +76,7 @@ PRODUCT_MODEL := LG-VM670
 PRODUCT_MANUFACTURER := LGE
 
 #all audio
-#$(call inherit-product, frameworks/base/data/sounds/AllAudio.mk)
+$(call inherit-product, frameworks/base/data/sounds/AllAudio.mk)
 
 # Common assets 
 PRODUCT_AAPT_CONFIG := normal
@@ -149,4 +145,4 @@ $(call inherit-product, vendor/lge/thunderc/thunderc-vendor.mk)
 $(call inherit-product, device/lge/msm7x27-common/device.mk)
 $(call inherit-product, vendor/lge/msm7x27-common/msm7x27-common-vendor-blobs.mk)
 $(call inherit-product, device/mdpi-common/mdpi.mk)
-
+#$(call inherit-product, vendor/cm/config/common_full_phone.mk)

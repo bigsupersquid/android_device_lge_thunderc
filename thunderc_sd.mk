@@ -67,10 +67,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/recovery/twrp_sd.fstab:recovery/root/fstab.thunderc \
     $(LOCAL_PATH)/recovery/twrp_sd.fstab:recovery/root/etc/twrp_sd.fstab \
     $(LOCAL_PATH)/recovery/twrp_sd.fstab:recovery/root/etc/twrp.fstab \
-    $(LOCAL_PATH)/recovery/twrp_int.fstab:recovery/root/etc/twrp_int.fstab \
-    $(LOCAL_PATH)/recovery/ui_sd.xml:recovery/root/res/ui.xml \
-    $(LOCAL_PATH)/recovery/ui_sd.xml:recovery/root/res/ui_sd \
-    $(LOCAL_PATH)/recovery/ui_int.xml:recovery/root/res/ui_int
+    $(LOCAL_PATH)/recovery/twrp_int.fstab:recovery/root/etc/twrp_int.fstab
 
 # Overrides
 PRODUCT_NAME := thunderc

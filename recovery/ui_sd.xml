@@ -218,7 +218,7 @@
 			<object type="text" color="%text_color%">
 				<font resource="font" />
 				<placement x="65" y="3" />
-				<text>TWRP v%tw_version%-%os2sd_internal%</text>
+				<text>TWRP v%tw_version%-MULTI-%os2sd_internal%</text>
 			</object>
 
 			<object type="text" color="%text_color%">
