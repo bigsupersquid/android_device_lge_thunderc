@@ -1,3 +1,15 @@
+# Focal
+app/Focal.apk
+bin/autopano
+bin/celeste
+bin/enblend
+bin/enfuse
+lib/libexiv2.so
+lib/libpano13.so
+lib/libtiffdecoder.so
+lib/libtiff.so
+lib/libvigraimpex.so
+
 # Goldfish (emulator)
 etc/init.goldfish.sh
 lib/hw/camera.goldfish.jpeg.so
@@ -12,7 +24,6 @@ lib/hw/audio.primary.default.so
 lib/hw/gralloc.default.so
 lib/hw/power.default.so
 
-
 # Junk (build artifacts)
 extras/ext4_utils/make_ext4fs_main.o
 extras/ext4_utils/make_ext4fs_main.P
@@ -22,6 +33,11 @@ lib/crtend_so.o
 # Adreno libraries (unused)
 lib/libC2D2.so
 lib/libOpenVG.so
+
+# OpenWnn (6.4MB)
+app/OpenWnn.apk
+lib/libWnnEngDic.so
+lib/libWnnJpnDic.so
 
 # Video editor (5MB)
 app/VideoEditor.apk
@@ -45,7 +61,7 @@ priv-app/CMAccount.apk
 app/webaudiores.apk
 
 # ART runtime (1.2MB)
-#framework/core-libart.jar
+framework/core-libart.jar
 
 # Recovery resources (1.3MB)
 etc/recovery-resource.dat

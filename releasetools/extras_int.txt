@@ -1,15 +1,3 @@
-# Focal
-app/Focal.apk
-bin/autopano
-bin/celeste
-bin/enblend
-bin/enfuse
-lib/libexiv2.so
-lib/libpano13.so
-lib/libtiffdecoder.so
-lib/libtiff.so
-lib/libvigraimpex.so
-
 # Extra apps
 app/Exchange2.apk
 app/Email.apk
@@ -22,12 +10,6 @@ lib/libjni_latinime.so
 app/Term.apk
 lib/libjackpal-androidterm4.so
 app/LiveWallpapers.apk
-
-
-# OpenWnn (6.4MB)
-app/OpenWnn.apk
-lib/libWnnEngDic.so
-lib/libWnnJpnDic.so
 
 # CM Wallpapers (7MB)
 app/CMWallpapers.apk

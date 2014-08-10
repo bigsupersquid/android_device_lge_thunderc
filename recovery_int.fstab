@@ -10,6 +10,5 @@ recovery                /recovery        	mtd    	    defaults                	r
 /dev/block/mmcblk0p1 	/sdcard 			auto 		defaults 					recoveryonly
 /dev/block/mmcblk0p2 	/sd-ext 			ext4 		defaults 					recoveryonly
 #/dev/block/mmcblk0p3	none				swap		defaults
-
-/devices/platform/msm_sdcc.1/mmc_host/mmc0        /storage/sdcard0        auto        defaults        voldmanaged=sdcard:auto
+/dev/block/mmcblk0		auto				auto		defaults					voldmanaged=sdcard0:auto,noemulatedsd
 

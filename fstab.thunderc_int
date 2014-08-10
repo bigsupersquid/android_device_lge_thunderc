@@ -10,6 +10,7 @@ recovery				/recovery	mtd		defaults			length=7340032
 /dev/block/mmcblk0p2	/sd-ext		ext4	defaults			recoveryonly
 /devices/platform/msm_sdcc.1/mmc_host/mmc0	auto auto	defaults	voldmanaged=sdcard0:auto,noemulatedsd
 
+#/dev/block/mmcblk0p3	none	 		swap	defaults
 /dev/block/zram0 none swap defaults zramsize=67108864,swapprio=1
 
 #/dev/block/zram0 none swap defaults zramsize=<size in bytes>,swapprio=<swap partition priority>

@@ -46,10 +46,10 @@ TARGET_OTA_EXTRAS_FILE := device/lge/thunderc/releasetools/extras.txt
 TARGET_OTA_TRASH_FILE := device/lge/thunderc/releasetools/trash.txt
 
 #Art
-ART_USE_PORTABLE_COMPILER := true
-PRODUCT_RUNTIMES := runtime_libart
-PRODUCT_RUNTIMES += runtime_libdvm_default
-WITH_ART_USE_PORTABLE_COMPILER := true
+#ART_USE_PORTABLE_COMPILER := true
+PRODUCT_RUNTIMES := runtime_libdvm_default
+#PRODUCT_RUNTIMES += runtime_libart
+#WITH_ART_USE_PORTABLE_COMPILER := true
 
 #TARGET_RECOVERY_FSTAB := device/lge/thunderc/recovery.fstab
 #BOARD_HAS_NO_SELECT_BUTTON := true
