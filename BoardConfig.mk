@@ -41,7 +41,7 @@ BOARD_HAS_LOW_RESOLUTION := true
 ## RIL
 BOARD_CDMA_NETWORK := true
 
-## OTA script extras file (build/tools/releasetools)
+## OTA script extras file and trash file (build/tools/releasetools)
 TARGET_OTA_EXTRAS_FILE := device/lge/thunderc/releasetools/extras.txt
 TARGET_OTA_TRASH_FILE := device/lge/thunderc/releasetools/trash.txt
 
@@ -51,7 +51,6 @@ PRODUCT_RUNTIMES := runtime_libdvm_default
 #PRODUCT_RUNTIMES += runtime_libart
 #WITH_ART_USE_PORTABLE_COMPILER := true
 
-#TARGET_RECOVERY_FSTAB := device/lge/thunderc/recovery.fstab
 #BOARD_HAS_NO_SELECT_BUTTON := true
 #TARGET_NO_BOOTLOADER := true
 #BOARD_USES_RECOVERY_CHARGEMODE := false

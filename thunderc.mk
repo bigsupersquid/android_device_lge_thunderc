@@ -22,20 +22,40 @@ PRODUCT_COPY_FILES += \
 # wallpapers and screensavers
 PRODUCT_COPY_FILES += packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:/system/etc/permissions/android.software.live_wallpaper.xml
 PRODUCT_PACKAGES += \
-    Basic \
-    PhotoTable \
-    WebView \
-    CMWallpapers \
-    LiveWallpapers \
-    LiveWallpapersPicker \
-    VisualizationWallpapers \
-    Galaxy4 \
-    HoloSpiral \
-    MagicSmoke \
-    MusicVisualization \
-    NoiseField \
-    PhaseBeam \
-    librs_jni
+Apollo \
+Browser \
+Calculator \
+Calendar \
+Camera2 \
+CMFileManager \
+CMWallpapers \
+DeskClock \
+Email \
+Exchange \
+Gallery2 \
+HTMLViewer \
+LockClock \
+SoundRecorder \
+SpeechRecorder \
+ThemeChooser \
+Trebuchet \
+VoiceDialer \
+VoicePlus \
+PhotoTable \
+WebView \
+Basic \
+Galaxy4 \
+HoloSpiral \
+LivePicker \
+MagicSmoke \
+MusicVisualization \
+NoiseField \
+PhaseBeam \
+PhotoPhase \
+librs_jni 
+#dex2oat \
+#core-libart \
+#libart
 
 # Camera
 #PRODUCT_PACKAGES += \
@@ -139,7 +159,24 @@ PRODUCT_PROPERTY_OVERRIDES += \
     debug.composition.type=mdp \
     persist.sys.purgeable_assets=1 \
     persist.usb.serialno=0123456789ABCDEF
+
+PRODUCT_PROPERTY_OVERRIDES += \
+	dalvik.vm.checkjni=false \
+	dalvik.vm.dexopt-data-only=0 \
+	dalvik.vm.dexopt-flags=v=a,o=v,m=y,u=y \
+    dalvik.vm.heapstartsize=5m \
+    dalvik.vm.heapgrowthlimit=36m \
+    dalvik.vm.heapsize=64m \
+    dalvik.vm.heaptargetutilization=0.25 \
+    dalvik.vm.heapminfree=512k \
+    dalvik.vm.heapmaxfree=2m \
+    dalvik.vm.dexopt-data-only=0 \
+    dalvik.vm.verify-bytecode=false \
+    dalvik.vm.stack-trace-file=/data/anr/traces.txt \
+    dalvik.vm.jmiopts=forcecopy \
+    dalvik.vm.execution-mode=int:jit
     
+PRODUCT_PROPERTY_OVERRIDES += ro.config.low_ram=true
 # Inherit products (Most specific first)
 $(call inherit-product, vendor/lge/thunderc/thunderc-vendor.mk) 
 $(call inherit-product, device/lge/msm7x27-common/device.mk)
