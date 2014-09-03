@@ -11,7 +11,9 @@ BOARD_KERNEL_BASE := 0x12200000
 
 #selinux enforcing mode sucks
 #TARGET_KERNEL_CONFIG := thunderc-enforcing_defconfig
-TARGET_KERNEL_CONFIG := thunderc-permissive_defconfig
+ARCH_ARM_HAVE_TLS_REGISTER :=
+TARGET_KERNEL_SOURCE := kernel/lge/msm7x27-3.0.x-p500
+TARGET_KERNEL_CONFIG := thunderc-permissive-legacy_defconfig
 BOARD_KERNEL_CMDLINE := mem=471M console=ttyMSM2,115200n8 androidboot.hardware=thunderc lge.rev=10 
 #mtdparts=msm_nand:112k@0x2f20000(boot),1762k@0x2f20000(cache),112k@0x9d40000(recovery)5494k@0xa680000(system)
 #ARM_EABI_TOOLCHAIN := $(ANDROID_BUILD_TOP)/prebuilts/gcc/linux-x86/arm/arm-eabi-4.9/bin 
@@ -64,6 +66,7 @@ TW_CUSTOM_POWER_BUTTON := 107
 TARGET_RECOVERY_PIXEL_FORMAT := "RGB_565"
 SMALLER_FONT_FOOTPRINT := true
 TW_NO_SCREEN_TIMEOUT := true
+#TARGET_USERIMAGES_USE_F2FS := true
 #LOCAL_CFLAGS += -DTW_NO_REBOOT_BOOTLOADER
 
 

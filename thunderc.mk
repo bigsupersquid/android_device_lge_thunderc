@@ -23,36 +23,21 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:/system/etc/permissions/android.software.live_wallpaper.xml
 PRODUCT_PACKAGES += \
 Apollo \
-Browser \
-Calculator \
-Calendar \
-Camera2 \
-CMFileManager \
-CMWallpapers \
-DeskClock \
-Email \
-Exchange \
-Gallery2 \
-HTMLViewer \
-LockClock \
-SoundRecorder \
 SpeechRecorder \
-ThemeChooser \
-Trebuchet \
-VoiceDialer \
 VoicePlus \
 PhotoTable \
 WebView \
 Basic \
 Galaxy4 \
 HoloSpiral \
-LivePicker \
 MagicSmoke \
 MusicVisualization \
 NoiseField \
 PhaseBeam \
-PhotoPhase \
-librs_jni 
+LiveWallpapers \
+LiveWallpapersPicker \
+VisualizationWallpapers \
+librs_jni
 #dex2oat \
 #core-libart \
 #libart
@@ -69,10 +54,7 @@ libjni_pckeyboard
 
 # more stuff
 PRODUCT_PACKAGES += \
-Email \
-LockClock \
-Launcher3 \
-Trebuchet 
+Launcher3 
 
 PRODUCT_PACKAGES += \
 init.qcom.rc \
@@ -81,9 +63,6 @@ init.qcom.post_boot.sh
 
 # dual-mode recovery
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/recovery/fstab_sd:recovery/root/etc/fstab \
-    $(LOCAL_PATH)/recovery/fstab_sd:recovery/root/etc/fstab_sd \
-    $(LOCAL_PATH)/recovery/fstab_int:recovery/root/etc/fstab_int \
     $(LOCAL_PATH)/recovery/twrp_sd.fstab:recovery/root/fstab.thunderc \
     $(LOCAL_PATH)/recovery/twrp_sd.fstab:recovery/root/etc/twrp_sd.fstab \
     $(LOCAL_PATH)/recovery/twrp_sd.fstab:recovery/root/etc/twrp.fstab \
@@ -96,7 +75,7 @@ PRODUCT_MODEL := LG-VM670
 PRODUCT_MANUFACTURER := LGE
 
 #all audio
-$(call inherit-product, frameworks/base/data/sounds/AllAudio.mk)
+#$(call inherit-product, frameworks/base/data/sounds/AllAudio.mk)
 
 # Common assets 
 PRODUCT_AAPT_CONFIG := normal
@@ -124,8 +103,8 @@ PRODUCT_COPY_FILES += \
     
 #codecs
 #PRODUCT_COPY_FILES += \
-#    $(LOCAL_PATH)/configs/media_profiles.xml:system/etc/media_profiles.xml \
-#    $(LOCAL_PATH)/configs/media_codecs.xml:system/etc/media_codecs.xml
+    $(LOCAL_PATH)/configs/media_profiles.xml:system/etc/media_profiles.xml \
+    $(LOCAL_PATH)/configs/media_codecs.xml:system/etc/media_codecs.xml
 
 #override apns-conf
 PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/apns-conf.xml:system/etc/apns-conf.xml
