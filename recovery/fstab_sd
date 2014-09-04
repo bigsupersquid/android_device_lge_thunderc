@@ -1,8 +1,0 @@
-# /etc/fstab: static file system information
-#
-# file system			mount point		type		options	dump pass
-/dev/block/mtdblock1 	/cache 			yaffs2 		defaults 0 0
-/dev/block/mmcblk0p1 	/sdcard			vfat 		defaults 0 0
-#/dev/block/mmcblk0p3 	none 			swap 		defaults 0 0
-/dev/block/mmcblk0p2 	/system 		ext4		defaults 0 0
-/dev/block/mmcblk0p4 	/data 			ext4		defaults 0 0

@@ -2,76 +2,84 @@
 -include device/lge/msm7x27-common/BoardConfigCommon.mk
 
 ## Boot loader & recovery
-SKIP_SET_METADATA := true
+SKIP_SET_METADATA 					:= true
 
 ## Kernel
-BOARD_KERNEL_BASE := 0x12200000
+TARGET_KERNEL_SOURCE 				:= kernel/lge/msm7x27-3.0.x-p500
+BOARD_KERNEL_BASE 					:= 0x12200000
 #for recovery:
-#TARGET_KERNEL_CONFIG := thunderc-recovery_defconfig
+#TARGET_KERNEL_CONFIG 				:= thunderc-recovery_defconfig
+
+## TLS register
+ARCH_ARM_HAVE_TLS_REGISTER			:=
 
 #selinux enforcing mode sucks
-#TARGET_KERNEL_CONFIG := thunderc-enforcing_defconfig
-ARCH_ARM_HAVE_TLS_REGISTER :=
-TARGET_KERNEL_SOURCE := kernel/lge/msm7x27-3.0.x-p500
-TARGET_KERNEL_CONFIG := thunderc-permissive-legacy_defconfig
-BOARD_KERNEL_CMDLINE := mem=471M console=ttyMSM2,115200n8 androidboot.hardware=thunderc lge.rev=10 
+#TARGET_KERNEL_CONFIG 				:= thunderc-enforcing_defconfig
+#TARGET_KERNEL_CONFIG 				:= thunderc-permissive_defconfig
+TARGET_KERNEL_CONFIG 				:= thunderc-permissive-legacy_defconfig
+BOARD_KERNEL_CMDLINE 				:= mem=471M console=ttyMSM2,115200n8 androidboot.hardware=thunderc lge.rev=10 
 #mtdparts=msm_nand:112k@0x2f20000(boot),1762k@0x2f20000(cache),112k@0x9d40000(recovery)5494k@0xa680000(system)
-#ARM_EABI_TOOLCHAIN := $(ANDROID_BUILD_TOP)/prebuilts/gcc/linux-x86/arm/arm-eabi-4.9/bin 
-ARM_EABI_TOOLCHAIN := $(ANDROID_BUILD_TOP)/prebuilt/linux-x86/toolchain/arm-unknown-eabi-4.7/bin
-#TARGET_KERNEL_CUSTOM_TOOLCHAIN := arm-unknown-eabi-4.7
-#TARGET_KERNEL_CUSTOM_TOOLCHAIN := arm-v6k-eabi-4.8
-#TARGET_KERNEL_CUSTOM_TOOLCHAIN := $(ANDROID_BUILD_TOP)/prebuilt/linux-x86/toolchain/arm-unknown-eabi-4.7
-TARGET_GCC_VERSION_AND := 4.7-sm
+#ARM_EABI_TOOLCHAIN 				:= $(ANDROID_BUILD_TOP)/prebuilts/gcc/linux-x86/arm/arm-eabi-4.9/bin 
+ARM_EABI_TOOLCHAIN 					:= $(ANDROID_BUILD_TOP)/prebuilt/linux-x86/toolchain/arm-unknown-eabi-4.7/bin
+#TARGET_KERNEL_CUSTOM_TOOLCHAIN 	:= arm-unknown-eabi-4.7
+#TARGET_KERNEL_CUSTOM_TOOLCHAIN 	:= arm-v6k-eabi-4.8
+#TARGET_KERNEL_CUSTOM_TOOLCHAIN 	:= $(ANDROID_BUILD_TOP)/prebuilt/linux-x86/toolchain/arm-unknown-eabi-4.7
+TARGET_GCC_VERSION_AND 				:= 4.7-sm
 
-BOARD_CHARGING_CMDLINE_NAME := "lge.reboot"
-BOARD_CHARGING_CMDLINE_VALUE := "pwroff"
+BOARD_CHARGING_CMDLINE_NAME 		:= "lge.reboot"
+BOARD_CHARGING_CMDLINE_VALUE 		:= "pwroff"
 ## Partition Sizes: Fix this up by examining /proc/mtd on a running device
-BOARD_BOOTIMAGE_PARTITION_SIZE := 0x00440000
-BOARD_RECOVERYIMAGE_PARTITION_SIZE := 0x00600000
+BOARD_BOOTIMAGE_PARTITION_SIZE 		:= 0x00440000
+BOARD_RECOVERYIMAGE_PARTITION_SIZE 	:= 0x00600000
 MINIGZIP := $(shell which lzma)
-#BOARD_SYSTEMIMAGE_PARTITION_SIZE := 0x09E00000
-BOARD_SYSTEMIMAGE_PARTITION_SIZE := 0x10000000
-BOARD_USERDATAIMAGE_PARTITION_SIZE := 0x0c780000
-BOARD_FLASH_BLOCK_SIZE := 0
-TARGET_BOOTLOADER_BOARD_NAME := thunderc
-TARGET_OTA_ASSERT_DEVICE := thunderc,LS670,VM670,thunderc_LS670,thunderc_VM670
-TARGET_RECOVERY_FSTAB := device/lge/thunderc/recovery.fstab
-TARGET_OTA_NO_SEPERATE_RECOVERY := false
+#BOARD_SYSTEMIMAGE_PARTITION_SIZE	:= 0x09E00000
+BOARD_SYSTEMIMAGE_PARTITION_SIZE 	:= 0x10000000
+BOARD_USERDATAIMAGE_PARTITION_SIZE 	:= 0x0c780000
+BOARD_FLASH_BLOCK_SIZE 				:= 0
+TARGET_BOOTLOADER_BOARD_NAME 		:= thunderc
+TARGET_OTA_ASSERT_DEVICE 			:= thunderc,LS670,VM670,thunderc_LS670,thunderc_VM670
+TARGET_RECOVERY_FSTAB 				:= device/lge/thunderc/recovery.fstab
+TARGET_OTA_NO_SEPERATE_RECOVERY 	:= false
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/lge/thunderc/bluetooth
 
-BOARD_HAS_LOW_RESOLUTION := true
+BOARD_HAS_LOW_RESOLUTION 			:= true
 ## RIL
-BOARD_CDMA_NETWORK := true
+BOARD_CDMA_NETWORK 					:= true
 
 ## OTA script extras file and trash file (build/tools/releasetools)
-TARGET_OTA_EXTRAS_FILE := device/lge/thunderc/releasetools/extras.txt
-TARGET_OTA_TRASH_FILE := device/lge/thunderc/releasetools/trash.txt
+TARGET_OTA_EXTRAS_FILE 				:= device/lge/thunderc/releasetools/extras.txt
+TARGET_OTA_TRASH_FILE 				:= device/lge/thunderc/releasetools/trash.txt
+
+#Camera
+TARGET_SPECIFIC_HEADER_PATH 		:= device/lge/thunderc/include3x 
+TARGET_CAMERA_SENSOR_MP_SIZE 		:= 3
+COMMON_GLOBAL_CFLAGS += -DBINDER_COMPAT -DZTE_CAMERA_HARDWARE
+COMMON_GLOBAL_CFLAGS += -DICS_CAMERA_BLOB -DNEEDS_VECTORIMPL_SYMBOLS
 
 #Art
-#ART_USE_PORTABLE_COMPILER := true
-PRODUCT_RUNTIMES := runtime_libdvm_default
+#ART_USE_PORTABLE_COMPILER 			:= true
+PRODUCT_RUNTIMES 					:= runtime_libdvm_default
 #PRODUCT_RUNTIMES += runtime_libart
-#WITH_ART_USE_PORTABLE_COMPILER := true
+#WITH_ART_USE_PORTABLE_COMPILER 	:= true
 
-#BOARD_HAS_NO_SELECT_BUTTON := true
-#TARGET_NO_BOOTLOADER := true
-#BOARD_USES_RECOVERY_CHARGEMODE := false
-#TARGET_RECOVERY_INITRC := device/lge/thunderc/init.recovery.rc
+#BOARD_HAS_NO_SELECT_BUTTON 		:= true
+#TARGET_NO_BOOTLOADER 				:= true
+#BOARD_USES_RECOVERY_CHARGEMODE 	:= false
+#TARGET_RECOVERY_INITRC 			:= device/lge/thunderc/init.recovery.rc
 #twrp
-DEVICE_RESOLUTION := 320x480
-RECOVERY_GRAPHICS_USE_LINELENGTH := true
-HAVE_SELINUX := true
-TW_NO_REBOOT_BOOTLOADER := false
-TW_CUSTOM_POWER_BUTTON := 107
-TARGET_RECOVERY_PIXEL_FORMAT := "RGB_565"
-SMALLER_FONT_FOOTPRINT := true
-TW_NO_SCREEN_TIMEOUT := true
-#TARGET_USERIMAGES_USE_F2FS := true
+DEVICE_RESOLUTION 					:= 320x480
+RECOVERY_GRAPHICS_USE_LINELENGTH 	:= true
+HAVE_SELINUX 						:= true
+TW_NO_REBOOT_BOOTLOADER 			:= false
+TW_CUSTOM_POWER_BUTTON 				:= 107
+TARGET_RECOVERY_PIXEL_FORMAT 		:= "RGB_565"
+SMALLER_FONT_FOOTPRINT 				:= true
+TW_NO_SCREEN_TIMEOUT 				:= true
 #LOCAL_CFLAGS += -DTW_NO_REBOOT_BOOTLOADER
 
 
 TARGET_EXTRA_CFLAGS += $(call cc-option,-mcpu=arm1136jzf-s) $(call cc-option,-mfpu=vfp) $(call cc-option,-mfloat-abi=softfp)
-AUDIO_OUTPUT_FLAG_FAST := 44100
+AUDIO_OUTPUT_FLAG_FAST 				:= 44100
 
 # SELinux
 BOARD_SEPOLICY_DIRS += \
