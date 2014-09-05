@@ -19,8 +19,6 @@ on fs
 #    write /sys/kernel/mm/ksm/run 1
 
 on boot
-    ##add_tid_to_cgroup failed to write
-    chmod 0660 /dev/cpuctl
     
     ## VIBRATOR
     chmod 0660 /sys/class/timed_output/vibrator/amp

@@ -75,9 +75,14 @@ Launcher3 \
 Trebuchet 
 
 PRODUCT_PACKAGES += \
-init.qcom.rc \
 init.qcom.sh \
 init.qcom.post_boot.sh
+#init.qcom.rc \
+
+# Inherit products (Most specific first)
+$(call inherit-product, vendor/lge/thunderc/thunderc-vendor.mk)
+$(call inherit-product, device/lge/msm7x27-common/device.mk)
+$(call inherit-product, vendor/lge/msm7x27-common/msm7x27-common-vendor-blobs.mk)
 
 # dual-mode recovery
 PRODUCT_COPY_FILES += \
@@ -91,9 +96,6 @@ PRODUCT_NAME := thunderc
 PRODUCT_DEVICE := thunderc
 PRODUCT_MODEL := LG-VM670
 PRODUCT_MANUFACTURER := LGE
-
-#all audio
-$(call inherit-product, frameworks/base/data/sounds/AllAudio.mk)
 
 # Common assets 
 PRODUCT_AAPT_CONFIG := normal
