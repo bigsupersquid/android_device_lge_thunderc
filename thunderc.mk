@@ -23,27 +23,13 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:/system/etc/permissions/android.software.live_wallpaper.xml
 PRODUCT_PACKAGES += \
 Apollo \
-Browser \
-Calculator \
-Calendar \
-Camera2 \
-CMFileManager \
-CMWallpapers \
-DeskClock \
 Email \
-Exchange \
-Gallery2 \
-HTMLViewer \
-LockClock \
-SoundRecorder \
 SpeechRecorder \
-ThemeChooser \
-Trebuchet \
-VoiceDialer \
 VoicePlus \
 PhotoTable \
 WebView \
 Basic \
+Grass \
 Galaxy4 \
 HoloSpiral \
 LivePicker \
@@ -51,7 +37,6 @@ MagicSmoke \
 MusicVisualization \
 NoiseField \
 PhaseBeam \
-PhotoPhase \
 librs_jni 
 #dex2oat \
 #core-libart \
@@ -70,9 +55,7 @@ libjni_pckeyboard
 # more stuff
 PRODUCT_PACKAGES += \
 Email \
-LockClock \
-Launcher3 \
-Trebuchet 
+Launcher3
 
 PRODUCT_PACKAGES += \
 init.qcom.sh \
@@ -127,7 +110,7 @@ PRODUCT_COPY_FILES += \
 #    $(LOCAL_PATH)/configs/media_codecs.xml:system/etc/media_codecs.xml
 
 #override apns-conf
-PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/apns-conf.xml:system/etc/apns-conf.xml
+#PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/apns-conf.xml:system/etc/apns-conf.xml
 
 #override init.qcom.rc for mounting fs in init.thunderc.rc
 PRODUCT_COPY_FILES += $(LOCAL_PATH)/rootdir/etc/init.qcom.rc:root/init.qcom.rc
@@ -176,9 +159,3 @@ PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.execution-mode=int:jit
     
 PRODUCT_PROPERTY_OVERRIDES += ro.config.low_ram=true
-# Inherit products (Most specific first)
-$(call inherit-product, vendor/lge/thunderc/thunderc-vendor.mk) 
-$(call inherit-product, device/lge/msm7x27-common/device.mk)
-$(call inherit-product, vendor/lge/msm7x27-common/msm7x27-common-vendor-blobs.mk)
-$(call inherit-product, device/mdpi-common/mdpi.mk)
-#$(call inherit-product, vendor/cm/config/common_full_phone.mk)

@@ -591,7 +591,8 @@ static const str_map iso[] = {
 
 #define DONT_CARE 0
 static const str_map focus_modes[] = {
-    { CameraParameters::FOCUS_MODE_AUTO,     AF_MODE_AUTO},
+// hack because for whatever reason thunderc autofocus is broken
+//    { CameraParameters::FOCUS_MODE_AUTO,     AF_MODE_AUTO},
     { CameraParameters::FOCUS_MODE_INFINITY, DONT_CARE },
     { CameraParameters::FOCUS_MODE_NORMAL,   AF_MODE_NORMAL },
     { CameraParameters::FOCUS_MODE_MACRO,    AF_MODE_MACRO }
