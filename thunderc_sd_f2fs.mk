@@ -71,8 +71,8 @@ $(call inherit-product, vendor/lge/msm7x27-common/msm7x27-common-vendor-blobs.mk
 # dual-mode recovery
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/fstab.thunderc:recovery/root/fstab.thunderc \
-    $(LOCAL_PATH)/recovery/twrp_sd_f2fs.fstab:recovery/root/etc/twrp_sd.fstab \
-    $(LOCAL_PATH)/recovery/twrp_sd_f2fs.fstab:recovery/root/etc/twrp.fstab \
+    $(LOCAL_PATH)/recovery/twrp_sd.fstab:recovery/root/etc/twrp_sd.fstab \
+    $(LOCAL_PATH)/recovery/twrp_sd.fstab:recovery/root/etc/twrp.fstab \
     $(LOCAL_PATH)/recovery/twrp_int.fstab:recovery/root/etc/twrp_int.fstab
 
 # Overrides

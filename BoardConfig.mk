@@ -1,11 +1,9 @@
 -include vendor/lge/thunderc/BoardConfigVendor.mk
--include device/lge/msm7x27-common/BoardConfigCommon.mk
+-include device/lge/thunder-common/BoardConfig.mk
 
 TARGET_BOOTLOADER_BOARD_NAME 		:= thunderc
 TARGET_OTA_ASSERT_DEVICE 			:= thunderc,LS670,VM670,thunderc_LS670,thunderc_VM670
 BOARD_KERNEL_CMDLINE 				:= mem=471M console=ttyMSM2,115200n8 androidboot.hardware=thunderc lge.rev=10
-TARGET_KERNEL_SOURCE 				:= kernel/lge/msm7x27-3.0.x-p500
-
 BOARD_KERNEL_BASE 					:= 0x12200000
 
 #for recovery:
@@ -18,18 +16,10 @@ TARGET_KERNEL_CONFIG 				:= thunderc-permissive_defconfig
 BOARD_CHARGING_CMDLINE_NAME         := "lge.reboot"
 BOARD_CHARGING_CMDLINE_VALUE        := "pwroff"
 else
-# Real recovery size 0x00500000. Use lzma.
+# Recovery size
 TARGET_KERNEL_CONFIG 				:= thunderc-recovery_defconfig
 BOARD_RECOVERYIMAGE_PARTITION_SIZE 	:= 0x00600000
 endif
-MINIGZIP 							:= $(shell which lzma)
-ARM_EABI_TOOLCHAIN 					:= $(ANDROID_BUILD_TOP)/prebuilt/linux-x86/toolchain/arm-unknown-eabi-4.7/bin
-#ARM_EABI_TOOLCHAIN 				:= $(ANDROID_BUILD_TOP)/prebuilts/gcc/linux-x86/arm/arm-eabi-4.9/bin 
-TARGET_GCC_VERSION_AND 				:= 4.7-sm
-
-## Boot loader & recovery
-SKIP_SET_METADATA 					:= true
-
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/lge/thunderc/bluetooth
 
 ## TLS register
@@ -57,41 +47,7 @@ PRODUCT_RUNTIMES 					:= runtime_libdvm_default
 #PRODUCT_RUNTIMES += runtime_libart
 #WITH_ART_USE_PORTABLE_COMPILER 	:= true
 
-#BOARD_HAS_NO_SELECT_BUTTON 		:= true
-#TARGET_NO_BOOTLOADER 				:= true
-#BOARD_USES_RECOVERY_CHARGEMODE 	:= false
-#TARGET_RECOVERY_INITRC 			:= device/lge/thunderc/init.recovery.rc
-
-DEVICE_RESOLUTION 					:= 320x480
-RECOVERY_GRAPHICS_USE_LINELENGTH 	:= true
-HAVE_SELINUX 						:= true
-BOARD_HAS_NO_SELECT_BUTTON 			:= true
-BOARD_USE_CUSTOM_RECOVERY_FONT 		:= \"font_7x16.h\"
-TARGET_RECOVERY_PIXEL_FORMAT 		:= "RGB_565"
-SMALLER_FONT_FOOTPRINT 				:= true
-TARGET_NO_SEPARATE_RECOVERY 		:= true
 TARGET_RECOVERY_FSTAB 				:= device/lge/thunderc/recovery.fstab
-
-TARGET_NO_INITLOGO 					:= true
-TARGET_RECOVERY_LCD_BACKLIGHT_PATH 	:= \"/sys/class/leds/lcd-backlight/brightness\"
-TARGET_USERIMAGES_USE_F2FS 			:= true
-
-TW_BRIGHTNESS_PATH 					:= /sys/class/leds/lcd-backlight/brightness
-TW_EXCLUDE_SUPERSU 					:= true
-TW_EXCLUDE_ENCRYPTED_BACKUPS 		:= true
-TW_MAX_BRIGHTNESS 					:= 255
-TW_NO_SCREEN_BLANK 					:= 
-#TW_NO_SCREEN_TIMEOUT 				:= false
-TW_NO_REBOOT_BOOTLOADER 			:= false
-TW_CUSTOM_POWER_BUTTON 				:= 107
-#LOCAL_CFLAGS += -DTW_NO_REBOOT_BOOTLOADER
-
-#Camera
-TARGET_SPECIFIC_HEADER_PATH 		:= device/lge/thunderc/include3x 
-TARGET_CAMERA_SENSOR_MP_SIZE 		:= 3
-COMMON_GLOBAL_CFLAGS += -DBINDER_COMPAT -DZTE_CAMERA_HARDWARE
-COMMON_GLOBAL_CFLAGS += -DICS_CAMERA_BLOB -DNEEDS_VECTORIMPL_SYMBOLS
-
 
 TARGET_EXTRA_CFLAGS += $(call cc-option,-mcpu=arm1136jzf-s) $(call cc-option,-mfpu=vfp) $(call cc-option,-mfloat-abi=softfp)
 AUDIO_OUTPUT_FLAG_FAST 				:= 44100

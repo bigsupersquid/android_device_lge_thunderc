@@ -1,7 +1,7 @@
 /* include/linux/msm_mdp.h
  *
  * Copyright (C) 2007 Google Incorporated
- * Copyright (c) 2012 Code Aurora Forum. All rights reserved.
+ * Copyright (c) 2012 The Linux Foundation. All rights reserved.
  *
  * This software is licensed under the terms of the GNU General Public
  * License version 2, as published by the Free Software Foundation, and
@@ -65,6 +65,9 @@
 						struct msmfb_data)
 #define MSMFB_WRITEBACK_TERMINATE _IO(MSMFB_IOCTL_MAGIC, 155)
 #define MSMFB_MDP_PP _IOWR(MSMFB_IOCTL_MAGIC, 156, struct msmfb_mdp_pp)
+
+#define MSMFB_OVERLAY_VSYNC_CTRL  _IOW(MSMFB_IOCTL_MAGIC, 160, unsigned int)
+#define MSMFB_VSYNC_CTRL  _IOW(MSMFB_IOCTL_MAGIC, 161, unsigned int)
 
 #define FB_TYPE_3D_PANEL 0x10101010
 #define MDP_IMGTYPE2_START 0x10000
@@ -438,10 +441,20 @@ struct mdp_lut_cfg_data {
 	} data;
 };
 
+struct mdp_qseed_cfg_data {
+	uint32_t block;
+	uint32_t table_num;
+	uint32_t ops;
+	uint32_t len;
+	uint32_t *data;
+};
+
+
 enum {
 	mdp_op_pcc_cfg,
 	mdp_op_csc_cfg,
 	mdp_op_lut_cfg,
+	mdp_op_qseed_cfg,
 	mdp_op_max,
 };
 
@@ -451,6 +464,7 @@ struct msmfb_mdp_pp {
 		struct mdp_pcc_cfg_data pcc_cfg_data;
 		struct mdp_csc_cfg_data csc_cfg_data;
 		struct mdp_lut_cfg_data lut_cfg_data;
+		struct mdp_qseed_cfg_data qseed_cfg_data;
 	} data;
 };
 
@@ -476,20 +490,10 @@ struct msmfb_mixer_info_req {
 	struct mdp_mixer_info info[MAX_PIPE_PER_MIXER];
 };
 
+enum {
+	DISPLAY_SUBSYSTEM_ID,
+	ROTATOR_SUBSYSTEM_ID,
+};
 
-#ifdef __KERNEL__
-
-/* get the framebuffer physical address information */
-int get_fb_phys_info(unsigned long *start, unsigned long *len, int fb_num);
-struct fb_info *msm_fb_get_writeback_fb(void);
-int msm_fb_writeback_init(struct fb_info *info);
-int msm_fb_writeback_start(struct fb_info *info);
-int msm_fb_writeback_queue_buffer(struct fb_info *info,
-		struct msmfb_data *data);
-int msm_fb_writeback_dequeue_buffer(struct fb_info *info,
-		struct msmfb_data *data);
-int msm_fb_writeback_stop(struct fb_info *info);
-int msm_fb_writeback_terminate(struct fb_info *info);
-#endif
 
 #endif /*_MSM_MDP_H_*/

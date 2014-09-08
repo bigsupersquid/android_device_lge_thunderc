@@ -11,9 +11,9 @@ import init.qcom.rc
 	
 on fs
     mount_all /fstab.thunderc
-    mount f2fs /dev/block/mmcblk0p2 /system
-   mount f2fs /dev/block/mmcblk0p2 /system ro
-    mount f2fs /dev/block/mmcblk0p4 /data nosuid nodev
+    mount f2fs /dev/block/mmcblk0p2 system
+    mount f2fs /dev/block/mmcblk0p2 system ro,barrier=1
+    mount f2fs /dev/block/mmcblk0p4 data noatime,noauto_da_alloc,nodiratime,nodev,nosuid,no user_xattr,barrier=1,commit=15,data=writeback,errors=continue
 	mount yaffs2 mtd@cache /cache nosuid nodev
     swapon_all /fstab.thunderc
 # Kernel Samepage Merging (KSM)

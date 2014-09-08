@@ -11,6 +11,9 @@ import init.qcom.rc
 	
 on fs
     mount_all /fstab.thunderc
+    mount f2fs /dev/block/mmcblk0p2 /system
+   mount f2fs /dev/block/mmcblk0p2 /system ro
+    mount f2fs /dev/block/mmcblk0p4 /data nosuid nodev
 	mount yaffs2 mtd@cache /cache nosuid nodev
     swapon_all /fstab.thunderc
 # Kernel Samepage Merging (KSM)
@@ -19,7 +22,7 @@ on fs
 #    write /sys/kernel/mm/ksm/run 1
 
 on boot
-
+    
     ## VIBRATOR
     chmod 0660 /sys/class/timed_output/vibrator/amp
 
