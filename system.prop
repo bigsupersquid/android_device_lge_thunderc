@@ -68,7 +68,7 @@ persist.sys.ui.hw=true
 persist.sys.shutdown.mode=hibernate
 
 # sleep modes
-pm.sleep_mode=0
+pm.sleep_mode=3
 #usage:
 #pm.sleep_mode=0 -> collapse suspend
 #pm.sleep_mode=1 -> collapse (will totally power off the cpu)

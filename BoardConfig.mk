@@ -37,10 +37,6 @@ BOARD_FLASH_BLOCK_SIZE 				:= 0
 ## RIL
 BOARD_CDMA_NETWORK 					:= true
 
-## OTA script extras file and trash file (build/tools/releasetools)
-TARGET_OTA_EXTRAS_FILE 				:= device/lge/thunderc/releasetools/extras.txt
-TARGET_OTA_TRASH_FILE 				:= device/lge/thunderc/releasetools/trash.txt
-
 #Art
 #ART_USE_PORTABLE_COMPILER 			:= true
 PRODUCT_RUNTIMES 					:= runtime_libdvm_default

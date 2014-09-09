@@ -3,8 +3,8 @@
 
 /dev/block/mtdblock1    /cache          yaffs2	nosuid,nodev			recoveryonly
 ## flags from hammerhead and more
-/dev/block/mmcblk0p2    /system         f2fs    ro,barrier=1 			check,wait
-/dev/block/mmcblk0p4    /data           f2fs    defaults				check,wait
+/dev/block/mmcblk0p2   	/system         f2fs	ro,noatime,nosuid,nodev,discard,nodiratime,inline_xattr	wait
+/dev/block/mmcblk0p4    /data           f2fs    noatime,nosuid,nodev,discard,nodiratime,inline_xattr	wait
 boot					/boot			mtd		defaults				length=7340032
 misc					/misc			mtd		defaults				length=524288
 recovery				/recovery		mtd		defaults				length=7340032
