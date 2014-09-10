@@ -15,6 +15,7 @@ TARGET_KERNEL_CONFIG 				:= thunderc-permissive_defconfig
 #TARGET_KERNEL_CONFIG 				:= thunderc-permissive-legacy_defconfig
 BOARD_CHARGING_CMDLINE_NAME         := "lge.reboot"
 BOARD_CHARGING_CMDLINE_VALUE        := "pwroff"
+TARGET_RECOVERY_FSTAB 				:= device/lge/thunder-common/recovery_f2fs.fstab
 else
 # Recovery size
 TARGET_KERNEL_CONFIG 				:= thunderc-recovery_defconfig
@@ -43,7 +44,7 @@ PRODUCT_RUNTIMES 					:= runtime_libdvm_default
 #PRODUCT_RUNTIMES += runtime_libart
 #WITH_ART_USE_PORTABLE_COMPILER 	:= true
 
-TARGET_RECOVERY_FSTAB 				:= device/lge/thunderc/recovery.fstab
+#TARGET_RECOVERY_FSTAB 				:= device/lge/thunderc/recovery.fstab
 
 TARGET_EXTRA_CFLAGS += $(call cc-option,-mcpu=arm1136jzf-s) $(call cc-option,-mfpu=vfp) $(call cc-option,-mfloat-abi=softfp)
 AUDIO_OUTPUT_FLAG_FAST 				:= 44100

@@ -26,7 +26,7 @@ init.qcom.sh
 $(call inherit-product, vendor/lge/thunderc/thunderc-vendor.mk)
 $(call inherit-product, device/lge/thunder-common/thunder-common.mk)
 
-# dual-mode recovery
+#recovery
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/fstab.thunderc:recovery/root/fstab.thunderc 
 
@@ -68,8 +68,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     gsm.operator.iso-country = us \
     persist.usb.serialno=0123456789ABCDEF \
     ro.serialno=0123456789ABCDEF
-    
-PRODUCT_PROPERTY_OVERRIDES += ro.config.low_ram=true
 
 # thunderc overlays (Most specific last)
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
