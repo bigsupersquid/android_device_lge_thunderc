@@ -1,7 +1,3 @@
-CM_BUILDTYPE := EXPERIMENTAL
-CM_EXTRAVERSION := f2fs_os2sd_bigsuperROM
-#CM_EXTRAVERSION := ext4_os2sd_bigsuperROM
-
 # thunderc specific configs
 PRODUCT_COPY_FILES += \
    	$(LOCAL_PATH)/configs/7k_handset.kl:system/usr/keylayout/7k_handset.kl \
@@ -20,7 +16,11 @@ PRODUCT_COPY_FILES += \
 #core-libart \
 #libart
 PRODUCT_PACKAGES += \
-init.qcom.sh 
+init.qcom.sh \
+multirom \
+trampoline \
+multirom_zip \
+multirom_uninstaller
 
 # Inherit products (Most specific first)
 $(call inherit-product, vendor/lge/thunderc/thunderc-vendor.mk)

@@ -1,19 +1,16 @@
 # http://source.android.com/devices/tech/storage/index.html
 #<src>							<mnt_point>	<type>	<mnt_flags and options>	<fs_mgr_flags>
-
+# Android fstab file.
+#<src> <mnt_point> <type> <mnt_flags and options> <fs_mgr_flags>
 # The filesystem that contains the filesystem checker binary (typically /system) cannot
 # specify MF_CHECK, and must come before any filesystems that do specify MF_CHECK
-/dev/block/mmcblk0p2			/system		f2fs 	ro						defaults
+/dev/block/mtdblock0	 		/boot		mtd 	defaults				defaults
+/dev/block/mtdblock2		 	/recovery	mtd 	defaults				defaults
+/dev/block/mtdblock6			/system		yaffs2 	ro						defaults
 /dev/block/mtdblock1	 		/cache		yaffs2 	nosuid,nodev			defaults
-/dev/block/mmcblk0p4	 		/data		f2fs 	nosuid,nodev			defaults
-/dev/block/mtdblock0	 		/boot		mtd 	defaults 				defaults
-/dev/block/mtdblock2		 	/recovery	mtd 	defaults 				defaults
+/dev/block/mtdblock6	 		/data		yaffs2 	nosuid,nodev			defaults
+/dev/block/mmcblk0p2			/sd-ext		ext4	defaults				defaults
 /devices/platform/msm_sdcc.1/mmc_host/mmc0	auto 	auto	defaults	voldmanaged=sdcard0:auto,noemulatedsd
-
-#/dev/block/mmcblk0p3	none	 		swap	defaults
-/dev/block/zram0 none swap defaults zramsize=67108864,swapprio=1
-
-#/dev/block/zram0 none swap defaults zramsize=<size in bytes>,swapprio=<swap partition priority>
 
 #mtd0: 00700000 00020000 "boot"
 #mtd1: 07c20000 00020000 "cache"

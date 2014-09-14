@@ -15,17 +15,16 @@ TARGET_KERNEL_CONFIG 				:= thunderc-permissive_defconfig
 #TARGET_KERNEL_CONFIG 				:= thunderc-permissive-legacy_defconfig
 BOARD_CHARGING_CMDLINE_NAME         := "lge.reboot"
 BOARD_CHARGING_CMDLINE_VALUE        := "pwroff"
-TARGET_RECOVERY_FSTAB 				:= device/lge/thunder-common/recovery_f2fs.fstab
 else
-# Recovery size
 TARGET_KERNEL_CONFIG 				:= thunderc-recovery_defconfig
-BOARD_RECOVERYIMAGE_PARTITION_SIZE 	:= 0x00600000
 endif
+# Recovery size
+BOARD_RECOVERYIMAGE_PARTITION_SIZE 	:= 0x00600000
+TARGET_RECOVERY_FSTAB 				:= device/lge/thunder-common/recovery/recovery.fstab
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/lge/thunderc/bluetooth
 
 ## TLS register
 #ARCH_ARM_HAVE_TLS_REGISTER			:=
-
 ## Partition Sizes: Fix this up by examining /proc/mtd on a running device
 BOARD_BOOTIMAGE_PARTITION_SIZE 		:= 0x00440000
 #BOARD_SYSTEMIMAGE_PARTITION_SIZE	:= 0x09E00000
@@ -44,7 +43,24 @@ PRODUCT_RUNTIMES 					:= runtime_libdvm_default
 #PRODUCT_RUNTIMES += runtime_libart
 #WITH_ART_USE_PORTABLE_COMPILER 	:= true
 
-#TARGET_RECOVERY_FSTAB 				:= device/lge/thunderc/recovery.fstab
+#Normal kernel loading and ramdisk addresses
+#0x12208000
+#0x13200000
+#cat /proc/iomem
+#12200000-2d0fffff : System RAM
+#  12237000-12912ddf : Kernel text
+#  12914000-12b4059b : Kernel data
+
+#MultiROM config. MultiROM also uses parts of TWRP config
+MR_INPUT_TYPE := type_b
+MR_INIT_DEVICES := device/lge/thunderc/mr_init_devices.c
+MR_RD_ADDR := 0x13200000
+MR_DPI := mdpi
+MR_DPI_MUL := 0.25
+MR_FSTAB := device/lge/thunder-common/recovery/twrp_sd.fstab
+MR_USE_MROM_FSTAB := true
+MR_KEXEC_MEM_MIN := 0x12c00000
+#MR_INFOS := device/lge/thunderc/mrom_infos
 
 TARGET_EXTRA_CFLAGS += $(call cc-option,-mcpu=arm1136jzf-s) $(call cc-option,-mfpu=vfp) $(call cc-option,-mfloat-abi=softfp)
 AUDIO_OUTPUT_FLAG_FAST 				:= 44100
