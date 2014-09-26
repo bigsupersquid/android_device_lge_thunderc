@@ -1,0 +1,7 @@
+#!/system/bin/sh
+chmod 664 /sys/module/lowmemorykiller/parameters/minfree
+echo "0,1,2,5,7,16" > /sys/module/lowmemorykiller/parameters/adj
+chmod 444 /sys/module/lowmemorykiller/parameters/adj
+chmod 664 /sys/module/lowmemorykiller/parameters/minfree
+echo '2048,3072,11520,13568,15616,17920' > /sys/module/lowmemorykiller/parameters/minfree
+chmod 444 /sys/module/lowmemorykiller/parameters/minfree

@@ -16,11 +16,11 @@ PRODUCT_COPY_FILES += \
 #core-libart \
 #libart
 PRODUCT_PACKAGES += \
-init.qcom.sh \
-multirom \
-trampoline \
-multirom_zip \
-multirom_uninstaller
+init.qcom.sh 
+#multirom \
+#trampoline \
+#multirom_zip \
+#multirom_uninstaller
 
 # Inherit products (Most specific first)
 $(call inherit-product, vendor/lge/thunderc/thunderc-vendor.mk)
@@ -42,6 +42,9 @@ PRODUCT_LOCALES := en_US
 
 #sysctl tweaks
 PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/sysctl.conf:system/etc/sysctl.conf
+
+#init.d goodies
+PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/59minfree:system/etc/init.d/59minfree
 
 #codecs
 #PRODUCT_COPY_FILES += \

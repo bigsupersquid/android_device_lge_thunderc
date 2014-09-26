@@ -11,8 +11,8 @@ ifneq (eng,$(TARGET_BUILD_VARIANT))
 # Don't include charger detection in recovery mode
 #selinux enforcing mode sucks
 #TARGET_KERNEL_CONFIG 				:= thunderc-enforcing_defconfig
-TARGET_KERNEL_CONFIG 				:= thunderc-permissive_defconfig
-#TARGET_KERNEL_CONFIG 				:= thunderc-permissive-legacy_defconfig
+#TARGET_KERNEL_CONFIG 				:= thunderc-permissive_defconfig
+TARGET_KERNEL_CONFIG 				:= thunderc-permissive-legacy_defconfig
 BOARD_CHARGING_CMDLINE_NAME         := "lge.reboot"
 BOARD_CHARGING_CMDLINE_VALUE        := "pwroff"
 else
@@ -22,6 +22,7 @@ endif
 BOARD_RECOVERYIMAGE_PARTITION_SIZE 	:= 0x00600000
 TARGET_RECOVERY_FSTAB 				:= device/lge/thunder-common/recovery/recovery.fstab
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/lge/thunderc/bluetooth
+MINIGZIP 							:= $(shell which lzma)
 
 ## TLS register
 #ARCH_ARM_HAVE_TLS_REGISTER			:=
@@ -52,17 +53,19 @@ PRODUCT_RUNTIMES 					:= runtime_libdvm_default
 #  12914000-12b4059b : Kernel data
 
 #MultiROM config. MultiROM also uses parts of TWRP config
-MR_INPUT_TYPE := type_b
+MR_INPUT_TYPE := type_a
 MR_INIT_DEVICES := device/lge/thunderc/mr_init_devices.c
-MR_RD_ADDR := 0x13200000
+MR_RD_ADDR := 0x13BF8000
 MR_DPI := mdpi
 MR_DPI_MUL := 0.25
-MR_FSTAB := device/lge/thunder-common/recovery/twrp_sd.fstab
+MR_FSTAB := device/lge/thunderc/mrom.fstab
 MR_USE_MROM_FSTAB := true
 MR_KEXEC_MEM_MIN := 0x12c00000
 #MR_INFOS := device/lge/thunderc/mrom_infos
 
-TARGET_EXTRA_CFLAGS += $(call cc-option,-mcpu=arm1136jzf-s) $(call cc-option,-mfpu=vfp) $(call cc-option,-mfloat-abi=softfp)
+#BOARD_WANTS_EMMC_BOOT := true
+
+#TARGET_EXTRA_CFLAGS += $(call cc-option,-mcpu=arm1136jzf-s) $(call cc-option,-mfpu=vfp) $(call cc-option,-mfloat-abi=softfp)
 AUDIO_OUTPUT_FLAG_FAST 				:= 44100
 
 # SELinux

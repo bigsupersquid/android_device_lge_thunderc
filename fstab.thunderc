@@ -3,12 +3,12 @@
 
 # The filesystem that contains the filesystem checker binary (typically /system) cannot
 # specify MF_CHECK, and must come before any filesystems that do specify MF_CHECK
-/dev/block/mmcblk0p2			/system		f2fs 	ro						defaults
+/dev/block/mmcblk0p2			/system		f2fs 	defaults				defaults
 /dev/block/mtdblock1	 		/cache		yaffs2 	nosuid,nodev			defaults
 /dev/block/mmcblk0p4	 		/data		f2fs 	nosuid,nodev			defaults
 /dev/block/mtdblock0	 		/boot		mtd 	defaults 				defaults
 /dev/block/mtdblock2		 	/recovery	mtd 	defaults 				defaults
-/devices/platform/msm_sdcc.1/mmc_host/mmc0	auto 	auto	defaults	voldmanaged=sdcard0:auto,noemulatedsd
+/devices/platform/msm_sdcc.1/mmc_host/mmc0	auto 	auto	defaults		voldmanaged=sdcard0:auto,noemulatedsd
 
 #/dev/block/mmcblk0p3	none	 		swap	defaults
 /dev/block/zram0 none swap defaults zramsize=67108864,swapprio=1
