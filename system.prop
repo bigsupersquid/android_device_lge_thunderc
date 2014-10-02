@@ -53,17 +53,6 @@ debug.composition.type=mdp
 debug.egl.force_msaa=false
 persist.sys.ui.hw=true
 
-# dalvik options
-#dalvik.vm.execution-mode=int:portable
-#dalvik.vm.checkjni=false
-#dalvik.vm.dexopt-data-only=1
-#dalvik.vm.dexopt-flags=v=a,o=v,m=y,u=y
-#dalvik.vm.heapstartsize=5m
-#dalvik.vm.heapgrowthlimit=768m
-#dalvik.vm.heapsize=512m
-#dalvik.vm.heapminfree=512k
-#dalvik.vm.heapmaxfree=2m
-
 # Faster boot
 persist.sys.shutdown.mode=hibernate
 
@@ -85,8 +74,7 @@ move hyst=0
 # Faster transfer rate for net connections
 net.tcp.buffersize.default=4096,87380,256960,4096, 16384,256960
 net.tcp.buffersize.wifi=4096,87380,256960,4096,163 84,256960
-# store launcher in memory - so that when you switch back to home it loads faster 
-ro.HOME_APP_ADJ=1
+
 #Improve Scrolling Build.prop Tweak
 ro.max.fling_velocity=4000
 # Disable strict mode flash on display 

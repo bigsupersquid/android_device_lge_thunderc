@@ -1,0 +1,7 @@
+#!/system/bin/sh
+#
+# fsck.f2fs
+log -p i -t FSCK "fsck.f2fs /system and /data starting"
+logwrapper /system/bin/fsck.f2fs /dev/block/mmcblk0p2
+logwrapper /system/bin/fsck.f2fs /dev/block/mmcblk0p4
+log -p i -t FSCK "fsck.f2fs /system and /data complete"
