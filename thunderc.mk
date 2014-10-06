@@ -49,7 +49,7 @@ PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/S98system_tweak:system/etc/init.d/S9
 PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/sqlite_optimize:system/etc/init.d/sqlite_optimize
 
 #fsck_f2fs
-PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/01fsck_f2fs:system/etc/init.d/01fsck_f2fs
+#PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/01fsck_f2fs:system/etc/init.d/01fsck_f2fs
 
 #minfree and oom controls
 PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/59minfree:system/etc/init.d/59minfree
