@@ -103,3 +103,6 @@ BOARD_SEPOLICY_UNION += \
     vold.te \
     wpa.te \
     wpa_socket.te
+    
+#TARGET_USES_QCOM_BSP := true
+#COMMON_GLOBAL_CFLAGS += -DQCOM_BSP -DGRALLOC_USAGE_PRIVATE_INTERNAL_ONLY

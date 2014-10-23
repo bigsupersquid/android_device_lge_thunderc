@@ -1,14 +1,23 @@
 # http://source.android.com/devices/tech/storage/index.html
-#<src>					<mnt_point>		<type>	<mnt_flags and options>	<fs_mgr_flags>
+#<src>							<mnt_point>	<type>	<mnt_flags and options>	<fs_mgr_flags>
 
+<<<<<<< HEAD
+# The filesystem that contains the filesystem checker binary (typically /system) cannot
+# specify MF_CHECK, and must come before any filesystems that do specify MF_CHECK
+/dev/block/mmcblk0p2			/system		f2fs 	defaults				defaults
+/dev/block/mtdblock1	 		/cache		yaffs2 	nosuid,nodev			defaults
+/dev/block/mmcblk0p4	 		/data		f2fs 	nosuid,nodev			defaults
+/dev/block/mtdblock0	 		/boot		mtd 	defaults 				defaults
+/dev/block/mtdblock2		 	/recovery	mtd 	defaults 				defaults
+/devices/platform/msm_sdcc.1/mmc_host/mmc0	auto 	auto	defaults		voldmanaged=sdcard0:auto,noemulatedsd
+=======
 /dev/block/mtdblock1    /cache          yaffs2	defaults				defaults
 ## flags from hammerhead and more
 /dev/block/mmcblk0p2   	/system         f2fs	ro,noatime,nosuid,nodev,discard,nodiratime,inline_xattr	wait
 /dev/block/mmcblk0p4    /data           f2fs    noatime,nosuid,nodev,discard,nodiratime,inline_xattr	waitboot					/boot			mtd		defaults				length=7340032
+>>>>>>> b89b47c... tweak to centered lockscreen text
 
 #/dev/block/mmcblk0p3	none	 		swap	defaults
-
-/devices/platform/msm_sdcc.1/mmc_host/mmc0	auto	auto	defaults	voldmanaged=sdcard0:auto,noemulatedsd,nonremovable
 /dev/block/zram0 none swap defaults zramsize=67108864,swapprio=1
 
 #/dev/block/zram0 none swap defaults zramsize=<size in bytes>,swapprio=<swap partition priority>

@@ -1,10 +1,17 @@
 # http://source.android.com/devices/tech/storage/index.html
 #<src>					<mnt_point>		<type>	<mnt_flags and options>	<fs_mgr_flags>
 
+<<<<<<< HEAD
+/dev/block/mtdblock1    /cache          yaffs2	nosuid,nodev			recoveryonly
+=======
 /dev/block/mtdblock1    /cache          yaffs2	defaults				defaults
+>>>>>>> b89b47c... tweak to centered lockscreen text
 ## flags from hammerhead and more
-/dev/block/mmcblk0p2   	/system         f2fs	ro,noatime,nosuid,nodev,discard,nodiratime,inline_xattr	wait
-/dev/block/mmcblk0p4    /data           f2fs    noatime,nosuid,nodev,discard,nodiratime,inline_xattr	waitboot					/boot			mtd		defaults				length=7340032
+/dev/block/mmcblk0p2    /system         ext4    ro,barrier=1 			check,wait
+/dev/block/mmcblk0p4    /data           ext4    noatime,noauto_da_alloc,nodiratime,nodev,nosuid,nouser_xattr,barrier=1,commit=15,data=writeback,errors=continue wait,check
+boot					/boot			mtd		defaults				length=7340032
+misc					/misc			mtd		defaults				length=524288
+recovery				/recovery		mtd		defaults				length=7340032
 
 #/dev/block/mmcblk0p3	none	 		swap	defaults
 
@@ -18,8 +25,8 @@
 #mtd2: 00700000 00020000 "recovery"
 #mtd3: 00140000 00020000 "splash"
 #mtd4: 00700000 00020000 "FOTA_ST"
-#mtd5: 09e80000 00020000 "system" switched to mtd6 July 2014
-#mtd6: 0a4e0000 00020000 "userdata" switched to mtd5 July 2014
+#mtd5: 09e80000 00020000 "system"
+#mtd6: 0a4e0000 00020000 "userdata"
 #mtd7: 00080000 00020000 "misc"
 #mtd8: 00180000 00020000 "persist" 
 

@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 #PRODUCT_BOOT_JARS += qcmediaplayer
+=======
+PRODUCT_BOOT_JARS += qcmediaplayer
+>>>>>>> f380397... tweak for centered lockscreen text
 
 # thunderc specific configs
 PRODUCT_COPY_FILES += \
@@ -19,15 +23,9 @@ PRODUCT_COPY_FILES += \
 #libart
 
 PRODUCT_PACKAGES += \
-<<<<<<< HEAD
-libdashplayer \
-qcmediaplayer \
-init.qcom.sh 
-=======
 init.qcom.sh \
 libdashplayer \
 qcmediaplayer
->>>>>>> temp
 #multirom \
 #trampoline \
 #multirom_zip \
@@ -39,18 +37,17 @@ PRODUCT_LOCALES := en_US
 
 #recovery
 PRODUCT_COPY_FILES += \
-<<<<<<< HEAD
-    $(LOCAL_PATH)/fstab.thunderc:recovery/root/fstab.thunderc
-    $(LOCAL_PATH)/recovery/twrp.fstab:recovery/root/etc/twrp.fstab 
-=======
     $(LOCAL_PATH)/fstab.thunderc:recovery/root/fstab.thunderc \
     $(LOCAL_PATH)/recovery/twrp.fstab:recovery/root/etc/twrp.fstab
 
 #codecs
+<<<<<<< HEAD
 PRODUCT_COPY_FILES += \
+=======
+#PRODUCT_COPY_FILES += \
+>>>>>>> f380397... tweak for centered lockscreen text
     $(LOCAL_PATH)/configs/media_profiles.xml:system/etc/media_profiles.xml \
     $(LOCAL_PATH)/configs/media_codecs.xml:system/etc/media_codecs.xml
->>>>>>> temp
 
 # Inherit products (Most specific first)
 $(call inherit-product, vendor/lge/thunderc/thunderc-vendor.mk)
@@ -62,27 +59,15 @@ PRODUCT_DEVICE := thunderc
 PRODUCT_MODEL := LG-VM670
 PRODUCT_MANUFACTURER := LGE
 
-<<<<<<< HEAD
-
-=======
->>>>>>> temp
 #sysctl tweaks
 PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/sysctl.conf:system/etc/sysctl.conf
 
 #fsck_f2fs
-#PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/01fsck_f2fs:system/etc/init.d/01fsck_f2fs
+PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/01fsck_f2fs:system/etc/init.d/01fsck_f2fs
 
 #minfree and oom controls
 PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/59minfree:system/etc/init.d/59minfree
 
-<<<<<<< HEAD
-#codecs
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/media_profiles.xml:system/etc/media_profiles.xml \
-    $(LOCAL_PATH)/configs/media_codecs.xml:system/etc/media_codecs.xml
-
-=======
->>>>>>> temp
 CDMA_GOOGLE_BASE := android-sprint-us
 CDMA_CARRIER_ALPHA := Virgin Mobile
 CDMA_CARRIER_NUMERIC := 311490
