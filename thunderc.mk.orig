@@ -22,6 +22,7 @@ init.qcom.sh
 #multirom_zip \
 #multirom_uninstaller
 
+<<<<<<< HEAD
 # Inherit products (Most specific first)
 $(call inherit-product, vendor/lge/thunderc/thunderc-vendor.mk)
 $(call inherit-product, device/lge/thunder-common/thunder-common.mk)
@@ -29,6 +30,25 @@ $(call inherit-product, device/lge/thunder-common/thunder-common.mk)
 #recovery
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/fstab.thunderc:recovery/root/fstab.thunderc 
+=======
+#this is the USA not europe
+PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/gps.conf:system/etc/gps.conf
+PRODUCT_LOCALES := en_US
+
+#recovery
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/fstab.thunderc:recovery/root/fstab.thunderc \
+    $(LOCAL_PATH)/recovery/twrp.fstab:recovery/root/etc/twrp.fstab
+
+#codecs
+#PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/media_profiles.xml:system/etc/media_profiles.xml \
+    $(LOCAL_PATH)/configs/media_codecs.xml:system/etc/media_codecs.xml
+
+# Inherit products (Most specific first)
+$(call inherit-product, vendor/lge/thunderc/thunderc-vendor.mk)
+$(call inherit-product, device/lge/thunder-common/thunder-common.mk)
+>>>>>>> b89b47c... tweak to centered lockscreen text
 
 # Overrides
 PRODUCT_NAME := thunderc
@@ -36,32 +56,14 @@ PRODUCT_DEVICE := thunderc
 PRODUCT_MODEL := LG-VM670
 PRODUCT_MANUFACTURER := LGE
 
-#this is the USA not europe
-PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/gps.conf:system/etc/gps.conf
-PRODUCT_LOCALES := en_US
-
 #sysctl tweaks
 PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/sysctl.conf:system/etc/sysctl.conf
 
-<<<<<<< HEAD
-#init.d goodies
-=======
-#PurePerformances tweaks
-PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/S70darky_zipalign:system/etc/init.d/S70darky_zipalign
-PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/S98system_tweak:system/etc/init.d/S98system_tweak
-PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/sqlite_optimize:system/etc/init.d/sqlite_optimize
-
 #fsck_f2fs
-PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/01fsck_f2fs:system/etc/init.d/01fsck_f2fs
+#PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/01fsck_f2fs:system/etc/init.d/01fsck_f2fs
 
 #minfree and oom controls
->>>>>>> 7c7beb8... .
 PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/59minfree:system/etc/init.d/59minfree
-
-#codecs
-#PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/media_profiles.xml:system/etc/media_profiles.xml \
-    $(LOCAL_PATH)/configs/media_codecs.xml:system/etc/media_codecs.xml
 
 CDMA_GOOGLE_BASE := android-sprint-us
 CDMA_CARRIER_ALPHA := Virgin Mobile
@@ -85,4 +87,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.serialno=0123456789ABCDEF
 
 # thunderc overlays (Most specific last)
+<<<<<<< HEAD
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
+=======
+DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
+>>>>>>> b89b47c... tweak to centered lockscreen text
