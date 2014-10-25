@@ -1,9 +1,13 @@
 # http://source.android.com/devices/tech/storage/index.html
 #<src>					<mnt_point>		<type>	<mnt_flags and options>	<fs_mgr_flags>
 
-/dev/block/mtdblock1    /cache          yaffs2	defaults			defaults
-/dev/block/mmcblk0p2   	/system         f2fs	ro,noatime,nosuid,nodev,discard,nodiratime,inline_xattr	wait
-/dev/block/mmcblk0p4    /data           f2fs    noatime,nosuid,nodev,discard,nodiratime,inline_xattr	waitboot					/boot			mtd		defaults				length=7340032
+/dev/block/mtdblock1    /cache          yaffs2	nosuid,nodev			recoveryonly
+## flags from hammerhead and more
+/dev/block/mmcblk0p2    /system         ext4    ro,barrier=1 			check,wait
+/dev/block/mmcblk0p4    /data           ext4    noatime,noauto_da_alloc,nodiratime,nodev,nosuid,nouser_xattr,barrier=1,commit=15,data=writeback,errors=continue wait,check
+boot					/boot			mtd		defaults				length=7340032
+misc					/misc			mtd		defaults				length=524288
+recovery				/recovery		mtd		defaults				length=7340032
 
 #/dev/block/mmcblk0p3	none	 		swap	defaults
 

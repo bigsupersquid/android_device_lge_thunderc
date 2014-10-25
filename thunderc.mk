@@ -37,12 +37,14 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/recovery/twrp.fstab:recovery/root/etc/twrp.fstab
 
 #codecs
-#PRODUCT_COPY_FILES += \
+PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/media_profiles.xml:system/etc/media_profiles.xml \
     $(LOCAL_PATH)/configs/media_codecs.xml:system/etc/media_codecs.xml
 
 # Inherit products (Most specific first)
 $(call inherit-product, vendor/lge/thunderc/thunderc-vendor.mk)
+$(call inherit-product, device/lge/msm7x27-common/device.mk)
+$(call inherit-product, vendor/lge/msm7x27-common/msm7x27-common-vendor-blobs.mk)
 $(call inherit-product, device/lge/thunder-common/thunder-common.mk)
 
 # Overrides
@@ -55,7 +57,7 @@ PRODUCT_MANUFACTURER := LGE
 PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/sysctl.conf:system/etc/sysctl.conf
 
 #fsck_f2fs
-PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/01fsck_f2fs:system/etc/init.d/01fsck_f2fs
+#PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/01fsck_f2fs:system/etc/init.d/01fsck_f2fs
 
 #minfree and oom controls
 PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/59minfree:system/etc/init.d/59minfree

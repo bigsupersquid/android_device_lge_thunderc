@@ -1,5 +1,5 @@
 # http://source.android.com/devices/tech/storage/index.html
-#<src>					<mnt_point>		<type>	<mnt_flags and options>	<fs_mgr_flags>
+#<src>							<mnt_point>	<type>	<mnt_flags and options>	<fs_mgr_flags>
 
 /dev/block/mtdblock1    /cache          yaffs2	defaults				defaults
 ## flags from hammerhead and more

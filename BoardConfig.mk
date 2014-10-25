@@ -11,8 +11,8 @@ ifneq (eng,$(TARGET_BUILD_VARIANT))
 # Don't include charger detection in recovery mode
 #selinux enforcing mode sucks
 #TARGET_KERNEL_CONFIG 				:= thunderc-enforcing_defconfig
-TARGET_KERNEL_CONFIG 				:= thunderc-permissive_defconfig
-#TARGET_KERNEL_CONFIG 				:= thunderc-permissive-legacy_defconfig
+#TARGET_KERNEL_CONFIG 				:= thunderc-permissive_defconfig
+TARGET_KERNEL_CONFIG 				:= thunderc-permissive-legacy_defconfig
 BOARD_CHARGING_CMDLINE_NAME         := "lge.reboot"
 BOARD_CHARGING_CMDLINE_VALUE        := "pwroff"
 else
@@ -73,6 +73,7 @@ BOARD_SEPOLICY_DIRS += \
     device/lge/thunderc/sepolicy
 
 BOARD_SEPOLICY_UNION += \
+    ami304d.te \
     app.te \
     auditd.te \
     bluetooth.te \
@@ -91,7 +92,9 @@ BOARD_SEPOLICY_UNION += \
     kickstart.te \
     mediaserver.te \
     netd.te \
+    qmuxd.te \
     rild.te \
+    su_daemon.te \
     surfaceflinger.te \
     system.te \
     ueventd.te \
@@ -99,6 +102,3 @@ BOARD_SEPOLICY_UNION += \
     vold.te \
     wpa.te \
     wpa_socket.te
-    
-#TARGET_USES_QCOM_BSP := true
-#COMMON_GLOBAL_CFLAGS += -DQCOM_BSP -DGRALLOC_USAGE_PRIVATE_INTERNAL_ONLY

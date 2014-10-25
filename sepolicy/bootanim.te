@@ -1,0 +1,29 @@
+# ==============================================
+# Policy File of /system/bin/bootanim Executable File 
+
+
+# ==============================================
+# Type Declaration
+# ==============================================
+
+type bootanim_exec , exec_type, file_type;
+type bootanim ,domain;
+
+# ==============================================
+# Android Policy Rule
+# ==============================================
+
+# ==============================================
+# NSA Policy Rule
+# ==============================================
+
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+permissive bootanim;
+init_daemon_domain(bootanim)
+
+
+# 20131122 Add Set Property Rule
+allow bootanim  property_type:property_service set;
