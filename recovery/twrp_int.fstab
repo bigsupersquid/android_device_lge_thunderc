@@ -1,0 +1,10 @@
+# mount point	fstype    device                    [options]
+
+/boot       	mtd       	/dev/block/mtdblock0
+/cache      	yaffs2    	/dev/block/mtdblock1        flags=backup=1;canbewiped;wipeingui;wipeduringfactoryreset
+/data       	yaffs2    	/dev/block/mtdblock5        flags=backup=1;canbewiped;wipeingui;wipeduringfactoryreset
+/recovery   	mtd       	/dev/block/mtdblock2
+/system     	yaffs2    	/dev/block/mtdblock6        flags=backup=1;canbewiped;wipeingui
+#none			swap		/dev/block/mmcblk0p3		flags=display="swap";backup=0
+/sd-ext			ext4        /dev/block/mmcblk0p2		flags=display="SD-ext";backup=1;canbewiped;wipeingui;wipeduringfactoryreset
+/sdcard     	vfat        /dev/block/mmcblk0p1        flags=display="SD Card";storage;wipeingui;settingsstorage;removable

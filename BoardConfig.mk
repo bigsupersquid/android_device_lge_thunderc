@@ -11,8 +11,8 @@ ifneq (eng,$(TARGET_BUILD_VARIANT))
 # Don't include charger detection in recovery mode
 #selinux enforcing mode sucks
 #TARGET_KERNEL_CONFIG 				:= thunderc-enforcing_defconfig
-#TARGET_KERNEL_CONFIG 				:= thunderc-permissive_defconfig
-TARGET_KERNEL_CONFIG 				:= thunderc-permissive-legacy_defconfig
+TARGET_KERNEL_CONFIG 				:= thunderc-permissive_defconfig
+#TARGET_KERNEL_CONFIG 				:= thunderc-permissive-legacy_defconfig
 BOARD_CHARGING_CMDLINE_NAME         := "lge.reboot"
 BOARD_CHARGING_CMDLINE_VALUE        := "pwroff"
 else
@@ -20,7 +20,7 @@ TARGET_KERNEL_CONFIG 				:= thunderc-recovery_defconfig
 endif
 # Recovery size
 BOARD_RECOVERYIMAGE_PARTITION_SIZE 	:= 0x00600000
-TARGET_RECOVERY_FSTAB 				:= device/lge/thunder-common/recovery/recovery.fstab
+TARGET_RECOVERY_FSTAB 				:= device/lge/thunderc/recovery.fstab
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/lge/thunderc/bluetooth
 MINIGZIP 							:= $(shell which lzma)
 
@@ -66,7 +66,6 @@ MR_KEXEC_MEM_MIN := 0x12c00000
 #BOARD_WANTS_EMMC_BOOT := true
 
 #TARGET_EXTRA_CFLAGS += $(call cc-option,-mcpu=arm1136jzf-s) $(call cc-option,-mfpu=vfp) $(call cc-option,-mfloat-abi=softfp)
-AUDIO_OUTPUT_FLAG_FAST 				:= 44100
 
 # SELinux
 BOARD_SEPOLICY_DIRS += \

@@ -1,0 +1,10 @@
+# http://source.android.com/devices/tech/storage/index.html
+#<src>          		<mnt_point>        	<type>      <mnt_flags and options>   	<fs_mgr_flags>
+
+/dev/block/mtdblock0	/boot				mtd			defaults					recoveryonly
+/dev/block/mtdblock1	/cache              yaffs2		nosuid,nodev				recoveryonly
+/dev/block/mmcblk0p4  	/data				f2fs		defaults					recoveryonly
+/dev/block/mtdblock2	/recovery			mtd         defaults					recoveryonly
+/dev/block/mmcblk0p2   	/system				f2fs		defaults					recoveryonly
+#/dev/block/mmcblk0p3   none				swap		defaults					recoveryonly
+/dev/block/mmcblk0		auto				auto		defaults					voldmanaged=sdcard0:auto,noemulatedsd

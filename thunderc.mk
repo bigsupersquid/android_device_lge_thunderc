@@ -16,19 +16,26 @@ PRODUCT_COPY_FILES += \
 #core-libart \
 #libart
 PRODUCT_PACKAGES += \
+libdashplayer \
+qcmediaplayer \
 init.qcom.sh 
 #multirom \
 #trampoline \
 #multirom_zip \
 #multirom_uninstaller
 
-# Inherit products (Most specific first)
-$(call inherit-product, vendor/lge/thunderc/thunderc-vendor.mk)
-$(call inherit-product, device/lge/thunder-common/thunder-common.mk)
+#this is the USA not europe
+PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/gps.conf:system/etc/gps.conf
+PRODUCT_LOCALES := en_US
 
 #recovery
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/fstab.thunderc:recovery/root/fstab.thunderc 
+    $(LOCAL_PATH)/fstab.thunderc:recovery/root/fstab.thunderc
+    $(LOCAL_PATH)/recovery/twrp.fstab:recovery/root/etc/twrp.fstab 
+
+# Inherit products (Most specific first)
+$(call inherit-product, vendor/lge/thunderc/thunderc-vendor.mk)
+$(call inherit-product, device/lge/thunder-common/thunder-common.mk)
 
 # Overrides
 PRODUCT_NAME := thunderc
@@ -36,17 +43,9 @@ PRODUCT_DEVICE := thunderc
 PRODUCT_MODEL := LG-VM670
 PRODUCT_MANUFACTURER := LGE
 
-#this is the USA not europe
-PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/gps.conf:system/etc/gps.conf
-PRODUCT_LOCALES := en_US
 
 #sysctl tweaks
 PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/sysctl.conf:system/etc/sysctl.conf
-
-#PurePerformances tweaks
-PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/S70darky_zipalign:system/etc/init.d/S70darky_zipalign
-PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/S98system_tweak:system/etc/init.d/S98system_tweak
-PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/sqlite_optimize:system/etc/init.d/sqlite_optimize
 
 #fsck_f2fs
 #PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/01fsck_f2fs:system/etc/init.d/01fsck_f2fs
@@ -55,7 +54,7 @@ PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/sqlite_optimize:system/etc/init.d/sq
 PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/59minfree:system/etc/init.d/59minfree
 
 #codecs
-#PRODUCT_COPY_FILES += \
+PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/media_profiles.xml:system/etc/media_profiles.xml \
     $(LOCAL_PATH)/configs/media_codecs.xml:system/etc/media_codecs.xml
 
