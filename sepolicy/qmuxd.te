@@ -1,0 +1,29 @@
+# ==============================================
+# Policy File of /system/bin/qmuxd Executable File 
+
+
+# ==============================================
+# Type Declaration
+# ==============================================
+
+type qmuxd_exec , exec_type, file_type;
+type qmuxd ,domain;
+
+# ==============================================
+# Android Policy Rule
+# ==============================================
+
+# ==============================================
+# NSA Policy Rule
+# ==============================================
+
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+permissive qmuxd;
+init_daemon_domain(qmuxd)
+
+
+# 20131122 Add Set Property Rule
+allow qmuxd  property_type:property_service set;

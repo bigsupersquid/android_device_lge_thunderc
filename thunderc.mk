@@ -1,3 +1,5 @@
+#PRODUCT_BOOT_JARS += qcmediaplayer
+
 # thunderc specific configs
 PRODUCT_COPY_FILES += \
    	$(LOCAL_PATH)/configs/7k_handset.kl:system/usr/keylayout/7k_handset.kl \
@@ -16,9 +18,9 @@ PRODUCT_COPY_FILES += \
 #core-libart \
 #libart
 PRODUCT_PACKAGES += \
+init.qcom.sh \
 libdashplayer \
-qcmediaplayer \
-init.qcom.sh 
+qcmediaplayer
 #multirom \
 #trampoline \
 #multirom_zip \
@@ -30,8 +32,13 @@ PRODUCT_LOCALES := en_US
 
 #recovery
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/fstab.thunderc:recovery/root/fstab.thunderc
-    $(LOCAL_PATH)/recovery/twrp.fstab:recovery/root/etc/twrp.fstab 
+    $(LOCAL_PATH)/fstab.thunderc:recovery/root/fstab.thunderc \
+    $(LOCAL_PATH)/recovery/twrp.fstab:recovery/root/etc/twrp.fstab
+
+#codecs
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/media_profiles.xml:system/etc/media_profiles.xml \
+    $(LOCAL_PATH)/configs/media_codecs.xml:system/etc/media_codecs.xml
 
 # Inherit products (Most specific first)
 $(call inherit-product, vendor/lge/thunderc/thunderc-vendor.mk)
@@ -43,7 +50,6 @@ PRODUCT_DEVICE := thunderc
 PRODUCT_MODEL := LG-VM670
 PRODUCT_MANUFACTURER := LGE
 
-
 #sysctl tweaks
 PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/sysctl.conf:system/etc/sysctl.conf
 
@@ -52,11 +58,6 @@ PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/sysctl.conf:system/etc/sysctl.conf
 
 #minfree and oom controls
 PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/59minfree:system/etc/init.d/59minfree
-
-#codecs
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/media_profiles.xml:system/etc/media_profiles.xml \
-    $(LOCAL_PATH)/configs/media_codecs.xml:system/etc/media_codecs.xml
 
 CDMA_GOOGLE_BASE := android-sprint-us
 CDMA_CARRIER_ALPHA := Virgin Mobile

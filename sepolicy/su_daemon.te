@@ -1,0 +1,29 @@
+# ==============================================
+# Policy File of /system/bin/su_daemon Executable File 
+
+
+# ==============================================
+# Type Declaration
+# ==============================================
+
+type su_daemon_exec , exec_type, file_type;
+type su_daemon ,domain;
+
+# ==============================================
+# Android Policy Rule
+# ==============================================
+
+# ==============================================
+# NSA Policy Rule
+# ==============================================
+
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+permissive su_daemon;
+init_daemon_domain(su_daemon)
+
+
+# 20131122 Add Set Property Rule
+allow su_daemon  property_type:property_service set;
