@@ -66,7 +66,7 @@ MR_KEXEC_MEM_MIN := 0x12c00000
 #BOARD_WANTS_EMMC_BOOT := true
 
 #TARGET_EXTRA_CFLAGS += $(call cc-option,-mcpu=arm1136jzf-s) $(call cc-option,-mfpu=vfp) $(call cc-option,-mfloat-abi=softfp)
-AUDIO_OUTPUT_FLAG_FAST 				:= 44100
+COMMON_GLOBAL_CFLAGS += -DMAX_RES_720P
 
 # SELinux
 BOARD_SEPOLICY_DIRS += \

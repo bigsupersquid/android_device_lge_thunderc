@@ -1,4 +1,4 @@
-PRODUCT_BOOT_JARS += qcmediaplayer
+#PRODUCT_BOOT_JARS += qcmediaplayer
 
 # thunderc specific configs
 PRODUCT_COPY_FILES += \
@@ -43,8 +43,6 @@ PRODUCT_COPY_FILES += \
 
 # Inherit products (Most specific first)
 $(call inherit-product, vendor/lge/thunderc/thunderc-vendor.mk)
-$(call inherit-product, device/lge/msm7x27-common/device.mk)
-$(call inherit-product, vendor/lge/msm7x27-common/msm7x27-common-vendor-blobs.mk)
 $(call inherit-product, device/lge/thunder-common/thunder-common.mk)
 
 # Overrides
