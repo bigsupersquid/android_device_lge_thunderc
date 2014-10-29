@@ -211,9 +211,6 @@
         <item>com.google.android.gsf/com.google.android.gsf.update.SystemUpdateService$Receiver</item>
     </string-array>
 
-    <string name="config_mms_user_agent">LGE-VM670/Android-mms\u0020</string>
-    <string name="config_mms_user_agent_profile_url">http://uaprof.vmobl.com/lg/vm670/1.0/VMU_VM670_UAProf.xml</string>
-
 
     <!-- XXXXX NOTE THE FOLLOWING RESOURCES USE THE WRONG NAMING CONVENTION.
          Please don't copy them, copy anything else. -->

@@ -21,7 +21,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
 init.qcom.sh \
 libdashplayer \
-qcmediaplayer
+qcmediaplayer 
 #multirom \
 #trampoline \
 #multirom_zip \
