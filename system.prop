@@ -57,7 +57,7 @@ persist.sys.ui.hw=true
 persist.sys.shutdown.mode=hibernate
 
 # sleep modes
-pm.sleep_mode=4
+pm.sleep_mode=3
 #usage:
 #pm.sleep_mode=0 -> collapse suspend
 #pm.sleep_mode=1 -> collapse (will totally power off the cpu)
@@ -89,11 +89,15 @@ ro.media.enc.jpeg.quality=100
 ro.media.dec.jpeg.memcap=8000000 
 ro.media.enc.hprof.vid.bps=8000000
 ro.media.enc.file.format       = 3gp,mp4 
-ro.media.enc.vid.codec         = m4v,h263
+ro.media.enc.vid.codec         = m4v,h263,h264
 ro.media.enc.vid.h263.width    = 176,640 
 ro.media.enc.vid.h263.height   = 144,480 
 ro.media.enc.vid.h263.bps      = 64000,1600000 
 ro.media.enc.vid.h263.fps      = 1,30 
+ro.media.enc.vid.h264.width    = 176,640 
+ro.media.enc.vid.h264.height   = 144,480 
+ro.media.enc.vid.h264.bps      = 64000,1600000 
+ro.media.enc.vid.h264.fps      = 1,30 
 ro.media.enc.vid.m4v.width     = 176,640 
 ro.media.enc.vid.m4v.height    = 144,480 
 ro.media.enc.vid.m4v.bps       = 64000,1600000 

@@ -10,8 +10,8 @@ BOARD_KERNEL_BASE 					:= 0x12200000
 ifneq (eng,$(TARGET_BUILD_VARIANT))
 # Don't include charger detection in recovery mode
 #selinux enforcing mode sucks
-#TARGET_KERNEL_CONFIG 				:= thunderc-enforcing_defconfig
-TARGET_KERNEL_CONFIG 				:= thunderc-permissive_defconfig
+TARGET_KERNEL_CONFIG 				:= thunderc-enforcing_defconfig
+#TARGET_KERNEL_CONFIG 				:= thunderc-permissive_defconfig
 #TARGET_KERNEL_CONFIG 				:= thunderc-permissive-legacy_defconfig
 BOARD_CHARGING_CMDLINE_NAME         := "lge.reboot"
 BOARD_CHARGING_CMDLINE_VALUE        := "pwroff"
@@ -29,7 +29,7 @@ MINIGZIP 							:= $(shell which lzma)
 ## Partition Sizes: Fix this up by examining /proc/mtd on a running device
 BOARD_BOOTIMAGE_PARTITION_SIZE 		:= 0x00440000
 #BOARD_SYSTEMIMAGE_PARTITION_SIZE	:= 0x09E00000
-BOARD_SYSTEMIMAGE_PARTITION_SIZE 	:= 0x10000000
+BOARD_SYSTEMIMAGE_PARTITION_SIZE 	:= 0x20000000
 BOARD_USERDATAIMAGE_PARTITION_SIZE 	:= 0x0c780000
 BOARD_FLASH_BLOCK_SIZE 				:= 0
 
@@ -43,6 +43,9 @@ BOARD_CDMA_NETWORK 					:= true
 PRODUCT_RUNTIMES 					:= runtime_libdvm_default
 #PRODUCT_RUNTIMES += runtime_libart
 #WITH_ART_USE_PORTABLE_COMPILER 	:= true
+
+## revert TEMPORARY HACK: skip building external/chromium_org/
+PRODUCT_PREBUILT_WEBVIEWCHROMIUM := no
 
 #Normal kernel loading and ramdisk addresses
 #0x12208000
@@ -65,10 +68,13 @@ MR_KEXEC_MEM_MIN := 0x12c00000
 
 #BOARD_WANTS_EMMC_BOOT := true
 
-#TARGET_EXTRA_CFLAGS += $(call cc-option,-mcpu=arm1136jzf-s) $(call cc-option,-mfpu=vfp) $(call cc-option,-mfloat-abi=softfp)
-AUDIO_OUTPUT_FLAG_FAST 				:= 44100
+#TARGET_EXTRA_CFLAGS += $(call cc-option,-mcpu=arm1176jzf-s) $(call cc-option,-mfpu=vfp) $(call cc-option,-mfloat-abi=softfp)
+TARGET_ARCH_VARIANT_CPU         := arm1176jzf-s
+
+## ODEX ROM
+WITH_DEXPREOPT := true
+
 #COMMON_GLOBAL_CFLAGS += -DMAX_RES_720P
-TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
 
 # SELinux
 BOARD_SEPOLICY_DIRS += \
@@ -84,7 +90,6 @@ BOARD_SEPOLICY_UNION += \
     domain.te \
     drmserver.te \
     file_contexts \
-    files \
     file.te \
     hci_init.te \
     healthd.te \
