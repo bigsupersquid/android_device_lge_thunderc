@@ -1,10 +1,10 @@
-# mount point	fstype    device                    [options]
-
-/boot       	mtd       	/dev/block/mtdblock0
-/cache      	yaffs2    	/dev/block/mtdblock1        flags=backup=1;canbewiped;wipeingui;wipeduringfactoryreset
-/data       	yaffs2    	/dev/block/mtdblock5        flags=backup=1;canbewiped;wipeingui;wipeduringfactoryreset
-/recovery   	mtd       	/dev/block/mtdblock2
-/system     	yaffs2    	/dev/block/mtdblock6        flags=backup=1;canbewiped;wipeingui
-#none			swap		/dev/block/mmcblk0p3		flags=display="swap";backup=0
-/sd-ext			ext4        /dev/block/mmcblk0p2		flags=display="SD-ext";backup=1;canbewiped;wipeingui;wipeduringfactoryreset
-/sdcard     	vfat        /dev/block/mmcblk0p1        flags=display="SD Card";storage;wipeingui;settingsstorage;removable
+#mount point fstype device [options]
+/boot mtd boot flags=backup=1;canbewiped;wipeingui
+/recovery mtd recovery flags=backup=0
+/cache yaffs2 cache flags=backup=1;canbewiped;wipeingui;wipeduringfactoryreset
+/data yaffs2 userdata flags=backup=1;canbewiped;wipeingui
+/system yaffs2 system flags=backup=1;canbewiped;wipeingui
+/os2sd_data auto /dev/block/mmcblk0p4 flags=display="OS2SD Data";backup=0;canbewiped;wipeingui;wipeduringfactoryreset
+/os2sd_system auto /dev/block/mmcblk0p2 flags=display="OS2SD System";backup=0;canbewiped;wipeingui
+#none swap /dev/block/mmcblk0p3 flags=display="swap";backup=0
+/sdcard vfat /dev/block/mmcblk0p1 flags=display="SD Card";storage;wipeingui;settingsstorage;removable

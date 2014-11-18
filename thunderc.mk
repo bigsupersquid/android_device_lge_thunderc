@@ -1,4 +1,4 @@
-PRODUCT_BOOT_JARS += qcmediaplayer
+#PRODUCT_BOOT_JARS += $(PRODUCT_BOOT_JARS):qcmediaplayer
 
 # thunderc specific configs
 PRODUCT_COPY_FILES += \
@@ -52,7 +52,6 @@ liboverlay \
 libqdutils \
 libtilerenderer
 
-USE_OPENGL_RENDERER := true
 
 # Omx
 PRODUCT_PACKAGES += \
@@ -75,7 +74,9 @@ PRODUCT_LOCALES := en_US
 #recovery
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/fstab.thunderc:recovery/root/fstab.thunderc \
-    $(LOCAL_PATH)/recovery/twrp.fstab:recovery/root/etc/twrp.fstab
+    $(LOCAL_PATH)/recovery/twrp_sd.fstab:recovery/root/etc/twrp.fstab \
+    $(LOCAL_PATH)/recovery/twrp_sd.fstab:recovery/root/etc/twrp_sd.fstab \
+    $(LOCAL_PATH)/recovery/twrp_int.fstab:recovery/root/etc/twrp_int.fstab
 
 #codecs
 #PRODUCT_COPY_FILES += \
