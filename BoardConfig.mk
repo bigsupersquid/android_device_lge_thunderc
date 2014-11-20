@@ -45,7 +45,7 @@ PRODUCT_RUNTIMES 					:= runtime_libdvm_default
 #WITH_ART_USE_PORTABLE_COMPILER 	:= true
 
 ## revert TEMPORARY HACK: skip building external/chromium_org/
-PRODUCT_PREBUILT_WEBVIEWCHROMIUM := no
+PRODUCT_PREBUILT_WEBVIEWCHROMIUM := 
 
 #Normal kernel loading and ramdisk addresses
 #0x12208000
@@ -74,41 +74,18 @@ TARGET_ARCH_VARIANT_CPU         := arm1176jzf-s
 ## ODEX ROM
 WITH_DEXPREOPT := true
 
-#COMMON_GLOBAL_CFLAGS += -DMAX_RES_720P
+#COMMON_GLOBAL_CFLAGS += -DMAX_RES_720P -DUSE_OPENGL_RENDERER
 
-# SELinux
-BOARD_SEPOLICY_DIRS += \
-    device/lge/thunderc/sepolicy
+#COMMON_GLOBAL_CFLAGS += -DMAX_RES_480P
 
-BOARD_SEPOLICY_UNION += \
-    ami304d.te \
-    app.te \
-    auditd.te \
-    bluetooth.te \
-    bootanim.te \
-    device.te \
-    domain.te \
-    drmserver.te \
-    file_contexts \
-    file.te \
-    hci_init.te \
-    healthd.te \
-    init.te \
-    init_shell.te \
-    keystore.te \
-    kickstart.te \
-    mediaserver.te \
-    netd.te \
-    qmuxd.te \
-    rild.te \
-    su_daemon.te \
-    surfaceflinger.te \
-    system.te \
-    ueventd.te \
-    untrusted_app.te \
-    vold.te \
-    wpa.te \
-    wpa_socket.te
+# SELinux bites, removed
     
-#TARGET_USES_QCOM_BSP := true
+TARGET_USES_QCOM_BSP := true
 #COMMON_GLOBAL_CFLAGS += -DQCOM_BSP -DGRALLOC_USAGE_PRIVATE_INTERNAL_ONLY
+#COMMON_GLOBAL_CFLAGS += -DGRALLOC_USAGE_PRIVATE_INTERNAL_ONLY -DGRALLOC_USAGE_PRIVATE_SECURE_DISPLAY
+#MALLOC_IMPL := dlmalloc
+ARMV6_JEMALLOC:= true
+BOARD_HAVE_BLUETOOTH := false
+BOARD_HAVE_BLUETOOTH_BCM := false
+BOARD_BLUEDROID_VENDOR_CONF := 
+TARGET_NO_RECOVERY := true
