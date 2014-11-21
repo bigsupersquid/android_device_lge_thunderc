@@ -45,7 +45,7 @@ PRODUCT_RUNTIMES 					:= runtime_libdvm_default
 #WITH_ART_USE_PORTABLE_COMPILER 	:= true
 
 ## revert TEMPORARY HACK: skip building external/chromium_org/
-PRODUCT_PREBUILT_WEBVIEWCHROMIUM := 
+#PRODUCT_PREBUILT_WEBVIEWCHROMIUM := 
 
 #Normal kernel loading and ramdisk addresses
 #0x12208000
