@@ -1,4 +1,3 @@
-#PRODUCT_BOOT_JARS += $(PRODUCT_BOOT_JARS):qcmediaplayer
 
 # thunderc specific configs
 PRODUCT_COPY_FILES += \
@@ -14,10 +13,10 @@ PRODUCT_COPY_FILES += \
 
 # Media
 #PRODUCT_COPY_FILES += \
-#frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
-#frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:system/etc/media_codecs_google_telephony.xml \
-#frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:system/etc/media_codecs_google_video.xml
-# Media
+#	$(LOCAL_PATH)/configs/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
+#	$(LOCAL_PATH)/configs/media_codecs_google_telephony.xml:system/etc/media_codecs_google_telephony.xml \
+#	$(LOCAL_PATH)/configs/media_codecs_google_video.xml:system/etc/media_codecs_google_video.xml
+
 PRODUCT_PROPERTY_OVERRIDES += \
 lpa.decode=true \
 qcom.hw.aac.encoder=true \
@@ -36,6 +35,11 @@ init.qcom.sh
 #trampoline \
 #multirom_zip \
 #multirom_uninstaller
+
+## e2fsck
+PRODUCT_PACKAGES += \
+ e2fsck
+
 # QCOM Display
 PRODUCT_PROPERTY_OVERRIDES += \
 debug.egl.hw=1 \
@@ -79,9 +83,9 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/recovery/twrp_int.fstab:recovery/root/etc/twrp_int.fstab
 
 #codecs
-#PRODUCT_COPY_FILES += \
-#    $(LOCAL_PATH)/configs/media_profiles.xml:system/etc/media_profiles.xml \
-#    $(LOCAL_PATH)/configs/media_codecs.xml:system/etc/media_codecs.xml
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/media_profiles.xml:system/etc/media_profiles.xml \
+    $(LOCAL_PATH)/configs/media_codecs.xml:system/etc/media_codecs.xml
 
 # Overrides
 PRODUCT_NAME := thunderc
